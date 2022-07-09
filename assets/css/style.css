@@ -1,6 +1,6 @@
 /* General styling */
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600&family=Quicksand:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&family=Roboto:wght@100;300;400;500&display=swap');
 
 *{
     margin: 0;
@@ -21,7 +21,7 @@ nav{
 }
 
 nav a {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     color: white;
     font-size: 16px;
@@ -34,8 +34,8 @@ nav ul li{
 }
 
 nav ul li button{
-    font-family: 'Oswald', sans-serif;
-    font-weight: 200;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
     margin-left: 5px;
     background: none;
     border: none;
