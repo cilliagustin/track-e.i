@@ -9,9 +9,17 @@
     font-family: 'Quicksand', sans-serif;
 }
 
-/* General styling */
+body{
+    background: rgb(236, 236, 236);
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Navbar */
 
 nav{
+    position: absolute;
+    top: 0;
     width: 100%;
     padding: 3px 10px;
     background: rgb(28, 49, 71);
@@ -23,7 +31,7 @@ nav{
 nav a {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    color: white;
+    color: rgb(236, 236, 236);
     font-size: 16px;
     text-decoration: none;
 }
@@ -51,7 +59,7 @@ nav ul li button::after{
     position: absolute;
     height: 1px;
     width: 0;
-    background-color: white;
+    background-color: rgb(236, 236, 236);
     transition: .5s;
 }
 
@@ -66,10 +74,20 @@ nav ul li button::after{
 }
 
 nav ul li button:hover{
-    color: white;
+    color: rgb(236, 236, 236);
 }
 
 nav ul li button:hover::before,
 nav ul li button:hover::after{
     width: 100%;
+}
+
+/* Footer */
+
+footer{
+    width: 100%;
+    background: rgb(28, 49, 71);
+    height: 20px;
+    position: absolute;
+    bottom: 0;
 }
