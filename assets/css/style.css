@@ -3,3 +3,33 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+nav{
+    height: 20px;
+    width: 100%;
+    padding: 0 10px;
+    background: rgb(28, 49, 71);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    font-size: 16px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+}
+
+nav ul li button{
+    margin-left: 0 5px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+}
