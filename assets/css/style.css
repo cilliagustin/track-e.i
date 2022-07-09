@@ -99,10 +99,48 @@ section{
 
 #balance .pie-chart{
     width: 100%;
-    height: 50%;
+    height: auto;
+    padding: 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#balance .pie-chart .pie-chart-result{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    z-index: 2;
+    border-radius: 50%;
+    background: rgb(236, 236, 236);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#balance .pie-chart .pie-chart-result p{
+    position: relative;
+    left: 5px;
+}
+
+#balance .pie-chart .pie-chart-result p:before{
+    content:"$";
+    position: absolute;
+    top: 0;
+    left: -13px;
+}
+#balance .pie-chart .pie-chart-result :nth-child(2):before{
+    content:"- $";
+    left: -23px;
+}
+
+#balance .pie-chart .pie-chart-result hr{
+    border: none;
+    width: 77%;
+    background: black;
+    height: 1px;
+
 }
 
 #balance .pie-chart svg{
@@ -112,7 +150,7 @@ section{
 
 #balance .pie-chart-info{
     width: 100%;
-    height: 50%;
+    height: 100%;
     background: rgb(251, 255, 0);
 }
 
