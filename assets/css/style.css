@@ -10,9 +10,10 @@
 }
 
 body{
-    background: rgb(236, 236, 236);
+    background: rgb(251,254,250);
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
 
 /* Navbar */
@@ -31,7 +32,7 @@ nav{
 nav a {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    color: rgb(236, 236, 236);
+    color: rgb(251,254,250);
     font-size: 16px;
     text-decoration: none;
 }
@@ -59,7 +60,7 @@ nav ul li button::after{
     position: absolute;
     height: 1px;
     width: 0;
-    background-color: rgb(236, 236, 236);
+    background-color: rgb(251,254,250);
     transition: .5s;
 }
 
@@ -74,7 +75,7 @@ nav ul li button::after{
 }
 
 nav ul li button:hover{
-    color: rgb(236, 236, 236);
+    color: rgb(251,254,250);
 }
 
 nav ul li button:hover::before,
@@ -99,7 +100,7 @@ section{
 
 #balance .pie-chart{
     width: 100%;
-    height: auto;
+    height: 220px;
     padding: 10px 0;
     display: flex;
     justify-content: center;
@@ -112,7 +113,7 @@ section{
     position: absolute;
     z-index: 2;
     border-radius: 50%;
-    background: rgb(236, 236, 236);
+    background: rgb(251,254,250);
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -149,9 +150,61 @@ section{
 }
 
 #balance .pie-chart-info{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+#balance .pie-chart-info .toggle-buttons{
     width: 100%;
-    height: 100%;
-    background: rgb(251, 255, 0);
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#balance .pie-chart-info .percentage-list{
+    flex: 1;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+#balance .pie-chart-info .percentage-list .percentage-element{
+    border-radius: 4px;
+    margin: 3px 0;
+    padding: 15px 10px;
+    background: white;
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 
+        rgba(0, 0, 0, 0.07) 0px 1px 2px,
+        rgba(0, 0, 0, 0.07) 0px 2px 4px,
+        rgba(0, 0, 0, 0.07) 0px 4px 8px,
+        rgba(0, 0, 0, 0.07) 0px 8px 16px,
+        rgba(0, 0, 0, 0.07) 0px 16px 32px,
+        rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+#balance .pie-chart-info .percentage-list .percentage-element i{
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+#balance .pie-chart-info .percentage-list .percentage-element p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+#balance .pie-chart-info .percentage-list .percentage-element .amount{
+    margin-left: auto;
+    margin-right: 10px;
 }
 
 /* Footer */
