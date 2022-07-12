@@ -29,9 +29,9 @@
     </nav>
 
     <!-- Balance -->
-    <section id="balance">
+    <section id="balance" style="display: none;">
         <div class="pie-chart">
-            <div class="container">
+            <div class="pie-chart-container">
                 <div class="pie-chart-result">
                     <p>0000,00</p>
                     <p>0000,00</p>
@@ -60,10 +60,10 @@
                     stroke-dasharray="calc(48 * 31.42 / 100) 31.42" />
                 </svg>
                 <div class="toggle-buttons">
-                    <button id="expense" class="expense-income-btn">
+                    <button class="expense-income-btn">
                         Expenses
                     </button>
-                    <button id="income" class="expense-income-btn">
+                    <button class="expense-income-btn">
                         Incomes
                     </button>
                 </div>  
@@ -178,6 +178,26 @@
                 <p class="amount">$ 1025.00</p>
                 <p class="percentage">25%</p>
             </div>
+        </div>
+    </section>
+
+    <!-- Add -->
+    <section id="add">
+        <div class="input-container">
+            <input type="number" id="ammount">
+            <input type="text" id="note">
+            <input type="date" min="2022/01/01" max="2022/07/01" value="2022/07/01">
+            <button class="expense-income-btn">Expenses</button>
+            <button class="expense-income-btn">Incomes</button>
+        </div>
+        <div class="category-container">
+            <div class="category-box">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <p>Groceries</p>
+            </div>
+        </div>
+        <div class="submit-container">
+            <button>Submit</button>
         </div>
     </section>
 
