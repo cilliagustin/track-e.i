@@ -133,7 +133,7 @@ section{
     align-items: center;
 }
 
-#balance .pie-chart .container{
+#balance .pie-chart .pie-chart-container{
     width: 97%;
     height: 100%;
     background: white;
@@ -151,7 +151,7 @@ section{
     align-items: center;
 }
 
-#balance .pie-chart .container .pie-chart-result{
+#balance .pie-chart .pie-chart-container .pie-chart-result{
     width: 150px;
     height: 150px;
     position: absolute;
@@ -164,23 +164,23 @@ section{
     justify-content: center;
 }
 
-#balance .pie-chart .container .pie-chart-result p{
+#balance .pie-chart .pie-chart-container .pie-chart-result p{
     position: relative;
     left: 5px;
 }
 
-#balance .pie-chart .container .pie-chart-result p:before{
+#balance .pie-chart .pie-chart-container .pie-chart-result p:before{
     content:"$";
     position: absolute;
     top: 0;
     left: -13px;
 }
-#balance .pie-chart .container .pie-chart-result :nth-child(2):before{
+#balance .pie-chart .pie-chart-container .pie-chart-result :nth-child(2):before{
     content:"- $";
     left: -23px;
 }
 
-#balance .pie-chart .container .pie-chart-result hr{
+#balance .pie-chart .pie-chart-container .pie-chart-result hr{
     border: none;
     width: 77%;
     background: black;
@@ -188,12 +188,12 @@ section{
 
 }
 
-#balance .pie-chart .container svg{
+#balance .pie-chart .pie-chart-container svg{
     height: 200px;
     width: 200px;
 }
 
-#balance .pie-chart .container .toggle-buttons{
+#balance .pie-chart .pie-chart-container .toggle-buttons{
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -202,7 +202,7 @@ section{
     padding: 0px 20px 10px 20px;
 }
 
-#balance .pie-chart .container .toggle-buttons button{
+#balance .pie-chart .pie-chart-container .toggle-buttons button{
     text-transform: uppercase;
 }
 
@@ -248,6 +248,125 @@ section{
 #balance .pie-chart-info .percentage-element .amount{
     margin-left: auto;
     margin-right: 10px;
+}
+
+/* Add */
+
+#add .input-container{
+    width: 97%;
+    height: 155px;
+    margin: 0 auto 0 auto;
+    background: rgb(55 170 73);
+    padding: 10px 5px 0px;
+    border-radius: 4px;
+    box-shadow: 
+        rgba(0, 0, 0, 0.07) 0px 1px 2px,
+        rgba(0, 0, 0, 0.07) 0px 2px 4px,
+        rgba(0, 0, 0, 0.07) 0px 4px 8px,
+        rgba(0, 0, 0, 0.07) 0px 8px 16px,
+        rgba(0, 0, 0, 0.07) 0px 16px 32px,
+        rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+#add .input-container .input-box{
+    height: 30px;
+    position: relative;
+}
+
+#add .input-container .input-box input{
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+    border: none;
+    text-align: left;
+    padding: 1px;
+}
+
+#add .input-container .input-box label{
+    padding: 0px;
+    position: absolute;
+    top: 5px;
+    left: 2px;
+    z-index: 2;
+    font-size: 13px;
+    background: white;
+    border: 1.5px solid white;
+    border-radius: 5px;
+    transition: all .5s;
+}
+
+#add .input-container .input-box input:focus ~ label,
+#add .input-container .input-box input:valid ~ label{
+    padding: 1px 3px;
+    margin: auto;
+    font-size: 8px;
+    font-weight: 600;
+    color: black;
+    border-color: black;
+    top: -8px;
+    left: 10px;
+}
+
+#add .input-container .input-box input:focus-visible{
+    outline: 1.5px solid black;
+}
+
+#add .input-container .input-box.input-box-amount{
+    width: 65%;
+    height: 42px;
+    margin: 0 auto 6px auto;
+}
+
+#add .input-container .input-box-amount #amount{
+    font-size: 25px;
+    text-align: center;
+}
+
+#add .input-container .input-box.input-box-amount label{
+    text-align: center;
+    font-size: 25px;
+    top: 3px;
+}
+
+#add .input-container .input-box.input-box-note{
+    width: 39%;
+}
+
+#add .input-container .input-box-note #note{
+    text-align: left;
+}
+
+#add .input-container .input-box.input-box-date{
+    width: 37%;
+}
+
+#add .input-container .input-box.input-box-date input:invalid{
+    color: white;
+}
+
+#add .input-container .input-box.input-box-date input:focus{
+    color: black;
+}
+
+#add .input-container .input-box.input-box-input-category{
+    width: 20%;
+}
+
+#add .input-container #input-category{
+    text-align: center;
+}
+
+#add .input-container .expense-income-btn{
+    color: white;
+}
+
+#add .input-container .expense-income-btn::after{
+    background: white;
 }
 
 /* Footer */
