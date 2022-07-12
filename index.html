@@ -184,9 +184,22 @@
     <!-- Add -->
     <section id="add">
         <div class="input-container">
-            <input type="number" id="ammount">
-            <input type="text" id="note">
-            <input type="date" min="2022/01/01" max="2022/07/01" value="2022/07/01">
+            <div class="input-box input-box-amount">
+                <input type="number" id="amount" required>
+                <label for="amount">Amount</label>
+            </div>
+            <div class="input-box input-box-note">
+                <input type="text" id="note" required>
+                <label for="note">Note</label>
+            </div>
+            <div class="input-box input-box-date">
+                <input id="date" type="date" required>
+                <label for="date">Date</label>
+            </div>
+            <div class="input-box input-box-input-category">
+                <input type="text" id="input-category" readonly="readonly" required>  
+                <label for="input-category">Category</label>
+            </div>
             <button class="expense-income-btn">Expenses</button>
             <button class="expense-income-btn">Incomes</button>
         </div>
