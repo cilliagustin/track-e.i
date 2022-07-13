@@ -252,6 +252,12 @@ section{
 
 /* Add */
 
+#add{
+    display: flex;
+    flex-flow: column;
+    min-height: 0;
+}
+
 #add .input-container{
     width: 97%;
     height: 155px;
@@ -259,6 +265,11 @@ section{
     background: rgb(55 170 73);
     padding: 10px 5px 0px;
     border-radius: 4px;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
     box-shadow: 
         rgba(0, 0, 0, 0.07) 0px 1px 2px,
         rgba(0, 0, 0, 0.07) 0px 2px 4px,
@@ -266,11 +277,6 @@ section{
         rgba(0, 0, 0, 0.07) 0px 8px 16px,
         rgba(0, 0, 0, 0.07) 0px 16px 32px,
         rgba(0, 0, 0, 0.07) 0px 32px 64px;
-    display: flex;
-    flex-flow: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-between;
 }
 
 #add .input-container .input-box{
@@ -367,6 +373,48 @@ section{
 
 #add .input-container .expense-income-btn::after{
     background: white;
+}
+
+#add .category-container{
+    background: red;
+    flex: 1;
+    overflow-y: scroll;
+    width: 90%;
+    margin: auto;
+}
+
+#add .submit-container{
+    width: 97%;
+    height: 40px;
+    margin: 0 auto 0 auto;
+    background: rgb(55 170 73);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 
+        rgba(0, 0, 0, 0.07) 0px -1px 2px,
+        rgba(0, 0, 0, 0.07) 0px -2px 4px,
+        rgba(0, 0, 0, 0.07) 0px -4px 8px,
+        rgba(0, 0, 0, 0.07) 0px -8px 16px,
+        rgba(0, 0, 0, 0.07) 0px -16px 32px,
+        rgba(0, 0, 0, 0.07) 0px -32px 64px;
+}
+
+#add .submit-container button{
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    background: white;
+    color: rgb(63,159,139);
+    border: 2px solid rgb(63,159,139);
+    border-radius: 9px;
+    padding: 5px;
+}
+
+#add .submit-container button:active,
+#add .submit-container button:hover{
+    background: rgb(63,159,139);
+    color: white;
 }
 
 /* Footer */
