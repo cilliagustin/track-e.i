@@ -261,6 +261,7 @@ section{
 #add .input-container{
     width: 97%;
     height: 155px;
+    position: relative;
     margin: 0 auto 0 auto;
     background: rgb(55 170 73);
     padding: 10px 5px 0px;
@@ -299,7 +300,7 @@ section{
     top: 5px;
     left: 2px;
     z-index: 2;
-    font-size: 13px;
+    font-size: 12px;
     background: white;
     border: 1.5px solid white;
     border-radius: 5px;
@@ -376,11 +377,57 @@ section{
 }
 
 #add .category-container{
-    background: red;
+    width: 90%;
     flex: 1;
     overflow-y: scroll;
-    width: 90%;
     margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 3px;
+    justify-items: center;
+}
+
+#add .category-container input[type="radio"]{
+    display: none;
+}
+
+label{
+    display: inline;
+}
+
+#add .category-container label{
+    height: 75px;
+    width: 100%;
+    max-width: 120px;
+    margin: 3px;
+    text-align: center;
+    background: white;
+    border: 2px rgb(63,159,139) solid;
+    border-radius: 9px;
+}
+
+#add .category-container label i{
+    color: rgb(63,159,139);
+    font-size: 36px;
+    margin: 4px;
+}
+
+#add .category-container label p{
+    color: rgb(63,159,139);
+    font-size: 10px;
+    font-weight: 500;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+}
+
+#add .category-container input[type="radio"]:checked + label{
+    background: rgb(63,159,139);
+}
+
+#add .category-container input[type="radio"]:checked + label i,
+#add .category-container input[type="radio"]:checked + label p{
+    color: white;
 }
 
 #add .submit-container{
