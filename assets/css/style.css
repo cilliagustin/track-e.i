@@ -307,7 +307,9 @@ section{
     transition: all .5s;
 }
 
-#add .input-container .input-box input:focus ~ label,
+#add .input-container .input-box-amount input:focus ~ label,
+#add .input-container .input-box-note input:focus ~ label,
+#add .input-container .input-box-date input:focus ~ label,
 #add .input-container .input-box input:valid ~ label{
     padding: 1px 3px;
     margin: auto;
