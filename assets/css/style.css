@@ -3,10 +3,18 @@
 /* General styling */
 
 :root{
-    --border: 9px;
     --blue:rgb(5,57,107);
+    --dark-blue:rgb(0 33 64);
     --green-income:rgb(92,219,148);
     --green-button:rgb(8,198,151);
+    --border: 9px;
+    --shadow: 
+    rgba(0, 0, 0, 0.07) 0px 1px 2px,
+    rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px,
+    rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px,
+    rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
 *{
@@ -55,7 +63,7 @@ nav{
     top: 0;
     width: 100%;
     padding: 3px 10px;
-    background: rgb(28, 49, 71);
+    background: var(--blue);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -145,13 +153,7 @@ section{
     height: 100%;
     padding-bottom: 20px;
     background: white;
-    box-shadow: 
-        rgba(0, 0, 0, 0.07) 0px 1px 2px,
-        rgba(0, 0, 0, 0.07) 0px 2px 4px,
-        rgba(0, 0, 0, 0.07) 0px 4px 8px,
-        rgba(0, 0, 0, 0.07) 0px 8px 16px,
-        rgba(0, 0, 0, 0.07) 0px 16px 32px,
-        rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    box-shadow: var(--shadow);
     border-radius: var(--border);
     position: relative;
     display: flex;
@@ -273,13 +275,7 @@ section{
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
-    box-shadow: 
-        rgba(0, 0, 0, 0.07) 0px 1px 2px,
-        rgba(0, 0, 0, 0.07) 0px 2px 4px,
-        rgba(0, 0, 0, 0.07) 0px 4px 8px,
-        rgba(0, 0, 0, 0.07) 0px 8px 16px,
-        rgba(0, 0, 0, 0.07) 0px 16px 32px,
-        rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    box-shadow: var(--shadow);
 }
 
 #add .input-container .input-box{
@@ -291,7 +287,7 @@ section{
     height: 100%;
     width: 100%;
     border-radius: var(--border);
-    border: none;
+    border: 1.5px solid var(--dark-blue);
     text-align: left;
     padding: 1px;
 }
@@ -303,8 +299,10 @@ section{
     left: 2px;
     z-index: 2;
     font-size: 12px;
+    font-weight: 600;
     background: white;
     border: 1.5px solid white;
+    color: var(--dark-blue);
     border-radius: 5px;
     transition: all .5s;
 }
@@ -317,14 +315,15 @@ section{
     margin: auto;
     font-size: 8px;
     font-weight: 600;
-    color: black;
-    border-color: black;
+    color: var(--dark-blue);
+    border-color: var(--dark-blue);
     top: -8px;
     left: 10px;
 }
 
 #add .input-container .input-box input:focus-visible{
-    outline: 1.5px solid black;
+    outline: 1.5px solid var(--dark-blue);
+    border: none;
 }
 
 #add .input-container .input-box.input-box-amount{
@@ -382,7 +381,7 @@ section{
 
 #add .input-container h2{
     width: 100%;
-    color: white;
+    color: var(--dark-blue);
     font-size: 16px;
     text-align: center;
     letter-spacing: 2px;
@@ -465,15 +464,16 @@ label{
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     background: white;
-    color: var(--green-button);
-    border: 2px solid var(--green-button);
+    color: var(--dark-blue);
+    border: 2px solid var(--dark-blue);
     border-radius: var(--border);
     padding: 5px;
+    cursor: pointer;
 }
 
 #add .submit-container button:active,
 #add .submit-container button:hover{
-    background: var(--green-button);
+    background: var(--dark-blue);
     color: white;
 }
 
@@ -563,7 +563,7 @@ label{
 
 footer{
     width: 100%;
-    background: rgb(28, 49, 71);
+    background: var(--blue);
     height: 20px;
     position: absolute;
     bottom: 0px;
