@@ -4,6 +4,9 @@
 
 :root{
     --border: 9px;
+    --blue:rgb(5,57,107);
+    --green-income:rgb(92,219,148);
+    --green-button:rgb(8,198,151);
 }
 
 *{
@@ -262,7 +265,7 @@ section{
     height: 155px;
     position: relative;
     margin: 0 auto 0 auto;
-    background: rgb(55 170 73);
+    background: white;
     padding: 10px 5px 0px;
     border-radius: var(--border);
     display: flex;
@@ -412,18 +415,18 @@ label{
     margin: 3px;
     text-align: center;
     background: white;
-    border: 2px rgb(63,159,139) solid;
+    border: 2px var(--green-button) solid;
     border-radius: var(--border);
 }
 
 #add .category-container label i{
-    color: rgb(63,159,139);
+    color: var(--green-button);
     font-size: 36px;
     margin: 4px;
 }
 
 #add .category-container label p{
-    color: rgb(63,159,139);
+    color: var(--green-button);
     font-size: 10px;
     font-weight: 500;
     margin: auto;
@@ -432,7 +435,7 @@ label{
 }
 
 #add .category-container input[type="radio"]:checked + label{
-    background: rgb(63,159,139);
+    background: var(--green-button);
 }
 
 #add .category-container input[type="radio"]:checked + label i,
@@ -444,7 +447,7 @@ label{
     width: 97%;
     height: 40px;
     margin: 0 auto 0 auto;
-    background: rgb(55 170 73);
+    background: white;
     border-radius: var(--border);
     display: flex;
     justify-content: center;
@@ -462,15 +465,15 @@ label{
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     background: white;
-    color: rgb(63,159,139);
-    border: 2px solid rgb(63,159,139);
+    color: var(--green-button);
+    border: 2px solid var(--green-button);
     border-radius: var(--border);
     padding: 5px;
 }
 
 #add .submit-container button:active,
 #add .submit-container button:hover{
-    background: rgb(63,159,139);
+    background: var(--green-button);
     color: white;
 }
 
