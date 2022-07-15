@@ -383,6 +383,14 @@ section{
     background: white;
 }
 
+#add .input-container h2{
+    width: 100%;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
 #add .category-container{
     width: 90%;
     flex: 1;
