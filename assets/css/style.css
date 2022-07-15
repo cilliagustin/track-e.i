@@ -382,9 +382,10 @@ section{
     overflow-y: scroll;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(90px, 150px));
     grid-column-gap: 3px;
     justify-items: center;
+    justify-content: center;
 }
 
 #add .category-container input[type="radio"]{
@@ -398,7 +399,7 @@ label{
 #add .category-container label{
     height: 75px;
     width: 100%;
-    max-width: 120px;
+    max-width: 135px;
     margin: 3px;
     text-align: center;
     background: white;
