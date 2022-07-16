@@ -254,6 +254,88 @@ section{
     margin-right: 10px;
 }
 
+/* Calendar */
+
+#calendar{
+    display: flex;
+}
+
+#calendar .container{
+    flex: 1;
+    overflow-y: scroll;
+    padding: 0 10px;
+}
+
+#calendar .container ul{
+    list-style: none;
+}
+
+#calendar .container ul .date .date-info{
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+}
+
+#calendar .container ul .date .date-info p{
+    color: rgb(45, 45, 45);
+}
+
+#calendar .container ul .date ul{
+    width: 100%;
+    padding-left: 15px;
+}
+
+#calendar .container ul .date ul li .date-movement{
+    width: 100%;
+    margin: 3px 0;
+    border-radius: var(--border);
+    display: grid;
+    grid-template-columns: 25px 5fr 2fr 23px;
+    grid-template-rows: 20px 15px;
+    align-items: center;
+    justify-items: left;
+}
+
+#calendar .container ul .date ul li .date-movement p{
+    color: rgb(45, 45, 45);
+    font-size: 12px;
+}
+
+#calendar .container ul .date ul li .date-movement .movement-circle{
+    grid-column: 1;
+    grid-row: 1/3;
+    width: 8px;
+    height: 8px;
+    background: rgb(97 210 114);
+    border-radius: 50%;
+    box-shadow: 0 0px 6px 1px rgb(118 230 135), inset 0 0 8px 1px rgb(118 230 135);
+}
+
+#calendar .container ul .date ul li .date-movement .movement-category{
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#calendar .container ul .date ul li .date-movement .movement-note{
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 10px;
+    color: rgb(90, 90, 90);
+}
+
+#calendar .container ul .date ul li .date-movement .movement-amount{
+    grid-column: 3;
+    grid-row: 1/3;
+    justify-self: right;
+}
+
+#calendar .container ul .date ul li .date-movement .movement-cross{
+    grid-column: 4;
+    grid-row: 1/3;
+    justify-self: right;
+    cursor: pointer;
+}
+
 /* Add */
 
 #add{
@@ -477,87 +559,6 @@ label{
     color: white;
 }
 
-/* Calendar */
-
-#calendar{
-    display: flex;
-}
-
-#calendar .container{
-    flex: 1;
-    overflow-y: scroll;
-    padding: 0 10px;
-}
-
-#calendar .container ul{
-    list-style: none;
-}
-
-#calendar .container ul .date .date-info{
-   width: 100%;
-   display: flex;
-   justify-content: space-between;
-}
-
-#calendar .container ul .date .date-info p{
-    color: rgb(45, 45, 45);
-}
-
-#calendar .container ul .date ul{
-    width: 100%;
-    padding-left: 15px;
-}
-
-#calendar .container ul .date ul li .date-movement{
-    width: 100%;
-    margin: 3px 0;
-    border-radius: var(--border);
-    display: grid;
-    grid-template-columns: 25px 5fr 2fr 23px;
-    grid-template-rows: 20px 15px;
-    align-items: center;
-    justify-items: left;
-}
-
-#calendar .container ul .date ul li .date-movement p{
-    color: rgb(45, 45, 45);
-    font-size: 12px;
-}
-
-#calendar .container ul .date ul li .date-movement .movement-circle{
-    grid-column: 1;
-    grid-row: 1/3;
-    width: 8px;
-    height: 8px;
-    background: rgb(97 210 114);
-    border-radius: 50%;
-    box-shadow: 0 0px 6px 1px rgb(118 230 135), inset 0 0 8px 1px rgb(118 230 135);
-}
-
-#calendar .container ul .date ul li .date-movement .movement-category{
-    grid-column: 2;
-    grid-row: 1;
-}
-
-#calendar .container ul .date ul li .date-movement .movement-note{
-    grid-column: 2;
-    grid-row: 2;
-    font-size: 10px;
-    color: rgb(90, 90, 90);
-}
-
-#calendar .container ul .date ul li .date-movement .movement-amount{
-    grid-column: 3;
-    grid-row: 1/3;
-    justify-self: right;
-}
-
-#calendar .container ul .date ul li .date-movement .movement-cross{
-    grid-column: 4;
-    grid-row: 1/3;
-    justify-self: right;
-    cursor: pointer;
-}
 
 /* Footer */
 
