@@ -565,9 +565,23 @@ label{
 footer{
     width: 100%;
     background: var(--blue);
-    height: 20px;
     position: absolute;
     bottom: 0px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p,
+footer a i{
+    color: white;
+    margin: 5px;
+}
+
+footer a i{
+    font-size: 25px;
+    cursor: pointer;
 }
 
 /* Mediaqueries tablet */
