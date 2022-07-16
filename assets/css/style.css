@@ -127,12 +127,12 @@ nav ul li button:hover::after{
 
 section{
     flex: 1;
+    display: flex;
 }
 
 /* Balance */
 
 #balance{
-    display: flex;
     flex-flow: column;
     min-height: 0;
 }
@@ -254,7 +254,6 @@ section{
 /* Calendar */
 
 #calendar{
-    display: flex;
     min-height: 0;
 }
 
@@ -337,7 +336,6 @@ section{
 /* Add */
 
 #add{
-    display: flex;
     flex-flow: column;
     min-height: 0;
 }
@@ -685,4 +683,9 @@ footer a i{
     #add .category-container label p{
         font-size: 14px;
     }
+}
+
+
+.hide{
+    display: none;
 }
