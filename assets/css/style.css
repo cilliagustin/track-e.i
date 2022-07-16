@@ -372,11 +372,11 @@ section{
 }
 
 #add .input-container .expense-income-btn{
-    color: white;
+    color: var(--dark-blue);
 }
 
 #add .input-container .expense-income-btn::after{
-    background: white;
+    background: var(--dark-blue);
 }
 
 #add .input-container h2{
