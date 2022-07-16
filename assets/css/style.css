@@ -623,4 +623,35 @@ footer{
     #balance .pie-chart-info .percentage-element p{
         font-size: 18px;
     }
+
+    /* Calendar */
+    #calendar .container{
+        padding: 0 40px;
+    }
+
+    #calendar .container ul .date .date-info p{
+        font-size: 18px;
+    }
+
+    #calendar .container ul .date ul li .date-movement{
+        width: 100%;
+        margin: 3px 0;
+        border-radius: var(--border);
+        display: grid;
+        grid-template-columns: 40px 5fr 2fr 40px;
+    }
+
+    #calendar .container ul .date ul li .date-movement p{
+        font-size: 15px;
+    }
+
+    #calendar .container ul .date ul li .date-movement .movement-circle{
+        width: 12px;
+        height: 12px;
+        box-shadow: 0 0px 6px 2px rgb(118 230 135), inset 0 0 8px 1px rgb(118 230 135);
+    }
+
+    #calendar .container ul .date ul li .date-movement .movement-note{
+        font-size: 13px;
+    }
 }
