@@ -569,3 +569,8 @@ footer{
     position: absolute;
     bottom: 0px;
 }
+
+/* Mediaqueries tablet */
+@media screen and (min-width: 576px) {
+
+}
