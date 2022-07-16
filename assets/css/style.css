@@ -572,5 +572,55 @@ footer{
 
 /* Mediaqueries tablet */
 @media screen and (min-width: 576px) {
+    #balance .pie-chart {
+        height: 280px;
+    }
 
+    #balance .pie-chart .pie-chart-container{
+        padding-bottom: 30px;
+    }
+
+    #balance .pie-chart .pie-chart-container .pie-chart-result{
+        width: 190px;
+        height: 190px;
+    }
+
+    #balance .pie-chart .pie-chart-container .pie-chart-result p{
+        font-size: 20px;
+    }
+
+    #balance .pie-chart .pie-chart-container .pie-chart-result p:before{
+        left: -17px;
+    }
+    #balance .pie-chart .pie-chart-container .pie-chart-result :nth-child(2):before{
+        content:"- $";
+        left: -30px;
+    }
+
+    #balance .pie-chart .pie-chart-container svg{
+        height: 240px;
+        width: 240px;
+    }
+
+    #balance .pie-chart .pie-chart-container .toggle-buttons{
+        width: 80%;
+    }
+    
+    #balance .pie-chart .pie-chart-container .toggle-buttons button{
+        font-size: 17px;
+    }
+
+    #balance .pie-chart-info .percentage-element{
+        max-width: 600px;
+        padding: 22px 15px;
+    }
+
+    #balance .pie-chart-info .percentage-element i{
+        font-size: 35px;
+        margin-right: 30px;
+    }
+    
+    #balance .pie-chart-info .percentage-element p{
+        font-size: 18px;
+    }
 }
