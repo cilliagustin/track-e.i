@@ -634,11 +634,9 @@ footer{
     }
 
     #calendar .container ul .date ul li .date-movement{
-        width: 100%;
-        margin: 3px 0;
-        border-radius: var(--border);
-        display: grid;
-        grid-template-columns: 40px 5fr 2fr 40px;
+        width: 80%;
+        margin: 3px auto;
+        grid-template-columns: 40px 5fr 2fr 30px;
     }
 
     #calendar .container ul .date ul li .date-movement p{
