@@ -582,7 +582,7 @@ footer a i{
 }
 
 /* Mediaqueries tablet */
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 576px) and (max-width: 767px) {
     #balance .pie-chart {
         height: 280px;
     }
@@ -687,6 +687,8 @@ footer a i{
         font-size: 14px;
     }
 }
+
+
 
 
 .hide{
