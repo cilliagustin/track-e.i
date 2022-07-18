@@ -711,6 +711,45 @@ footer a i{
         grid-column: 1 / 2;
         grid-row: 2;
     }
+
+    #balance .pie-chart {
+        height: auto;
+    }
+
+    #balance .pie-chart .pie-chart-container{
+        padding: 10px 0 25px 0;
+    }
+
+    #balance .pie-chart .pie-chart-container .pie-chart-result{
+        width: 17.5vw;
+        height: 17.5vw;
+        max-width: 200px;
+        max-height: 200px;
+    }
+
+    #balance .pie-chart .pie-chart-container svg{
+        width: 20vw;
+        height: 20vw;
+        max-width: 250px;
+        max-height: 250px;
+    }
+
+    #balance .pie-chart .pie-chart-container .toggle-buttons{
+        max-width: 520px;
+    }
+
+    #balance .pie-chart-info .percentage-element{
+        max-width: 650px;
+    }
+
+    #balance .pie-chart-info .percentage-element i{
+        font-size: 35px;
+        margin-right: 20px;
+    }
+    
+    #balance .pie-chart-info .percentage-element .amount{
+        margin-right: 20px;
+    }
     
     #add{
         grid-column: 2 / 3;
