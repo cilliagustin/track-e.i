@@ -83,7 +83,7 @@ nav ul li{
     list-style: none;
 }
 
-nav ul li button{
+nav ul li .nav-link{
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     margin-left: 5px;
@@ -95,8 +95,8 @@ nav ul li button{
     transition: .5s;
 }
 
-nav ul li button::before,
-nav ul li button::after{
+nav ul li .nav-link::before,
+nav ul li .nav-link::after{
     content: "";
     position: absolute;
     height: 1px;
@@ -105,22 +105,26 @@ nav ul li button::after{
     transition: .5s;
 }
 
-nav ul li button::before{
+nav ul li .nav-link::before{
     left:0;
     bottom: -1px;
 }
 
-nav ul li button::after{
+nav ul li .nav-link::after{
     right:0;
     top: 0px;
 }
 
-nav ul li button:hover{
+nav ul li .nav-link:hover,
+nav ul li .active,
+nav ul li .active{
     color: rgb(251,254,250);
 }
 
-nav ul li button:hover::before,
-nav ul li button:hover::after{
+nav ul li .nav-link:hover::before,
+nav ul li .nav-link:hover::after,
+nav ul li .active::before,
+nav ul li .active::after{
     width: 100%;
 }
 
