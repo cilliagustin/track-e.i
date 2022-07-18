@@ -29,8 +29,8 @@ body{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    display: flex;
-    flex-flow: column;
+    display: grid;
+    grid-template-rows: 30px 1fr 35px;
 }
 
 .expense-income-btn{
@@ -61,6 +61,7 @@ body{
 /* Navbar */
 
 nav{
+    grid-row: 1;
     width: 100%;
     padding: 3px 10px;
     background: var(--blue);
@@ -126,6 +127,7 @@ nav ul li button:hover::after{
 /* Sections */
 
 section{
+    grid-row: 2;
     flex: 1;
     display: flex;
 }
@@ -559,6 +561,7 @@ label{
 /* Footer */
 
 footer{
+    grid-row: 3;
     width: 100%;
     background: var(--blue);
     display: flex;
