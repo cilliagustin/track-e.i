@@ -676,6 +676,7 @@ footer a i{
     #add .category-container{
         max-width: 650px;
         grid-template-columns: repeat(3, minmax(90px, 180px));
+        grid-template-rows: min-content;
     }
 
     #add .category-container label{
