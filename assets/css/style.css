@@ -698,7 +698,7 @@ footer a i{
     body{
         display: grid;
         grid-template-columns: 1fr 350px;
-        grid-template-rows: 22px 1fr 35px;
+        grid-template-rows: 30px 1fr 35px;
     }
 
     /* Navbar */
