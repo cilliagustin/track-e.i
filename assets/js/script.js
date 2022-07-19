@@ -29,4 +29,13 @@ navLinks.forEach(link =>{
     })
 })
 
+//Check once the browser goes to desktop size if the current section is the add section
+//and gives the active class to balance
+window.addEventListener('resize', function changeToDesktop(){
+    if(this.window.innerWidth >= 767 && navLinks[2].classList.contains('active')){
+        blockNavAndSections();
+        navLinks[0].classList.add('active');
+        sections[0].classList.remove('hide')
+    }
+})
 
