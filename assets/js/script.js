@@ -1,6 +1,8 @@
 // Variables
 const navLinks = Array.from(document.getElementsByClassName('nav-link'));
 const sections = Array.from(document.getElementsByTagName('section'));
+const inputs = Array.from(document.querySelectorAll('#add .input-container .input-box input'));
+console.log(inputs)
 
 /**
  * Removes active class from all navbar elements and add class hide
@@ -19,9 +21,11 @@ function blockNavAndSections(){
 navLinks.forEach(link =>{
     link.addEventListener('click', function changeSection(e){
         blockNavAndSections();
+        //Add active class to target
         e.target.classList.add('active');
         let clickedNav = e.target.textContent.toLowerCase();
         sections.forEach(section => {
+            //remove hide class to target´s section
             if(section.getAttribute('id')=== clickedNav){
                 section.classList.remove('hide')
             }
