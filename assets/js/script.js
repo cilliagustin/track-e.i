@@ -2,6 +2,8 @@
 const navLinks = Array.from(document.getElementsByClassName('nav-link'));
 const sections = Array.from(document.getElementsByTagName('section'));
 const inputs = Array.from(document.querySelectorAll('#amount, #note, #date, #input-category'));
+const addExpenseIncomeBtn = Array.from(document.querySelectorAll('#add .input-container button'));
+const addLabelCategory = Array.from(document.querySelectorAll('#add .category-container label'));
 
 /**
  * Removes active class from all navbar elements and add class hide
@@ -46,3 +48,21 @@ window.addEventListener('resize', function changeToDesktop(){
     }
 })
 
+
+//Filter radio labels in Add section and show only selected ones
+addExpenseIncomeBtn.forEach(btn => {
+    btn.addEventListener('click', e =>{
+        addExpenseIncomeBtn.forEach(btn =>{
+            btn.classList.remove('active')
+        })
+        e.target.classList.add('active')
+        let pressedBtn = e.target.getAttribute('data-button-category')
+        addLabelCategory.forEach(label => {
+            if(label.getAttribute('data-radio-category') === pressedBtn){
+                label.classList.remove('hide')
+            } else {
+                label.classList.add('hide')
+            }
+        })
+    })
+})
