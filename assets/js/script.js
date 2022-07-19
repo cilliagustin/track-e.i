@@ -1,8 +1,7 @@
 // Variables
 const navLinks = Array.from(document.getElementsByClassName('nav-link'));
 const sections = Array.from(document.getElementsByTagName('section'));
-const inputs = Array.from(document.querySelectorAll('#add .input-container .input-box input'));
-console.log(inputs)
+const inputs = Array.from(document.querySelectorAll('#amount, #note, #date, #input-category'));
 
 /**
  * Removes active class from all navbar elements and add class hide
@@ -30,6 +29,10 @@ navLinks.forEach(link =>{
                 section.classList.remove('hide')
             }
         })
+        //Delete all values for inputs
+        inputs.forEach(input => {
+            input.value = '';
+          });
     })
 })
 
