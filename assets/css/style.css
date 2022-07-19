@@ -707,7 +707,7 @@ footer a i{
         grid-row: 1;
     }
 
-    nav ul li:first-child{
+    nav ul li:last-child{
         display: none;
     }
 
