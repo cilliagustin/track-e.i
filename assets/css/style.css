@@ -481,6 +481,7 @@ section{
     margin: auto;
     display: grid;
     grid-template-columns: repeat(3, minmax(90px, 150px));
+    grid-template-rows: min-content;
     grid-column-gap: 3px;
     justify-items: center;
     justify-content: center;
@@ -553,7 +554,8 @@ label{
 }
 
 #add .submit-container button:active,
-#add .submit-container button:hover{
+#add .submit-container button:hover,
+#add .submit-container button.active{
     background: var(--dark-blue);
     color: white;
 }
@@ -754,7 +756,6 @@ footer a i{
     #add .category-container{
         max-width: 650px;
         grid-template-columns: repeat(3, minmax(90px, 180px));
-        grid-template-rows: min-content;
     }
 
     #add .category-container label{
