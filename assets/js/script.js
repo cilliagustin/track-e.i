@@ -1,6 +1,7 @@
 // Variables
 const navLinks = Array.from(document.getElementsByClassName('nav-link'));
 const sections = Array.from(document.getElementsByTagName('section'));
+const addSection = document.getElementById('add');
 const inputs = Array.from(document.querySelectorAll('#amount, #note, #date, #input-category'));
 const addExpenseIncomeBtn = Array.from(document.querySelectorAll('#add .input-container button'));
 const addLabelCategory = Array.from(document.querySelectorAll('#add .category-container label'));
@@ -49,14 +50,24 @@ window.addEventListener('resize', function changeToDesktop(){
 })
 
 
-//Filter radio labels in Add section and show only selected ones
+//Filter radio labels in Add section and add income/expense class
 addExpenseIncomeBtn.forEach(btn => {
     btn.addEventListener('click', e =>{
+        let pressedBtn = e.target.getAttribute('data-button-category')
+        //Add income or expense class to add section 
+        if(pressedBtn === "income"){
+            addSection.classList.add("income");
+            addSection.classList.remove("expense");
+        } else if (pressedBtn === "expense"){
+            addSection.classList.add("expense");
+            addSection.classList.remove("income");
+        }
+        //Add active class to button
         addExpenseIncomeBtn.forEach(btn =>{
             btn.classList.remove('active')
         })
         e.target.classList.add('active')
-        let pressedBtn = e.target.getAttribute('data-button-category')
+        //hide all label elements and show only selected ones
         addLabelCategory.forEach(label => {
             if(label.getAttribute('data-radio-category') === pressedBtn){
                 label.classList.remove('hide')
