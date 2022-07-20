@@ -7,6 +7,8 @@
     --dark-blue:rgb(0 33 64);
     --green-income:rgb(92,219,148);
     --green-button:rgb(8,198,151);
+    --red-expense:rgb(213,89,101);
+    --red-button:#B43C4B;
     --border: 9px;
     --shadow: 
     rgba(0, 0, 0, 0.07) 0px 1px 2px,
@@ -499,27 +501,21 @@ label{
     margin: 3px;
     text-align: center;
     background: white;
-    border: 2px var(--green-button) solid;
+    border: 2px solid;
     border-radius: var(--border);
 }
 
 #add .category-container label i{
-    color: var(--green-button);
     font-size: 36px;
     margin: 4px;
 }
 
 #add .category-container label p{
-    color: var(--green-button);
     font-size: 10px;
     font-weight: 500;
     margin: auto;
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
-}
-
-#add .category-container input[type="radio"]:checked + label{
-    background: var(--green-button);
 }
 
 #add .category-container input[type="radio"]:checked + label i,
@@ -563,36 +559,12 @@ label{
 }
 
     /* Add (Income)*/
-#add.income.income .input-container{
+#add.income .input-container{
     background: var(--green-income);
 }
 
-#add.income .input-container .input-box input{
-    border-color: var(--dark-blue);
-    background: white;
-}
-
-#add.income .input-container .input-box label{
-    background: white;
-    border-color: white;
-    color: var(--dark-blue);
-}
-
-#add.income .input-container .input-box-amount input:focus ~ label,
-#add.income .input-container .input-box-note input:focus ~ label,
-#add.income .input-container .input-box-date input:focus ~ label,
-#add.income .input-container .input-box input:valid ~ label{
-    color: var(--dark-blue);
-    border-color: var(--dark-blue);
-
-}
-
-#add.income .input-container .input-box input:focus-visible{
-    outline-color: var(--dark-blue);
-}
 
 #add.income .category-container label{
-    background: white;
     border-color: var(--green-button);
 }
 
@@ -627,6 +599,44 @@ label{
     background: var(--green-button);
     color: white;
     border-color: var(--green-button);
+}
+
+ /* Add (Expense)*/
+ #add.expense .input-container{
+    background: var(--red-expense);
+}
+
+#add.expense .category-container label{
+    border-color: var(--red-button);
+}
+
+#add.expense .category-container label i{
+    color: var(--red-button);
+}
+
+#add.expense .category-container label p{
+    color: var(--red-button);
+}
+
+#add.expense .category-container input[type="radio"]:checked + label{
+    background: var(--red-button);
+}
+
+
+#add.expense .submit-container{
+    background: var(--red-expense);
+}
+
+#add.expense .submit-container button{
+    color: var(--red-button);
+    border-color: var(--red-button);
+}
+
+#add.expense .submit-container button:active,
+#add.expense .submit-container button:hover{
+    background: var(--red-button);
+    border-color: var(--red-button);
+    color: white;
 }
 
 /* Footer */
