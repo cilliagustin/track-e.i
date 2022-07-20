@@ -374,6 +374,7 @@ section{
     border: 1.5px solid var(--dark-blue);
     text-align: left;
     padding: 1px;
+    font-weight: 600;
 }
 
 #add .input-container .input-box label{
@@ -559,6 +560,73 @@ label{
 #add .submit-container button:hover{
     background: var(--dark-blue);
     color: white;
+}
+
+    /* Add (Income)*/
+#add.income.income .input-container{
+    background: var(--green-income);
+}
+
+#add.income .input-container .input-box input{
+    border-color: var(--dark-blue);
+    background: white;
+}
+
+#add.income .input-container .input-box label{
+    background: white;
+    border-color: white;
+    color: var(--dark-blue);
+}
+
+#add.income .input-container .input-box-amount input:focus ~ label,
+#add.income .input-container .input-box-note input:focus ~ label,
+#add.income .input-container .input-box-date input:focus ~ label,
+#add.income .input-container .input-box input:valid ~ label{
+    color: var(--dark-blue);
+    border-color: var(--dark-blue);
+
+}
+
+#add.income .input-container .input-box input:focus-visible{
+    outline-color: var(--dark-blue);
+}
+
+#add.income .category-container label{
+    background: white;
+    border-color: var(--green-button);
+}
+
+#add.income .category-container label i{
+    color: var(--green-button);
+}
+
+#add.income .category-container label p{
+    color: var(--green-button);
+}
+
+#add.income .category-container input[type="radio"]:checked + label{
+    background: var(--green-button);
+}
+
+#add.income .category-container input[type="radio"]:checked + label i,
+#add.income .category-container input[type="radio"]:checked + label p{
+    color: white;
+}
+
+#add.income .submit-container{
+    background: var(--green-income);
+}
+
+#add.income .submit-container button{
+    color: var(--green-button);
+    border-color: var(--green-button);
+}
+
+#add.income .submit-container button:active,
+#add.income .submit-container button:hover{
+    background: var(--green-button);
+    color: white;
+    border-color: var(--green-button);
 }
 
 /* Footer */
