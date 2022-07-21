@@ -26,8 +26,15 @@ navLinks.forEach(link =>{
                 section.classList.remove('hide')
             }
         })
-        //Delete all values for inputs
-        deleteValues(inputs)
+
+        //if page is in mobile version refresh all information from add section when toggle between sections
+        if(window.innerWidth <= 766){
+            addSection.classList.remove('income', 'expense')
+            hideElements(addRadioLabel);
+            deleteActive(addExpenseIncomeBtn)
+            deleteValues(inputs)
+            uncheckRadioInputs(addRadioInput)
+        }
     })
 })
 
@@ -108,7 +115,7 @@ function deleteValues(elements){
 }
 
 /**
- * 
+ * Uncheck radio buttons
  */
  function uncheckRadioInputs(elements){
     elements.forEach(el => {
