@@ -58,12 +58,15 @@ addExpenseIncomeBtn.forEach(btn => {
     btn.addEventListener('click', e =>{
         let pressedBtn = e.target.getAttribute('data-button-category')
         //Add income or expense class to add section 
-        if(pressedBtn === "income"){
-            addSection.classList.add("income");
-            addSection.classList.remove("expense");
-        } else if (pressedBtn === "expense"){
-            addSection.classList.add("expense");
-            addSection.classList.remove("income");
+        switch(pressedBtn) {
+            case "income":
+                addSection.classList.add("income");
+                addSection.classList.remove("expense");
+                break;
+            case "expense":
+                addSection.classList.add("expense");
+                addSection.classList.remove("income");
+                break;
         }
         //Add active class to button
         addExpenseIncomeBtn.forEach(btn =>{
@@ -81,3 +84,4 @@ addExpenseIncomeBtn.forEach(btn => {
     })
 })
 
+console.log("test")
