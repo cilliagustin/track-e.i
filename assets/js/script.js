@@ -24,9 +24,7 @@ navLinks.forEach(link =>{
             }
         })
         //Delete all values for inputs
-        inputs.forEach(input => {
-            input.value = '';
-          });
+        deleteValues(inputs)
     })
 })
 
@@ -78,8 +76,8 @@ addExpenseIncomeBtn.forEach(btn => {
 /**
  * Removes active class from all elements in an array
  */
- function deleteActive(arr){
-    arr.forEach(el =>{
+ function deleteActive(elements){
+    elements.forEach(el =>{
         el.classList.remove("active")
     })
 }
@@ -87,8 +85,18 @@ addExpenseIncomeBtn.forEach(btn => {
 /**
  * Adds hide class from all elements in an array
  */
-function hideElements(arr){
-    arr.forEach(el =>{
+function hideElements(elements){
+    elements.forEach(el =>{
         el.classList.add("hide")
     })
 }
+
+/**
+ * Delete values for inputs
+ */
+function deleteValues(elements){
+    elements.forEach(el => {
+    el.value = '';
+  });
+}
+ 
