@@ -14,7 +14,7 @@ const addRadioLabel = document.querySelectorAll('#add .category-container label'
 
 //Toggle between sections and change active class in navbar
 navLinks.forEach(link =>{
-    link.addEventListener('click', function changeSection(e){
+    link.addEventListener('click', e =>{
         deleteActive(navLinks);
         hideElements(sections);
         //Add active class to target
@@ -30,22 +30,29 @@ navLinks.forEach(link =>{
         //if page is in mobile version refresh all information from add section when toggle between sections
         if(window.innerWidth <= 766){
             addSection.classList.remove('income', 'expense')
-            hideElements(addRadioLabel);
-            deleteActive(addExpenseIncomeBtn)
             deleteValues(inputs)
+            deleteActive(addExpenseIncomeBtn)
             uncheckRadioInputs(addRadioInput)
+            hideElements(addRadioLabel);
         }
     })
 })
 
-//Check once the browser goes to desktop size if the current section is the add section
-//and gives the active class to balance
-window.addEventListener('resize', function changeToDesktop(){
+//Checks website when rezising and activates different functionalities
+window.addEventListener('resize', () => {
+    //if website goes desktop mode when add section is on, gives balance section the active class to navbar and deletes hide class
     if(this.window.innerWidth >= 767 && addNavLink.classList.contains('active')){
         deleteActive(navLinks);
         hideElements(sections);
         balanceNavLink.classList.add('active');
         balanceSection.classList.remove('hide')
+        // If website goes mobile it deletes information on add section so if is resized to desktop the add section appears blank again
+    } else if (this.window.innerWidth <= 766 && !addNavLink.classList.contains('active')){
+        addSection.classList.remove('income', 'expense')
+        deleteValues(inputs)
+        deleteActive(addExpenseIncomeBtn)
+        uncheckRadioInputs(addRadioInput)
+        hideElements(addRadioLabel);
     }
 })
 
@@ -53,7 +60,7 @@ window.addEventListener('resize', function changeToDesktop(){
 
 //Filter radio labels in Add section + add income/expense class to section + refresh input values
 addExpenseIncomeBtn.forEach(btn => {
-    btn.addEventListener('click', e =>{
+    btn.addEventListener('click', e => {
         let pressedBtn = e.target.getAttribute('data-button-category')
         //Add income or expense class to Add section 
         switch(pressedBtn) {
