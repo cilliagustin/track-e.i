@@ -56,7 +56,8 @@ body{
     transition: .5s;
 }
 
-.expense-income-btn:hover::after{
+.expense-income-btn:hover::after,
+.expense-income-btn.active::after{
     transform: scaleX(1);
 }
 
@@ -554,8 +555,7 @@ label{
 }
 
 #add .submit-container button:active,
-#add .submit-container button:hover,
-#add .submit-container button.active{
+#add .submit-container button:hover{
     background: var(--dark-blue);
     color: white;
 }
