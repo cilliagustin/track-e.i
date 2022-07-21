@@ -7,7 +7,10 @@ const addNavLink = document.getElementById('add-navlink');
 const addSection = document.getElementById('add');
 const inputs = document.querySelectorAll('#amount, #note, #date, #input-category');
 const addExpenseIncomeBtn = document.querySelectorAll('#add .input-container button');
-const addLabelCategory = document.querySelectorAll('#add .category-container label');
+const addRadioInput = document.querySelectorAll('#add .category-container input');
+const addRadioLabel = document.querySelectorAll('#add .category-container label');
+
+// Navbar and section functions
 
 //Toggle between sections and change active class in navbar
 navLinks.forEach(link =>{
@@ -39,8 +42,9 @@ window.addEventListener('resize', function changeToDesktop(){
     }
 })
 
+// Add section functions
 
-//Filter radio labels in Add section and add income/expense class
+//Filter radio labels in Add section + add income/expense class to section + refresh input values
 addExpenseIncomeBtn.forEach(btn => {
     btn.addEventListener('click', e =>{
         let pressedBtn = e.target.getAttribute('data-button-category')
@@ -58,8 +62,12 @@ addExpenseIncomeBtn.forEach(btn => {
         //Add active class to button
         deleteActive(addExpenseIncomeBtn)
         e.target.classList.add('active')
+        //Delete input values
+        deleteValues(inputs)
+        //Desselect radio button
+        uncheckRadioInputs(addRadioInput)
         //hide all label elements and show only selected ones
-        addLabelCategory.forEach(label => {
+        addRadioLabel.forEach(label => {
             if(label.getAttribute('data-radio-category') === pressedBtn){
                 label.classList.remove('hide')
             } else {
@@ -68,7 +76,6 @@ addExpenseIncomeBtn.forEach(btn => {
         })
     })
 })
-
 
 
 // Helper functions
@@ -99,4 +106,14 @@ function deleteValues(elements){
     el.value = '';
   });
 }
+
+/**
+ * 
+ */
+ function uncheckRadioInputs(elements){
+    elements.forEach(el => {
+    el.checked = false ;
+  });
+}
+
  
