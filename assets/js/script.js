@@ -9,23 +9,11 @@ const inputs = document.querySelectorAll('#amount, #note, #date, #input-category
 const addExpenseIncomeBtn = document.querySelectorAll('#add .input-container button');
 const addLabelCategory = document.querySelectorAll('#add .category-container label');
 
-/**
- * Removes active class from all navbar elements and add class hide
- * to all sections
- */
-function blockNavAndSections(){
-    navLinks.forEach(link => {
-        link.classList.remove('active')
-    })
-    sections.forEach(section => {
-        section.classList.add('hide')
-    })
-}
-
 //Toggle between sections and change active class in navbar
 navLinks.forEach(link =>{
     link.addEventListener('click', function changeSection(e){
-        blockNavAndSections();
+        deleteActive(navLinks);
+        hideElements(sections);
         //Add active class to target
         e.target.classList.add('active');
         let clickedNav = e.target.textContent.toLowerCase();
@@ -46,7 +34,8 @@ navLinks.forEach(link =>{
 //and gives the active class to balance
 window.addEventListener('resize', function changeToDesktop(){
     if(this.window.innerWidth >= 767 && addNavLink.classList.contains('active')){
-        blockNavAndSections();
+        deleteActive(navLinks);
+        hideElements(sections);
         balanceNavLink.classList.add('active');
         balanceSection.classList.remove('hide')
     }
@@ -57,7 +46,7 @@ window.addEventListener('resize', function changeToDesktop(){
 addExpenseIncomeBtn.forEach(btn => {
     btn.addEventListener('click', e =>{
         let pressedBtn = e.target.getAttribute('data-button-category')
-        //Add income or expense class to add section 
+        //Add income or expense class to Add section 
         switch(pressedBtn) {
             case "income":
                 addSection.classList.add("income");
@@ -69,9 +58,7 @@ addExpenseIncomeBtn.forEach(btn => {
                 break;
         }
         //Add active class to button
-        addExpenseIncomeBtn.forEach(btn =>{
-            btn.classList.remove('active')
-        })
+        deleteActive(addExpenseIncomeBtn)
         e.target.classList.add('active')
         //hide all label elements and show only selected ones
         addLabelCategory.forEach(label => {
@@ -84,4 +71,24 @@ addExpenseIncomeBtn.forEach(btn => {
     })
 })
 
-console.log("test")
+
+
+// Helper functions
+
+/**
+ * Removes active class from all elements in an array
+ */
+ function deleteActive(arr){
+    arr.forEach(el =>{
+        el.classList.remove("active")
+    })
+}
+
+/**
+ * Adds hide class from all elements in an array
+ */
+function hideElements(arr){
+    arr.forEach(el =>{
+        el.classList.add("hide")
+    })
+}
