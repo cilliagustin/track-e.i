@@ -46,7 +46,7 @@ window.addEventListener('resize', () => {
         hideElements(sections);
         balanceNavLink.classList.add('active');
         balanceSection.classList.remove('hide')
-        // If website goes mobile it deletes information on add section so if is resized to desktop the add section appears blank again
+        // If website goes mobile it deletes information on add section so if is resized to desktop the add section appears blank again, but if website goes desktop when add section in active it keeps the information visible
     } else if (this.window.innerWidth <= 766 && !addNavLink.classList.contains('active')){
         addSection.classList.remove('income', 'expense')
         deleteValues(inputs)
