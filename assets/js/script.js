@@ -6,6 +6,7 @@ const balanceSection = document.getElementById('balance');
 const addNavLink = document.getElementById('add-navlink');
 const addSection = document.getElementById('add');
 const inputs = document.querySelectorAll('#amount, #note, #date, #input-category');
+const inputCategory =  document.getElementById('input-category');
 const addExpenseIncomeBtn = document.querySelectorAll('#add .input-container button');
 const addRadioInput = document.querySelectorAll('#add .category-container input');
 const addRadioLabel = document.querySelectorAll('#add .category-container label');
@@ -31,6 +32,7 @@ navLinks.forEach(link =>{
         if(window.innerWidth <= 766){
             addSection.classList.remove('income', 'expense')
             deleteValues(inputs)
+            inputCategory.classList.remove('active')
             deleteActive(addExpenseIncomeBtn)
             uncheckRadioInputs(addRadioInput)
             hideElements(addRadioLabel);
@@ -50,6 +52,7 @@ window.addEventListener('resize', () => {
     } else if (this.window.innerWidth <= 766 && !addNavLink.classList.contains('active')){
         addSection.classList.remove('income', 'expense')
         deleteValues(inputs)
+        inputCategory.classList.remove('active')
         deleteActive(addExpenseIncomeBtn)
         uncheckRadioInputs(addRadioInput)
         hideElements(addRadioLabel);
@@ -78,6 +81,8 @@ addExpenseIncomeBtn.forEach(btn => {
         e.target.classList.add('active')
         //Delete input values
         deleteValues(inputs)
+        //Remove active class from input category
+        inputCategory.classList.remove('active')
         //Desselect radio button
         uncheckRadioInputs(addRadioInput)
         //hide all label elements and show only selected ones
@@ -91,6 +96,13 @@ addExpenseIncomeBtn.forEach(btn => {
     })
 })
 
+addRadioInput.forEach(input => {
+    input.addEventListener('click', () => {
+        let selected = input.value;
+        inputCategory.value = selected
+        inputCategory.classList.add('active')
+    })
+})
 
 // Helper functions
 
