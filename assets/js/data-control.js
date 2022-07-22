@@ -14,6 +14,7 @@ submit.addEventListener('click', (e)=>{
         alert("Please complete all the fields")} 
     else {
         createData(a,b,c,d)
+        
 }
 })
 
