@@ -12,23 +12,29 @@ submit.addEventListener('click', (e)=>{
         alert("Amount must be at least 1 cent")
     } else if (a == null || a == "" || b == null || b == "" || c == null || c == "" || d == null || d == ""){
         alert("Please complete all the fields")} 
-        else {
-            let obj = {}
-            if(addSection.classList.contains('income')){
-                obj.transactionType = "income";
-            } else if(addSection.classList.contains('expense')){
-                obj.transactionType = "expense";
-            }
-            obj.amount = a;
-            obj.note = b;
-            obj.date = c;
-            obj.categoty = d;
-            data.push(obj)
-            console.log(data)
-
-            deleteValues(inputs)
-            inputCategory.classList.remove('active')
-            uncheckRadioInputs(addRadioInput)
+    else {
+        //Create an object
+        let obj = {}
+        //Add income/expense property as transaction type to the object
+        if(addSection.classList.contains('income')){
+            obj.transactionType = "income";
+        } else if(addSection.classList.contains('expense')){
+            obj.transactionType = "expense";
         }
+        //Add the time stamp as a transaction ID
+        obj.transactionId = Date.now();
+        //Add amount, note, date and category to object
+        obj.amount = a;
+        obj.note = b;
+        obj.date = c;
+        obj.categoty = d;
+        //push the object to the data Array
+        data.push(obj)
+        console.log(data)
+        //Clean inputs but mantain current transaction type
+        deleteValues(inputs)
+        inputCategory.classList.remove('active')
+        uncheckRadioInputs(addRadioInput)
+    }
 })
 
