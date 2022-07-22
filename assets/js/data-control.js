@@ -1,4 +1,5 @@
 let data = []
+let dataByDate
 
 //Create data from each transaction
 submit.addEventListener('click', (e)=>{
@@ -14,7 +15,8 @@ submit.addEventListener('click', (e)=>{
         alert("Please complete all the fields")} 
     else {
         createData(a,b,c,d)
-        
+        dataByDate = groupBy('date', data)
+        console.log(dataByDate)
 }
 })
 
@@ -42,4 +44,19 @@ function createData(a, b, c, d){
     inputCategory.classList.remove('active')
     uncheckRadioInputs(addRadioInput)
 }
+
+const groupBy = (key,arr) => arr
+.reduce(
+    (cache, product) => {
+        const property = product[key]
+        if (property in cache) {
+            return {...cache, [property]: cache[property].concat(product)
+            }
+        }
+        return {...cache, [property]: [product]}
+    },
+    {}
+)
+
+    
 
