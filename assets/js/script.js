@@ -6,10 +6,15 @@ const balanceSection = document.getElementById('balance');
 const addNavLink = document.getElementById('add-navlink');
 const addSection = document.getElementById('add');
 const inputs = document.querySelectorAll('#amount, #note, #date, #input-category');
+const inputAmount =  document.getElementById('amount');
+const inputNote =  document.getElementById('note');
+const inputDate =  document.getElementById('date');
 const inputCategory =  document.getElementById('input-category');
+const submit = document.getElementById('submit');
 const addExpenseIncomeBtn = document.querySelectorAll('#add .input-container button');
 const addRadioInput = document.querySelectorAll('#add .category-container input');
 const addRadioLabel = document.querySelectorAll('#add .category-container label');
+
 
 // Navbar and section functions
 
