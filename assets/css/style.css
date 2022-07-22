@@ -560,7 +560,7 @@ label{
         rgba(0, 0, 0, 0.07) 0px -32px 64px;
 }
 
-#add .submit-container button{
+#add .submit-container input{
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     background: white;
@@ -571,8 +571,8 @@ label{
     cursor: pointer;
 }
 
-#add .submit-container button:active,
-#add .submit-container button:hover{
+#add .submit-container input:active,
+#add .submit-container input:hover{
     background: var(--dark-blue);
     color: white;
 }
@@ -608,13 +608,13 @@ label{
     background: var(--green-income);
 }
 
-#add.income .submit-container button{
+#add.income .submit-container input{
     color: var(--green-button);
     border-color: var(--green-button);
 }
 
-#add.income .submit-container button:active,
-#add.income .submit-container button:hover{
+#add.income .submit-container input:active,
+#add.income .submit-container input:hover{
     background: var(--green-button);
     color: white;
     border-color: var(--green-button);
@@ -646,13 +646,13 @@ label{
     background: var(--red-expense);
 }
 
-#add.expense .submit-container button{
+#add.expense .submit-container input{
     color: var(--red-button);
     border-color: var(--red-button);
 }
 
-#add.expense .submit-container button:active,
-#add.expense .submit-container button:hover{
+#add.expense .submit-container input:active,
+#add.expense .submit-container input:hover{
     background: var(--red-button);
     border-color: var(--red-button);
     color: white;
