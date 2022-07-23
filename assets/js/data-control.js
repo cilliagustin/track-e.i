@@ -17,6 +17,7 @@ submit.addEventListener('click', (e)=>{
         createData(a,b,c,d)
         dataByDate = groupBy('date', data)
         console.log(dataByDate)
+        populateCalendar(dataByDate)
 }
 })
 
@@ -25,17 +26,17 @@ function createData(a, b, c, d){
     let obj = {}
     //Add income/expense property as transaction type to the object
     if(addSection.classList.contains('income')){
-        obj.transactionType = "income";
+        obj.type = "income";
     } else if(addSection.classList.contains('expense')){
-        obj.transactionType = "expense";
+        obj.type = "expense";
     }
     //Add the time stamp as a transaction ID
-    obj.transactionId = Date.now();
+    obj.timeStamp = Date.now();
     //Add amount, note, date and category to object
     obj.amount = a;
     obj.note = b;
     obj.date = c;
-    obj.categoty = d;
+    obj.category = d;
     //push the object to the data Array
     data.push(obj)
     console.log(data)
@@ -58,5 +59,35 @@ const groupBy = (key,arr) => arr
     {}
 )
 
-    
+function populateCalendar(obj){
+    for(let transactionDay in obj){
+        let transactionDate = transactionDay;
+        
+        for(let transaction in obj[transactionDay]){
+            let transactionData = obj[transactionDay][transaction]
+            let transactionCategory = transactionData.category
+            let transactionNote = transactionData.note
+            let transactionAmount = transactionData.amount
+            let transactionId = transactionData.timeStamp
+            let transactionType = transactionData.type
 
+            let transactionLi = `
+            <li>
+                <div class="date-movement" data-type="${transactionType}" id="id${transactionId}">
+                    <span class="movement-circle"></span>
+                    <p class="movement-category">${transactionCategory}</p>
+                    <p class="movement-note">${transactionNote}</p>
+                    <p class="movement-amount">$ ${transactionAmount}</p>
+                    <i class="movement-cross fa-solid fa-xmark"></i>
+                </div>
+            </li>
+            `
+            console.log(transactionLi)
+        }
+        
+        
+
+
+
+    }
+}
