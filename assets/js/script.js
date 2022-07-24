@@ -130,6 +130,12 @@ function hideElements(elements){
     })
 }
 
+//set input amount always with 2 decimals
+inputAmount.onchange = function setTwoNumberDecimal(event) {
+    this.value = parseFloat(this.value).toFixed(2);
+}
+
+
 /**
  * Delete values for inputs
  */
