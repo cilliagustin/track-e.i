@@ -280,11 +280,19 @@ section{
    width: 100%;
    display: flex;
    justify-content: space-between;
+   align-items: center;
 }
 
 #calendar .container ul .date .date-info p{
     color: rgb(45, 45, 45);
 }
+
+#calendar .container ul .date .date-info div{
+    background: linear-gradient(to right, var(--dark-blue), var(--blue));
+    flex-grow: 1;
+    height: 2px;
+    margin: 0 10px;
+    border-radius: 8px;}
 
 #calendar .container ul .date ul{
     width: 100%;
