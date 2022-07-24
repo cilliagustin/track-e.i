@@ -14,6 +14,7 @@ const submit = document.getElementById('submit');
 const addExpenseIncomeBtn = document.querySelectorAll('#add .input-container button');
 const addRadioInput = document.querySelectorAll('#add .category-container input');
 const addRadioLabel = document.querySelectorAll('#add .category-container label');
+const calendarList = document.querySelector('#calendar .container ul')
 
 
 // Navbar and section functions
