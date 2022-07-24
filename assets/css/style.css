@@ -305,6 +305,7 @@ section{
 #calendar .container ul .date ul li .date-movement p{
     color: rgb(45, 45, 45);
     font-size: 12px;
+    text-transform: capitalize;
 }
 
 #calendar .container ul .date ul li .date-movement .movement-circle{
@@ -315,6 +316,11 @@ section{
     background: rgb(97 210 114);
     border-radius: 50%;
     box-shadow: 0 0px 6px 1px rgb(118 230 135), inset 0 0 8px 1px rgb(118 230 135);
+}
+
+#calendar .container ul .date ul li .date-movement[data-type="expense"] .movement-circle{
+    background: rgb(255 23 23);
+    box-shadow: 0 0px 6px 1px rgb(229 124 124), inset 0 0 8px 1px rgb(229 124 124);
 }
 
 #calendar .container ul .date ul li .date-movement .movement-category{
