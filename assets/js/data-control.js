@@ -17,7 +17,7 @@ submit.addEventListener('click', (e)=>{
         //Create data with all transaction information
         createData(a,b,c,d)
         //Adds to the dataBy date transactions grouped by date and orders ir from most recent to oldestone
-        dataByDate = groupBy('date', data)
+        dataByDate = sortObj(groupBy('date', data))
         console.log(dataByDate)
         //Populates the calendar section with the dataByDate
         populateCalendar(dataByDate)
@@ -64,6 +64,13 @@ const groupBy = (key,arr) => arr
     {}
 )
 
+//Orders the object by key value in reverse
+function sortObj(obj) {
+    return Object.keys(obj).sort().reverse().reduce(function (result, key) {
+      result[key] = obj[key];
+      return result;
+    }, {});
+  }
 
 //Populate calendar section with dataByDate obj
 function populateCalendar(obj){
