@@ -4,7 +4,7 @@ let dataByDate
 //Create data from each transaction
 submit.addEventListener('click', (e)=>{
     e.preventDefault
-    let a = inputAmount.value;
+    let a = parseFloat(inputAmount.value).toFixed(2);
     let b = inputNote.value;
     let c = inputDate.value;
     let d = inputCategory.value;
@@ -123,9 +123,9 @@ function populateCalendar(obj){
         }
         //if the dailyResult is positive add a "$"", if is negative style it with a "$" between the number and the "-" 
         if(dailyResult >= 0){
-            dailyResult = `$ ${dailyResult}`
+            dailyResult = `$ ${dailyResult.toFixed(2)}`
         } else if(dailyResult < 0){
-            dailyResult = `-$ ${Math.abs(dailyResult)}`
+            dailyResult = `-$ ${Math.abs(dailyResult).toFixed(2)}`
         }
         //Create a variable for all the information of the day
         let dateLi = `
