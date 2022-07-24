@@ -78,6 +78,9 @@ function populateCalendar(obj){
     let calendarContent = ""
     //iterate the object
     for(let transactionDay in obj){
+        //transform yyyy/mm/dd format of date into dd/mm/yyyy
+        let [year, month, day] = transactionDay.split('-');
+        let transactionDate = [month, day, year].join('/');
         //Create empty string that will include all information of the day
         let transactionsOfTheDay = "";
         //Create variable for the result of the day (all the incomes - all expenses)
@@ -128,7 +131,7 @@ function populateCalendar(obj){
         let dateLi = `
             <li class="date">
                     <div class="date-info">
-                        <p>${transactionDay}</p>
+                        <p>${transactionDate}</p>
                         <div></div>
                         <p>${dailyResult}</p>
                     </div>
