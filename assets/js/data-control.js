@@ -129,6 +129,7 @@ function populateCalendar(obj){
             <li class="date">
                     <div class="date-info">
                         <p>${transactionDay}</p>
+                        <div></div>
                         <p>${dailyResult}</p>
                     </div>
                     <ul>
