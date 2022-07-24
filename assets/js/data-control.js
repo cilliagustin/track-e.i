@@ -1,5 +1,7 @@
 let data = []
-let dataByDate
+let dataByDate;
+let incomedata
+let expensedata
 
 //Create data from each transaction
 submit.addEventListener('click', (e)=>{
@@ -18,9 +20,10 @@ submit.addEventListener('click', (e)=>{
         createData(a,b,c,d)
         //Adds to the dataBy date transactions grouped by date and orders ir from most recent to oldestone
         dataByDate = sortObj(groupBy('date', data))
-        console.log(dataByDate)
         //Populates the calendar section with the dataByDate
         populateCalendar(dataByDate)
+
+        createBalanceData(data)
 }
 })
 
@@ -37,7 +40,7 @@ function createData(a, b, c, d){
     //Add the time stamp as a transaction ID
     obj.timeStamp = Date.now();
     //Add amount, note, date and category to object
-    obj.amount = a;
+    obj.amount = Number(a);
     obj.note = b;
     obj.date = c;
     obj.category = d;
@@ -148,3 +151,51 @@ function populateCalendar(obj){
     //populate html with all the information
     calendarList.innerHTML = calendarContent
 }
+
+function createBalanceData(arr){
+    let incomeObj = {}
+    let expenseObj = {}
+    let incomeAmount = 0
+    let expenseAmount = 0
+    arr.forEach(obj => {
+        let transtype = obj.type;
+        let transCat = obj.category
+        if(transtype === "income"){
+            if(obj.category in incomeObj){
+                let oldAmount = incomeObj[transCat].amount
+                incomeObj[transCat].amount = oldAmount + obj.amount
+                incomeAmount += obj.amount
+            } else{
+                incomeObj[transCat] = {amount: obj.amount}
+                incomeAmount += incomeObj[transCat].amount
+            }
+        } else if(transtype === "expense"){
+            if(obj.category in expenseObj){
+                let oldAmount = expenseObj[transCat].amount
+                expenseObj[transCat].amount = oldAmount + obj.amount
+                expenseAmount += obj.amount
+            } else{
+                expenseObj[transCat] = {amount: obj.amount}
+                expenseAmount += expenseObj[transCat].amount
+            }
+        }
+    });
+
+    for(key in incomeObj){
+        console.log(incomeObj[key].amount)
+        incomeObj[key].percentage = incomeObj[key].amount * 100 / incomeAmount
+    }
+
+    for(key in expenseObj){
+        console.log(expenseObj[key].amount)
+        expenseObj[key].percentage = expenseObj[key].amount * 100 / expenseAmount
+    }
+
+    incomedata = incomeObj;
+    expensedata = expenseObj;
+    console.log(incomedata)
+}
+
+
+
+
