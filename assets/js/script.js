@@ -73,10 +73,11 @@ window.addEventListener('resize', () => {
 pieChartContainer.addEventListener('click', e =>{
     let balanceElements = document.querySelectorAll('[data-add-category]')
     let btns = document.querySelectorAll('#balance .pie-chart .pie-chart-container .toggle-buttons button') 
+    //triggers function only if button is pressed
     if(e.target.classList.contains("expense-income-btn")){
         console.log("test")
         let pressedBtn = e.target.getAttribute('data-button-category')
-        //Add income or expense class to Add section 
+        //Add income or expense class to balance section 
         switch(pressedBtn) {
             case "income":
                 balanceSection.classList.add("income");
