@@ -2,6 +2,8 @@ let data = []
 let dataByDate;
 let incomedata
 let expensedata
+let incomeTotal
+let expenseTotal
 
 //Create data from each transaction
 submit.addEventListener('click', (e)=>{
@@ -22,8 +24,9 @@ submit.addEventListener('click', (e)=>{
         dataByDate = sortObj(groupBy('date', data))
         //Populates the calendar section with the dataByDate
         populateCalendar(dataByDate)
-
+        //Create data for expense and income transactions
         createBalanceData(data)
+        
 }
 })
 
@@ -152,15 +155,19 @@ function populateCalendar(obj){
     calendarList.innerHTML = calendarContent
 }
 
+//Grupes transaction by type and category
 function createBalanceData(arr){
     let incomeObj = {}
     let expenseObj = {}
     let incomeAmount = 0
     let expenseAmount = 0
+    //Iterates each object and gets necesary information
     arr.forEach(obj => {
         let transtype = obj.type;
         let transCat = obj.category
         if(transtype === "income"){
+            //check if category exists in income array, if it does it´s added, otherwise
+            //its creates the category
             if(obj.category in incomeObj){
                 let oldAmount = incomeObj[transCat].amount
                 incomeObj[transCat].amount = oldAmount + obj.amount
@@ -170,6 +177,8 @@ function createBalanceData(arr){
                 incomeAmount += incomeObj[transCat].amount
             }
         } else if(transtype === "expense"){
+            //check if category exists in expense array, if it does it´s added, otherwise
+            //its creates the category
             if(obj.category in expenseObj){
                 let oldAmount = expenseObj[transCat].amount
                 expenseObj[transCat].amount = oldAmount + obj.amount
@@ -180,20 +189,22 @@ function createBalanceData(arr){
             }
         }
     });
-
+    //adds percetage of each category in income and expense array
     for(key in incomeObj){
-        console.log(incomeObj[key].amount)
         incomeObj[key].percentage = incomeObj[key].amount * 100 / incomeAmount
     }
 
     for(key in expenseObj){
-        console.log(expenseObj[key].amount)
         expenseObj[key].percentage = expenseObj[key].amount * 100 / expenseAmount
     }
 
+    //returns the data to the global scope
     incomedata = incomeObj;
     expensedata = expenseObj;
+    incomeTotal = incomeAmount
+    expenseTotal = expenseAmount
     console.log(incomedata)
+    console.log(incomeTotal)
 }
 
 
