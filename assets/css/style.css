@@ -17,6 +17,30 @@
     rgba(0, 0, 0, 0.07) 0px 8px 16px,
     rgba(0, 0, 0, 0.07) 0px 16px 32px,
     rgba(0, 0, 0, 0.07) 0px 32px 64px;
+
+    --income-shade-salary: rgb(9, 42, 24);
+    --income-shade-loanrecieve: rgb(28, 125, 71);
+    --income-shade-savings: rgb(46, 209, 118);
+    --income-shade-sellstockcrypto: rgb(130, 227, 173);
+    --income-shade-otherincome: rgb(213, 246, 228);
+
+    --expense-shade-rent:rgb(8, 2, 3);
+    --expense-shade-groceries:rgb(25, 6, 8);
+    --expense-shade-bills:rgb(34, 9, 11);
+    --expense-shade-clothing:rgb(56, 14, 18);
+    --expense-shade-gifts:rgb(79, 20, 26);
+    --expense-shade-transportation:rgb(102, 26, 33);
+    --expense-shade-health:rgb(147, 37, 48);
+    --expense-shade-pets:rgb(170, 43, 55);
+    --expense-shade-restaurants:rgb(192, 49, 63);
+    --expense-shade-entertaining:rgb(206, 63, 77);
+    --expense-shade-buystockcrypto:rgb(212, 85, 98);
+    --expense-shade-vacations:rgb(218, 108, 119);
+    --expense-shade-house:rgb(224, 131, 140);
+    --expense-shade-studies:rgb(229, 153, 161);
+    --expense-shade-loanpay:rgb(235, 176, 182);
+    --expense-shade-familysupport:rgb(241, 198, 203);
+    --expense-shade-otherexpense:rgb(246, 221, 224);
 }
 
 *{
@@ -180,21 +204,6 @@ section{
     justify-content: center;
 }
 
-#balance .pie-chart .pie-chart-container .pie-chart-result p{
-    position: relative;
-    left: 5px;
-}
-
-#balance .pie-chart .pie-chart-container .pie-chart-result p:before{
-    content:"$";
-    position: absolute;
-    top: 0;
-    left: -13px;
-}
-#balance .pie-chart .pie-chart-container .pie-chart-result :nth-child(2):before{
-    content:"- $";
-    left: -23px;
-}
 
 #balance .pie-chart .pie-chart-container .pie-chart-result hr{
     border: none;
@@ -231,13 +240,16 @@ section{
     overflow-y: scroll;
 }
 
+.percentage-element{
+    display: flex;
+}
+
 #balance .pie-chart-info .percentage-element{
     border-radius: var(--border);
     margin: 3px 0;
     padding: 15px 10px;
     background: white;
     width: 90%;
-    display: flex;
     justify-content: flex-start;
     align-items: center;
     box-shadow: 
