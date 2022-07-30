@@ -272,6 +272,15 @@ section{
     margin-right: 10px;
 }
 
+/* Balance Income/expense */
+#balance.income .pie-chart .pie-chart-container{
+    background-color: var(--green-income);
+}
+
+#balance.expense .pie-chart .pie-chart-container{
+    background-color: var(--red-expense);
+}
+
 /* Calendar */
 
 #calendar{
