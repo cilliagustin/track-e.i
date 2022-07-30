@@ -253,7 +253,7 @@ function populateAdd(){
         let incomePercentage = incomedata[key].percentage;
 
         let incomeSvg = `
-        <svg  data-add-category="${noSpecialCaseCategory}" height="20" width="20" viewBox="0 0 20 20" style="position: absolute; transform:rotate(${incomeCurrentAngle}deg)">
+        <svg class="hide" data-add-category="${noSpecialCaseCategory}" data-add-type="income" height="20" width="20" viewBox="0 0 20 20" style="position: absolute; transform:rotate(${incomeCurrentAngle}deg)">
             <circle r="5" cx="10" cy="10" fill="transparent"
             stroke="var(--income-shade-${noSpecialCaseCategory})"
             stroke-width="10"
@@ -261,7 +261,7 @@ function populateAdd(){
         </svg>
         `
         let incomeElement = `
-        <div data-add-category="${noSpecialCaseCategory}" class="percentage-element">
+        <div data-add-category="${noSpecialCaseCategory}" data-add-type="income" class="percentage-element hide">
                 <i class="fa-solid fa-basket-shopping"></i>
                 <p class="category"> ${incomeCategory}</p>
                 <p class="amount">$ ${incomeAmount}</p>
@@ -282,7 +282,7 @@ function populateAdd(){
         let expensePercentage = expensedata[key].percentage;
 
         let expenseSvg = `
-        <svg class="hide" data-add-category="${noSpecialCaseCategory}" height="20" width="20" viewBox="0 0 20 20" style="position: absolute; transform:rotate(${expenseCurrentAngle}deg)">
+        <svg class="hide" data-add-category="${noSpecialCaseCategory}" data-add-type="expense" height="20" width="20" viewBox="0 0 20 20" style="position: absolute; transform:rotate(${expenseCurrentAngle}deg)">
             <circle r="5" cx="10" cy="10" fill="transparent"
             stroke="var(--expense-shade-${noSpecialCaseCategory})"
             stroke-width="10"
@@ -290,7 +290,7 @@ function populateAdd(){
         </svg>
         `
         let expenseElement = `
-        <div data-add-category="${noSpecialCaseCategory}" class="percentage-element hide">
+        <div data-add-category="${noSpecialCaseCategory}" data-add-type="expense" class="percentage-element hide">
                 <i class="fa-solid fa-basket-shopping"></i>
                 <p class="category"> ${expenseCategory}</p>
                 <p class="amount">$ ${expenseAmount}</p>
@@ -306,10 +306,10 @@ function populateAdd(){
 
     pieChartBalance += `
     <div class="toggle-buttons">
-        <button class="expense-income-btn">
+        <button class="expense-income-btn" data-button-category="income">
             Incomes
         </button>
-        <button class="expense-income-btn">
+        <button class="expense-income-btn" data-button-category="expense">
             Expenses
         </button>
     </div> 
