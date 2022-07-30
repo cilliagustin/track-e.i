@@ -26,7 +26,23 @@ submit.addEventListener('click', (e)=>{
         populateCalendar(dataByDate)
         //Create data for expense and income transactions
         createBalanceData(data)
+        //Populates the Add section with the income and expense data
+        populateAdd()
+
+
         
+
+    console.log("data")
+    console.log(data)
+    console.log("incomedata")
+    console.log(incomedata)
+    console.log("expensedata")
+    console.log(expensedata)
+    console.log("incomeTotal")
+    console.log(incomeTotal)
+    console.log("expenseTotal")
+    console.log(expenseTotal)
+ 
 }
 })
 
@@ -49,7 +65,6 @@ function createData(a, b, c, d){
     obj.category = d;
     //push the object to the data Array
     data.push(obj)
-    console.log(data)
     //Clean inputs but mantain current transaction type
     deleteValues(inputs)
     inputCategory.classList.remove('active')
@@ -191,22 +206,120 @@ function createBalanceData(arr){
     });
     //adds percetage of each category in income and expense array
     for(key in incomeObj){
-        incomeObj[key].percentage = incomeObj[key].amount * 100 / incomeAmount
+        incomeObj[key].percentage = parseFloat(incomeObj[key].amount * 100 / incomeAmount).toFixed(2)
     }
 
     for(key in expenseObj){
-        expenseObj[key].percentage = expenseObj[key].amount * 100 / expenseAmount
+        expenseObj[key].percentage = parseFloat(expenseObj[key].amount * 100 / expenseAmount).toFixed(2)
     }
 
     //returns the data to the global scope
     incomedata = incomeObj;
     expensedata = expenseObj;
-    incomeTotal = incomeAmount
-    expenseTotal = expenseAmount
-    console.log(incomedata)
-    console.log(incomeTotal)
+    incomeTotal = parseFloat(incomeAmount).toFixed(2);
+    expenseTotal = parseFloat(expenseAmount).toFixed(2);
 }
 
+//Populate Add section with incomeData and expenseData
+function populateAdd(){
+    let finalBalance
+    console.log("pieChartContainer")
+    console.log(pieChartContainer)
+
+    if(incomeTotal >= expenseTotal){
+        finalBalance = `$ ${parseFloat(incomeTotal - expenseTotal).toFixed(2)}`
+    } else if(incomeTotal < expenseTotal){
+        finalBalance = `-$ ${parseFloat(expenseTotal - incomeTotal).toFixed(2)}`
+    }
+    let pieChartBalance = "";
+    let balanceInfo = "";
+
+    pieChartBalance += `
+    <div class="pie-chart-result">
+        <p>$ ${incomeTotal}</p>
+        <p>-$ ${expenseTotal}</p>
+        <hr>
+        <p>${finalBalance}</p>
+    </div>
+    <svg height="20" width="20" viewBox="0 0 20 20">
+        <circle r="10" cx="10" cy="10" fill="rgb(100,200,5)" />
+    </svg>`
+    let incomeCurrentAngle = -90;
+    let expenseCurrentAngle = -90;
+    for(key in incomedata){
+        let incomeCategory = key;
+        let noSpecialCaseCategory = incomeCategory.replace(/[^a-zA-Z]/g,"")
+        let incomeAmount = incomedata[key].amount;
+        let incomePercentage = incomedata[key].percentage;
+
+        let incomeSvg = `
+        <svg  data-add-category="${noSpecialCaseCategory}" height="20" width="20" viewBox="0 0 20 20" style="position: absolute; transform:rotate(${incomeCurrentAngle}deg)">
+            <circle r="5" cx="10" cy="10" fill="transparent"
+            stroke="var(--income-shade-${noSpecialCaseCategory})"
+            stroke-width="10"
+            stroke-dasharray="${parseFloat(incomePercentage * 31.42 / 100).toFixed(2)} 31.42" />
+        </svg>
+        `
+        let incomeElement = `
+        <div data-add-category="${noSpecialCaseCategory}" class="percentage-element">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <p class="category"> ${incomeCategory}</p>
+                <p class="amount">$ ${incomeAmount}</p>
+                <p class="percentage">${incomePercentage}%</p>
+            </div>
+        `
+
+        incomeCurrentAngle += incomePercentage * 360 / 100;
+
+        pieChartBalance += incomeSvg;
+        balanceInfo += incomeElement
+    }
+
+    for(key in expensedata){
+        let expenseCategory = key;
+        let noSpecialCaseCategory = expenseCategory.replace(/[^a-zA-Z]/g,"")
+        let expenseAmount = expensedata[key].amount;
+        let expensePercentage = expensedata[key].percentage;
+
+        let expenseSvg = `
+        <svg class="hide" data-add-category="${noSpecialCaseCategory}" height="20" width="20" viewBox="0 0 20 20" style="position: absolute; transform:rotate(${expenseCurrentAngle}deg)">
+            <circle r="5" cx="10" cy="10" fill="transparent"
+            stroke="var(--expense-shade-${noSpecialCaseCategory})"
+            stroke-width="10"
+            stroke-dasharray="${parseFloat(expensePercentage * 31.42 / 100).toFixed(2)} 31.42" />
+        </svg>
+        `
+        let expenseElement = `
+        <div data-add-category="${noSpecialCaseCategory}" class="percentage-element hide">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <p class="category"> ${expenseCategory}</p>
+                <p class="amount">$ ${expenseAmount}</p>
+                <p class="percentage">${expensePercentage}%</p>
+            </div>
+        `
+
+        expenseCurrentAngle += expensePercentage * 360 / 100;
+
+        pieChartBalance += expenseSvg;
+        balanceInfo += expenseElement
+    }
+
+    pieChartBalance += `
+    <div class="toggle-buttons">
+        <button class="expense-income-btn">
+            Incomes
+        </button>
+        <button class="expense-income-btn">
+            Expenses
+        </button>
+    </div> 
+    `
+
+
+    pieChartContainer.innerHTML = pieChartBalance
+    pieChartInfo.innerHTML = balanceInfo
+    console.log(pieChartBalance)
+}
 
 
 
