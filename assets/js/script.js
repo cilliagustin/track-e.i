@@ -67,6 +67,42 @@ window.addEventListener('resize', () => {
     }
 })
 
+// Balance section functions
+
+//Filter pie chart + pie chart info
+pieChartContainer.addEventListener('click', e =>{
+    let balanceElements = document.querySelectorAll('[data-add-category]')
+    let btns = document.querySelectorAll('#balance .pie-chart .pie-chart-container .toggle-buttons button') 
+    if(e.target.classList.contains("expense-income-btn")){
+        console.log("test")
+        let pressedBtn = e.target.getAttribute('data-button-category')
+        //Add income or expense class to Add section 
+        switch(pressedBtn) {
+            case "income":
+                balanceSection.classList.add("income");
+                balanceSection.classList.remove("expense");
+                break;
+            case "expense":
+                balanceSection.classList.add("expense");
+                balanceSection.classList.remove("income");
+                break;
+        }
+        //Add active class to button
+        deleteActive(btns)
+        e.target.classList.add('active')
+
+        //filter piechart and piechart info
+        balanceElements.forEach(el => {
+            if(el.getAttribute('data-add-type') !== pressedBtn){
+            el.classList.add("hide")
+        } else if (el.getAttribute('data-add-type') === pressedBtn){
+            el.classList.remove("hide")
+        }
+        });
+        
+    }
+})
+
 // Add section functions
 
 //Filter radio labels in Add section + add income/expense class to section + refresh input values
