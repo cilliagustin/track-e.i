@@ -29,7 +29,38 @@ submit.addEventListener('click', (e)=>{
         //Populates the Add section with the income and expense data
         populateAdd()
 
-
+        //filter balance section so it shows the transaction type added
+        if(addSection.classList.contains('income')){
+            //add correct class to balance section
+            balanceSection.classList.remove('expense')
+            balanceSection.classList.add('income')
+            //give active class to correct button
+            deleteActive(balanceExpenseIncomeBtn)
+            balanceExpenseIncomeBtn[0].classList.add('active')
+            //hides all balance elements and shows correct ones
+            let balanceElements = document.querySelectorAll('[data-add-category]')
+            hideElements(balanceElements);
+            balanceElements.forEach(el =>{
+                if(el.getAttribute('data-add-type') === 'income'){
+                    el.classList.remove('hide')
+                }
+            })
+        } else if(addSection.classList.contains('expense')){
+            //add correct class to balance section
+            balanceSection.classList.remove('income')
+            balanceSection.classList.add('expense')
+            //give active class to correct button
+            deleteActive(balanceExpenseIncomeBtn)
+            balanceExpenseIncomeBtn[1].classList.add('active')
+            //hides all balance elements and shows correct ones
+            let balanceElements = document.querySelectorAll('[data-add-category]')
+            hideElements(balanceElements);
+            balanceElements.forEach(el =>{
+                if(el.getAttribute('data-add-type') === 'expense'){
+                    el.classList.remove('hide')
+                }
+            })
+        }
         
 
     console.log("data")
