@@ -37,6 +37,8 @@ navLinks.forEach(link =>{
             }
         })
 
+
+
         //if page is in mobile version refresh all information from add section when toggle between sections
         if(window.innerWidth <= 766){
             addSection.classList.remove('income', 'expense')
