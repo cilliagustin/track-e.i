@@ -254,8 +254,6 @@ function createBalanceData(arr){
 //Populate balance section with incomeData and expenseData
 function populateBalance(){
     let finalBalance
-    console.log("pieChartContainer")
-    console.log(pieChartContainer)
 
     if(incomeTotal >= expenseTotal){
         finalBalance = `$ ${parseFloat(incomeTotal - expenseTotal).toFixed(2)}`
@@ -335,10 +333,8 @@ function populateBalance(){
         balanceInfo += expenseElement
     }
 
-
     pieChartContainer.innerHTML = pieChartBalance
     pieChartInfo.innerHTML = balanceInfo
-    console.log(pieChartBalance)
 }
 
 
