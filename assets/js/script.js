@@ -5,8 +5,9 @@ const balanceNavLink = document.getElementById('balance-navlink');
 const balanceSection = document.getElementById('balance');
 const addNavLink = document.getElementById('add-navlink');
 const addSection = document.getElementById('add');
-const pieChartContainer = document.querySelector('.pie-chart-container')
-const pieChartInfo = document.querySelector('.pie-chart-info')
+const pieChartContainer = document.querySelector('.pie-chart-container');
+const balanceExpenseIncomeBtn = document.querySelectorAll('#balance .pie-chart .toggle-buttons button');
+const pieChartInfo = document.querySelector('.pie-chart-info');
 const inputs = document.querySelectorAll('#amount, #note, #date, #input-category');
 const inputAmount =  document.getElementById('amount');
 const inputNote =  document.getElementById('note');
@@ -70,12 +71,9 @@ window.addEventListener('resize', () => {
 // Balance section functions
 
 //Filter pie chart + pie chart info
-pieChartContainer.addEventListener('click', e =>{
-    let balanceElements = document.querySelectorAll('[data-add-category]')
-    let btns = document.querySelectorAll('#balance .pie-chart .pie-chart-container .toggle-buttons button') 
-    //triggers function only if button is pressed
-    if(e.target.classList.contains("expense-income-btn")){
-        console.log("test")
+balanceExpenseIncomeBtn.forEach(btn =>{
+    btn.addEventListener('click', e =>{
+        let balanceElements = document.querySelectorAll('[data-add-category]')
         let pressedBtn = e.target.getAttribute('data-button-category')
         //Add income or expense class to balance section 
         switch(pressedBtn) {
@@ -89,9 +87,9 @@ pieChartContainer.addEventListener('click', e =>{
                 break;
         }
         //Add active class to button
-        deleteActive(btns)
+        deleteActive(balanceExpenseIncomeBtn)
         e.target.classList.add('active')
-
+        
         //filter piechart and piechart info
         balanceElements.forEach(el => {
             if(el.getAttribute('data-add-type') !== pressedBtn){
@@ -100,8 +98,7 @@ pieChartContainer.addEventListener('click', e =>{
             el.classList.remove("hide")
         }
         });
-        
-    }
+    })
 })
 
 // Add section functions

@@ -304,17 +304,6 @@ function populateAdd(){
         balanceInfo += expenseElement
     }
 
-    pieChartBalance += `
-    <div class="toggle-buttons">
-        <button class="expense-income-btn" data-button-category="income">
-            Incomes
-        </button>
-        <button class="expense-income-btn" data-button-category="expense">
-            Expenses
-        </button>
-    </div> 
-    `
-
 
     pieChartContainer.innerHTML = pieChartBalance
     pieChartInfo.innerHTML = balanceInfo
