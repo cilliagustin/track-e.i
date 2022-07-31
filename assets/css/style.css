@@ -219,7 +219,7 @@ section{
     width: 200px;
 }
 
-#hola{
+#balance .pie-chart .toggle-buttons{
     z-index: 2;
     position: absolute;
     bottom: 0;
@@ -229,7 +229,7 @@ section{
     padding: 0px 20px 2px 20px;
 }
 
-#hola button{
+#balance .pie-chart .toggle-buttons button{
     text-transform: uppercase;
 }
 
