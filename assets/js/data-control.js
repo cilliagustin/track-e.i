@@ -273,7 +273,7 @@ function populateBalance(){
         <p>${finalBalance}</p>
     </div>
     <svg height="20" width="20" viewBox="0 0 20 20">
-        <circle r="10" cx="10" cy="10" fill="var(--dark-blue)" />
+        <circle r="10" cx="10" cy="10" fill="rgb(0,0,0)" />
     </svg>`
     let incomeCurrentAngle = -90;
     let expenseCurrentAngle = -90;

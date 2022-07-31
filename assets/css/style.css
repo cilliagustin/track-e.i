@@ -66,6 +66,7 @@ body{
     font-weight: 500;
     padding: 5px;
     cursor: pointer;
+    color: var(--dark-blue);
 }
 
 .expense-income-btn::after{
@@ -75,7 +76,7 @@ body{
     position: absolute;
     bottom: 0;
     left: 0;
-    background: black;
+    background: var(--dark-blue);
     transform: scaleX(0);
     transition: .5s;
 }
@@ -198,18 +199,21 @@ section{
     position: absolute;
     z-index: 2;
     border-radius: 50%;
-    background: white;
+    background: var(--blue);
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: center;
 }
 
+#balance .pie-chart .pie-chart-container .pie-chart-result p{
+    color: white;
+}
 
 #balance .pie-chart .pie-chart-container .pie-chart-result hr{
     border: none;
     width: 77%;
-    background: black;
+    background: white;
     height: 1px;
 
 }
@@ -217,6 +221,10 @@ section{
 #balance .pie-chart .pie-chart-container svg{
     height: 200px;
     width: 200px;
+}
+
+#balance .pie-chart .pie-chart-container svg:nth-child(2){
+    opacity: 0;
 }
 
 #balance .pie-chart .toggle-buttons{
@@ -287,6 +295,21 @@ section{
 
 #balance.expense .pie-chart .pie-chart-container{
     background-color: var(--red-expense);
+}
+
+#balance.income .pie-chart .pie-chart-container .pie-chart-result,
+#balance.expense .pie-chart .pie-chart-container .pie-chart-result{
+    background: white;
+}
+
+#balance.income .pie-chart .pie-chart-container .pie-chart-result p,
+#balance.expense .pie-chart .pie-chart-container .pie-chart-result p{
+    color: var(--dark-blue);
+}
+
+#balance.income .pie-chart .pie-chart-container .pie-chart-result hr,
+#balance.expense .pie-chart .pie-chart-container .pie-chart-result hr{
+    background: var(--dark-blue);
 }
 
 /* Calendar */
@@ -517,14 +540,6 @@ section{
 
 #add .input-container .input-box-input-category input.active ~ label{
     left: 30%;
-}
-
-#add .input-container .expense-income-btn{
-    color: var(--dark-blue);
-}
-
-#add .input-container .expense-income-btn::after{
-    background: var(--dark-blue);
 }
 
 #add .input-container h2{
