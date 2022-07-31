@@ -275,6 +275,11 @@ section{
     margin-right: 10px;
 }
 
+#balance .pie-chart-info .percentage-element .percentage{
+    text-align: right;
+    width: 40px;
+}
+
 /* Balance Income/expense */
 #balance.income .pie-chart .pie-chart-container{
     background-color: var(--green-income);
