@@ -37,7 +37,10 @@ navLinks.forEach(link =>{
             }
         })
 
-
+        //refresh balance section when changing sections
+        balanceSection.classList.remove('income', 'expense');
+        deleteActive(balanceExpenseIncomeBtn)
+        hideElements(document.querySelectorAll('[data-add-category]'));
 
         //if page is in mobile version refresh all information from add section when toggle between sections
         if(window.innerWidth <= 766){
