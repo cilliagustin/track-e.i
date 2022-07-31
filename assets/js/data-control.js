@@ -27,7 +27,7 @@ submit.addEventListener('click', (e)=>{
         //Create data for expense and income transactions
         createBalanceData(data)
         //Populates the Add section with the income and expense data
-        populateAdd()
+        populateBalance()
 
         //filter balance section so it shows the transaction type added
         if(addSection.classList.contains('income')){
@@ -251,8 +251,8 @@ function createBalanceData(arr){
     expenseTotal = parseFloat(expenseAmount).toFixed(2);
 }
 
-//Populate Add section with incomeData and expenseData
-function populateAdd(){
+//Populate balance section with incomeData and expenseData
+function populateBalance(){
     let finalBalance
     console.log("pieChartContainer")
     console.log(pieChartContainer)
@@ -260,7 +260,7 @@ function populateAdd(){
     if(incomeTotal >= expenseTotal){
         finalBalance = `$ ${parseFloat(incomeTotal - expenseTotal).toFixed(2)}`
     } else if(incomeTotal < expenseTotal){
-        finalBalance = `-$ ${parseFloat(expenseTotal - incomeTotal).toFixed(2)}`
+        finalBalance = `-$ ${parseFloat(Math.abs(incomeTotal - expenseTotal)).toFixed(2)}`
     }
     let pieChartBalance = "";
     let balanceInfo = "";
@@ -273,7 +273,7 @@ function populateAdd(){
         <p>${finalBalance}</p>
     </div>
     <svg height="20" width="20" viewBox="0 0 20 20">
-        <circle r="10" cx="10" cy="10" fill="rgb(100,200,5)" />
+        <circle r="10" cx="10" cy="10" fill="var(--dark-blue)" />
     </svg>`
     let incomeCurrentAngle = -90;
     let expenseCurrentAngle = -90;
