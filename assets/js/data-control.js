@@ -77,6 +77,60 @@ submit.addEventListener('click', (e)=>{
 }
 })
 
+//Delete element from calendar and change all data structures
+calendarList.addEventListener('click', e =>{
+    //check that cross icon is being pressed
+    if(e.target.classList.contains("movement-cross")){
+        //get timestamp from element id
+        let transaction = e.target.parentNode;
+        console.log(transaction)
+        let selectedTimeStamp = parseInt(transaction.id.slice(2));
+        console.log(selectedTimeStamp)
+
+        //take all elements without the timestamp into a new array
+        let newData = []
+        data.forEach(obj =>{
+            if(obj.timeStamp !== selectedTimeStamp){
+                newData.push(obj)
+            }
+        })
+        //update data array
+        data = newData
+
+        //Repeat functions that create all data and populate sections
+        dataByDate = sortObj(groupBy('date', data))
+        populateCalendar(dataByDate)
+        createBalanceData(data)
+        populateBalance()
+
+        if(addSection.classList.contains('income')){
+            balanceSection.classList.remove('expense')
+            balanceSection.classList.add('income')
+            deleteActive(balanceExpenseIncomeBtn)
+            balanceExpenseIncomeBtn[0].classList.add('active')
+            let balanceElements = document.querySelectorAll('[data-add-category]')
+            hideElements(balanceElements);
+            balanceElements.forEach(el =>{
+                if(el.getAttribute('data-add-type') === 'income'){
+                    el.classList.remove('hide')
+                }
+            })
+        } else if(addSection.classList.contains('expense')){
+            balanceSection.classList.remove('income')
+            balanceSection.classList.add('expense')
+            deleteActive(balanceExpenseIncomeBtn)
+            balanceExpenseIncomeBtn[1].classList.add('active')
+            let balanceElements = document.querySelectorAll('[data-add-category]')
+            hideElements(balanceElements);
+            balanceElements.forEach(el =>{
+                if(el.getAttribute('data-add-type') === 'expense'){
+                    el.classList.remove('hide')
+                }
+            })
+        }
+    }
+})
+
 //Creates the data with all transactions
 function createData(a, b, c, d){
     //Create an object
