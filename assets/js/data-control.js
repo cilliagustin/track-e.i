@@ -83,9 +83,7 @@ calendarList.addEventListener('click', e =>{
     if(e.target.classList.contains("movement-cross")){
         //get timestamp from element id
         let transaction = e.target.parentNode;
-        console.log(transaction)
         let selectedTimeStamp = parseInt(transaction.id.slice(2));
-        console.log(selectedTimeStamp)
 
         //take all elements without the timestamp into a new array
         let newData = []
@@ -312,11 +310,11 @@ function populateBalance(){
     if(incomeTotal >= expenseTotal){
         finalBalance = `$ ${parseFloat(incomeTotal - expenseTotal).toFixed(2)}`
     } else if(incomeTotal < expenseTotal){
-        finalBalance = `-$ ${parseFloat(Math.abs(incomeTotal - expenseTotal)).toFixed(2)}`
+        finalBalance = `-$ ${parseFloat(Math.abs(expenseTotal - incomeTotal)).toFixed(2)}`
     }
     let pieChartBalance = "";
     let balanceInfo = "";
-
+    console.log(finalBalance)
     pieChartBalance += `
     <div class="pie-chart-result">
         <p>$ ${incomeTotal}</p>
