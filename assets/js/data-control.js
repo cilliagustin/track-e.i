@@ -15,7 +15,7 @@ submit.addEventListener('click', (e)=>{
     //Check that all inputs are correctly filled
     if(a < 0.01) {
         alert("Amount must be at least 1 cent")
-    } else if (a == null || a == "" || b == null || b == "" || c == null || c == "" || d == null || d == ""){
+    } else if (a == null || a == "" || isNaN(a) === true || b == null || b == "" || c == null || c == "" || d == null || d == ""){
         alert("Please complete all the fields")} 
     else {
         //Create data with all transaction information
