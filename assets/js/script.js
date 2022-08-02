@@ -41,6 +41,10 @@ navLinks.forEach(link =>{
         balanceSection.classList.remove('income', 'expense');
         deleteActive(balanceExpenseIncomeBtn)
         hideElements(document.querySelectorAll('[data-add-category]'));
+        //check if selected element exists, if it does, delete it
+        if(document.getElementById('selected-element') !== null){
+            document.getElementById('selected-element').remove()
+        }
 
         //if page is in mobile version refresh all information from add section when toggle between sections
         if(window.innerWidth <= 766){
@@ -91,6 +95,7 @@ balanceExpenseIncomeBtn.forEach(btn =>{
                 balanceSection.classList.remove("income");
                 break;
         }
+
         //Add active class to button
         deleteActive(balanceExpenseIncomeBtn)
         e.target.classList.add('active')
@@ -103,11 +108,17 @@ balanceExpenseIncomeBtn.forEach(btn =>{
             el.classList.remove("hide")
         }
         });
+
+        //check if selected element exists, if it does, delete it
+        if(document.getElementById('selected-element') !== null){
+            document.getElementById('selected-element').remove()
+        }
+
     })
 })
 
 //Highlight elements
-pieChartInfo.addEventListener('click', e =>{
+document.body.addEventListener('click', e =>{
     if(e.target.hasAttribute('data-add-category')){
         let category = e.target.getAttribute('data-add-category');
         let circles = document.querySelectorAll('#balance .pie-chart .pie-chart-container svg');
