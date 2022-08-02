@@ -313,6 +313,32 @@ section{
     opacity: 0;
 }
 
+#balance.income .pie-chart .pie-chart-container svg circle.active{
+    stroke:rgb(42, 171, 98);
+}
+
+#balance.expense .pie-chart .pie-chart-container svg circle.active{
+    stroke:rgb(159, 19, 33);
+}
+
+#balance.income .pie-chart .pie-chart-container svg circle.unactive,
+#balance.expense .pie-chart .pie-chart-container svg circle.unactive{
+    stroke:var(--dark-blue);
+}
+
+#balance.income .pie-chart-info .percentage-element.active{
+    background: var(--green-income);
+}
+
+#balance.expense .pie-chart-info .percentage-element.active{
+    background: var(--red-expense);
+}
+
+#balance .pie-chart-info .percentage-element.active i,
+#balance .pie-chart-info .percentage-element.active p{
+    color: white;
+}
+
 /* Calendar */
 
 #calendar{

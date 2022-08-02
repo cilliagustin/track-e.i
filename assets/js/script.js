@@ -106,6 +106,33 @@ balanceExpenseIncomeBtn.forEach(btn =>{
     })
 })
 
+//Select elements
+pieChartInfo.addEventListener('click', e =>{
+    if(e.target.hasAttribute('data-add-category')){
+        let category = e.target.getAttribute('data-add-category');
+        let circles = document.querySelectorAll('#balance .pie-chart .pie-chart-container svg');
+        let percentageElements = document.querySelectorAll('#balance .pie-chart-info div');
+        circles.forEach(circle =>{
+            if(circle.getAttribute('data-add-category') === category){
+                circle.firstElementChild.classList.remove('unactive')
+                circle.firstElementChild.classList.add('active')
+            } else {
+                circle.firstElementChild.classList.remove('active')
+                circle.firstElementChild.classList.add('unactive')
+            }
+        deleteActive(percentageElements);
+        e.target.classList.add('active')
+        })
+    } else{
+        let circles = document.querySelectorAll('#balance .pie-chart .pie-chart-container svg');
+        let percentageElements = document.querySelectorAll('#balance .pie-chart-info div');
+        circles.forEach(circle =>{
+            circle.firstElementChild.classList.remove('active', 'unactive')
+        })
+        deleteActive(percentageElements);
+    }
+})
+
 // Add section functions
 
 //Filter radio labels in Add section + add income/expense class to section + refresh input values
