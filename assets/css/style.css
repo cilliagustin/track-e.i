@@ -218,6 +218,28 @@ section{
 
 }
 
+#balance .pie-chart .pie-chart-container .pie-chart-result #selected-element{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: none;
+    flex-flow: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#balance .pie-chart .pie-chart-container .pie-chart-result #selected-element i{
+    color: white;
+    font-size: 30px;
+    margin: 12px 0;
+}
+
+#balance .pie-chart .pie-chart-container .pie-chart-result #selected-element p{
+    color: white;
+    font-size: 15px;
+}
+
 #balance .pie-chart .pie-chart-container svg{
     height: 200px;
     width: 200px;
@@ -306,6 +328,16 @@ section{
 #balance.income .pie-chart .pie-chart-container .pie-chart-result hr,
 #balance.expense .pie-chart .pie-chart-container .pie-chart-result hr{
     background: var(--dark-blue);
+}
+
+#balance.income .pie-chart .pie-chart-container .pie-chart-result #selected-element.active{
+    display: flex;
+    background: var(--green-income);
+}
+
+#balance.expense .pie-chart .pie-chart-container .pie-chart-result #selected-element.active{
+    display: flex;
+    background: var(--red-expense);
 }
 
 #balance.income .pie-chart .pie-chart-container svg:nth-child(2),
@@ -789,9 +821,15 @@ footer a i{
     #balance .pie-chart .pie-chart-container .pie-chart-result p:before{
         left: -17px;
     }
-    #balance .pie-chart .pie-chart-container .pie-chart-result :nth-child(2):before{
-        content:"- $";
-        left: -30px;
+
+    #balance .pie-chart .pie-chart-container .pie-chart-result #selected-element i{
+        color: var(--dark-blue);
+        font-size: 40px;
+        margin: 18px 0;
+    }
+    
+    #balance .pie-chart .pie-chart-container .pie-chart-result #selected-element p{
+        font-size: 18px;
     }
 
     #balance .pie-chart .pie-chart-container svg{
@@ -920,6 +958,14 @@ footer a i{
         height: 17.5vw;
         max-width: 200px;
         max-height: 200px;
+    }
+
+    #balance .pie-chart .pie-chart-container .pie-chart-result #selected-element i{
+        font-size: clamp(37px, 5vw, 48px);
+    }
+    
+    #balance .pie-chart .pie-chart-container .pie-chart-result #selected-element p{
+        font-size: clamp(16px, 2vw, 22px);
     }
 
     #balance .pie-chart .pie-chart-container svg{

@@ -106,12 +106,13 @@ balanceExpenseIncomeBtn.forEach(btn =>{
     })
 })
 
-//Select elements
+//Highlight elements
 pieChartInfo.addEventListener('click', e =>{
     if(e.target.hasAttribute('data-add-category')){
         let category = e.target.getAttribute('data-add-category');
         let circles = document.querySelectorAll('#balance .pie-chart .pie-chart-container svg');
         let percentageElements = document.querySelectorAll('#balance .pie-chart-info div');
+        let pieChartResult = document.querySelector('.pie-chart-result')
         circles.forEach(circle =>{
             if(circle.getAttribute('data-add-category') === category){
                 circle.firstElementChild.classList.remove('unactive')
@@ -121,7 +122,57 @@ pieChartInfo.addEventListener('click', e =>{
                 circle.firstElementChild.classList.add('unactive')
             }
         deleteActive(percentageElements);
-        e.target.classList.add('active')
+        e.target.classList.add('active');
+      
+        let elCategory = e.target.querySelector('.category').textContent;
+        let elAmount = e.target.querySelector('.amount').textContent;
+        let elPercentage = e.target.querySelector('.percentage').textContent;
+
+
+        let selectedElement = document.getElementById('selected-element')
+        if(selectedElement === null){
+            let div = document.createElement('div');
+            div.setAttribute('id', 'selected-element');
+            let icon = document.createElement('i');
+            icon.setAttribute('class', 'fa-solid fa-basket-shopping')
+            let selectedCategory =  document.createElement('p');
+            selectedCategory.setAttribute('class', 'category')
+            selectedCategory.textContent = elCategory;
+            let amount =  document.createElement('p');
+            amount.setAttribute('class', 'amount')
+            amount.textContent = elAmount;
+            let percentage =  document.createElement('p');
+            percentage.setAttribute('class', 'percentage')
+            percentage.textContent = elPercentage;
+            div.appendChild(icon)
+            div.appendChild(selectedCategory)
+            div.appendChild(amount)
+            div.appendChild(percentage)
+            pieChartResult.appendChild(div)
+            div.classList.add('active')
+        } else {
+            selectedElement.remove();
+            let div = document.createElement('div');
+            div.setAttribute('id', 'selected-element');
+            let icon = document.createElement('i');
+            icon.setAttribute('class', 'fa-solid fa-basket-shopping')
+            let selectedCategory =  document.createElement('p');
+            selectedCategory.setAttribute('class', 'category')
+            selectedCategory.textContent = elCategory;
+            let amount =  document.createElement('p');
+            amount.setAttribute('class', 'amount')
+            amount.textContent = elAmount;
+            let percentage =  document.createElement('p');
+            percentage.setAttribute('class', 'percentage')
+            percentage.textContent = elPercentage;
+            div.appendChild(icon)
+            div.appendChild(selectedCategory)
+            div.appendChild(amount)
+            div.appendChild(percentage)
+            pieChartResult.appendChild(div)
+            div.classList.add('active')
+        }
+
         })
     } else{
         let circles = document.querySelectorAll('#balance .pie-chart .pie-chart-container svg');
