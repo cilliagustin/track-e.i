@@ -223,10 +223,6 @@ section{
     width: 200px;
 }
 
-#balance .pie-chart .pie-chart-container svg:nth-child(2){
-    opacity: 0;
-}
-
 #balance .pie-chart .toggle-buttons{
     z-index: 2;
     position: absolute;
@@ -310,6 +306,11 @@ section{
 #balance.income .pie-chart .pie-chart-container .pie-chart-result hr,
 #balance.expense .pie-chart .pie-chart-container .pie-chart-result hr{
     background: var(--dark-blue);
+}
+
+#balance.income .pie-chart .pie-chart-container svg:nth-child(2),
+#balance.expense .pie-chart .pie-chart-container svg:nth-child(2){
+    opacity: 0;
 }
 
 /* Calendar */
