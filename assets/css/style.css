@@ -223,6 +223,7 @@ section{
     width: 100%;
     height: 100%;
     border-radius: 50%;
+    border: 4px white double;
     display: none;
     flex-flow: column;
     align-items: center;
@@ -304,6 +305,7 @@ section{
 #balance .pie-chart-info .percentage-element .percentage{
     text-align: right;
     width: 40px;
+    margin-right: 25px;
 }
 
 /* Balance Income/expense */
@@ -823,7 +825,6 @@ footer a i{
     }
 
     #balance .pie-chart .pie-chart-container .pie-chart-result #selected-element i{
-        color: var(--dark-blue);
         font-size: 40px;
         margin: 18px 0;
     }
