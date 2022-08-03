@@ -118,7 +118,7 @@ balanceExpenseIncomeBtn.forEach(btn =>{
 })
 
 //Highlight elements
-document.body.addEventListener('click', e =>{
+balanceSection.addEventListener('click', e =>{
     if(e.target.hasAttribute('data-add-category')){
         let category = e.target.getAttribute('data-add-category');
         let circles = document.querySelectorAll('#balance .pie-chart .pie-chart-container svg');
@@ -192,6 +192,9 @@ document.body.addEventListener('click', e =>{
             circle.firstElementChild.classList.remove('active', 'unactive')
         })
         deleteActive(percentageElements);
+        if(document.getElementById('selected-element') !== null){
+            document.getElementById('selected-element').remove()
+        }
     }
 })
 
