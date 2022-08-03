@@ -223,8 +223,8 @@ addExpenseIncomeBtn.forEach(btn => {
         //Add active class to button
         deleteActive(addExpenseIncomeBtn)
         e.target.classList.add('active')
-        //Delete input values
-        deleteValues(inputs)
+        //Delete input category value
+        inputs[3].value = '';
         //Remove active class from input category
         inputCategory.classList.remove('active')
         //Desselect radio button
