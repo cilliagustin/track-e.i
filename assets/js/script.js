@@ -119,7 +119,7 @@ balanceExpenseIncomeBtn.forEach(btn =>{
 
 //Highlight elements
 balanceSection.addEventListener('click', e =>{
-    if(e.target.hasAttribute('data-add-category')){
+    if(e.target.classList.contains('percentage-element')){
        highlightElement(e)
     } else{
         deleteHighlight()
@@ -127,7 +127,7 @@ balanceSection.addEventListener('click', e =>{
 })
 
 balanceSection.addEventListener('mouseover', e => {
-    if(e.target.hasAttribute('data-add-category')){
+    if(e.target.classList.contains('percentage-element')){
         deleteHighlight()
         highlightElement(e)
     }
