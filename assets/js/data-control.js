@@ -5,7 +5,8 @@ let expensedata
 let incomeTotal
 let expenseTotal
 
-//Create data from each transaction
+//Take data from each transaction, create all objects and arrays necesary 
+//and populate the website
 submit.addEventListener('click', (e)=>{
     e.preventDefault
     let a = parseFloat(inputAmount.value).toFixed(2);
@@ -29,38 +30,31 @@ submit.addEventListener('click', (e)=>{
         //Populates the Add section with the income and expense data
         populateBalance()
 
+
         //filter balance section so it shows the transaction type added
+        let currentType;
         if(addSection.classList.contains('income')){
-            //add correct class to balance section
-            balanceSection.classList.remove('expense')
-            balanceSection.classList.add('income')
-            //give active class to correct button
-            deleteActive(balanceExpenseIncomeBtn)
-            balanceExpenseIncomeBtn[0].classList.add('active')
-            //hides all balance elements and shows correct ones
-            let balanceElements = document.querySelectorAll('[data-add-category]')
-            hideElements(balanceElements);
-            balanceElements.forEach(el =>{
-                if(el.getAttribute('data-add-type') === 'income'){
-                    el.classList.remove('hide')
-                }
-            })
+            currentType = "income";
         } else if(addSection.classList.contains('expense')){
-            //add correct class to balance section
-            balanceSection.classList.remove('income')
-            balanceSection.classList.add('expense')
-            //give active class to correct button
-            deleteActive(balanceExpenseIncomeBtn)
-            balanceExpenseIncomeBtn[1].classList.add('active')
-            //hides all balance elements and shows correct ones
-            let balanceElements = document.querySelectorAll('[data-add-category]')
-            hideElements(balanceElements);
-            balanceElements.forEach(el =>{
-                if(el.getAttribute('data-add-type') === 'expense'){
-                    el.classList.remove('hide')
-                }
-            })
+            currentType = "expense";
         }
+        //add correct class to balance section
+        balanceSection.classList.remove('expense', 'income')
+        balanceSection.classList.add(currentType)
+        //give active class to correct button
+        deleteActive(balanceExpenseIncomeBtn)
+        balanceExpenseIncomeBtn.forEach(btn =>{
+            if(btn.getAttribute('data-button-category') === currentType){
+                btn.classList.add('active')
+            }
+        })
+        let balanceElements = document.querySelectorAll('[data-add-category]')
+        hideElements(balanceElements);
+        balanceElements.forEach(el =>{
+            if(el.getAttribute('data-add-type') === currentType){
+                el.classList.remove('hide')
+            }
+        })
         
 
     console.log("data")
