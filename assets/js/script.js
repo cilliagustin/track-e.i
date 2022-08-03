@@ -120,73 +120,50 @@ balanceExpenseIncomeBtn.forEach(btn =>{
 //Highlight elements
 balanceSection.addEventListener('click', e =>{
     if(e.target.hasAttribute('data-add-category')){
-        let category = e.target.getAttribute('data-add-category');
-        let circles = document.querySelectorAll('#balance .pie-chart .pie-chart-container svg');
-        let percentageElements = document.querySelectorAll('#balance .pie-chart-info div');
-        let pieChartResult = document.querySelector('.pie-chart-result')
-        circles.forEach(circle =>{
-            if(circle.getAttribute('data-add-category') === category){
-                circle.firstElementChild.classList.remove('unactive')
-                circle.firstElementChild.classList.add('active')
-            } else {
-                circle.firstElementChild.classList.remove('active')
-                circle.firstElementChild.classList.add('unactive')
-            }
-        deleteActive(percentageElements);
-        e.target.classList.add('active');
-      
-        let elCategory = e.target.querySelector('.category').textContent;
-        let elAmount = e.target.querySelector('.amount').textContent;
-        let elPercentage = e.target.querySelector('.percentage').textContent;
-
-
-        let selectedElement = document.getElementById('selected-element')
-        if(selectedElement === null){
-            let div = document.createElement('div');
-            div.setAttribute('id', 'selected-element');
-            let icon = document.createElement('i');
-            icon.setAttribute('class', 'fa-solid fa-basket-shopping')
-            let selectedCategory =  document.createElement('p');
-            selectedCategory.setAttribute('class', 'category')
-            selectedCategory.textContent = elCategory;
-            let amount =  document.createElement('p');
-            amount.setAttribute('class', 'amount')
-            amount.textContent = elAmount;
-            let percentage =  document.createElement('p');
-            percentage.setAttribute('class', 'percentage')
-            percentage.textContent = elPercentage;
-            div.appendChild(icon)
-            div.appendChild(selectedCategory)
-            div.appendChild(amount)
-            div.appendChild(percentage)
-            pieChartResult.appendChild(div)
-            div.classList.add('active')
-        } else {
-            selectedElement.remove();
-            let div = document.createElement('div');
-            div.setAttribute('id', 'selected-element');
-            let icon = document.createElement('i');
-            icon.setAttribute('class', 'fa-solid fa-basket-shopping')
-            let selectedCategory =  document.createElement('p');
-            selectedCategory.setAttribute('class', 'category')
-            selectedCategory.textContent = elCategory;
-            let amount =  document.createElement('p');
-            amount.setAttribute('class', 'amount')
-            amount.textContent = elAmount;
-            let percentage =  document.createElement('p');
-            percentage.setAttribute('class', 'percentage')
-            percentage.textContent = elPercentage;
-            div.appendChild(icon)
-            div.appendChild(selectedCategory)
-            div.appendChild(amount)
-            div.appendChild(percentage)
-            pieChartResult.appendChild(div)
-            div.classList.add('active')
-        }
-
-        })
+       highlightElement(e)
     } else{
-        let circles = document.querySelectorAll('#balance .pie-chart .pie-chart-container svg');
+        deleteHighlight()
+    }
+})
+
+balanceSection.addEventListener('mouseover', e => {
+    if(e.target.hasAttribute('data-add-category')){
+        deleteHighlight()
+        highlightElement(e)
+    }
+});
+
+//Highlight selected element in piechart, in piechart info and show information on top of final balance
+function highlightElement(e){
+    let category = e.target.getAttribute('data-add-category');
+    let circles = document.querySelectorAll('#balance .pie-chart .pie-chart-container svg');
+    let percentageElements = document.querySelectorAll('#balance .pie-chart-info div');
+    circles.forEach(circle =>{
+        //adds necesry active or unactive class to svg
+        if(circle.getAttribute('data-add-category') === category){
+            circle.firstElementChild.classList.remove('unactive')
+            circle.firstElementChild.classList.add('active')
+        } else {
+            circle.firstElementChild.classList.remove('active')
+            circle.firstElementChild.classList.add('unactive')
+        }
+    //deletes active class to all percentage elements and gives it to the correct one
+    deleteActive(percentageElements);
+    e.target.classList.add('active');
+
+    //check if selected elements exists, if it does deletes it and creates a new one
+    let selectedElement = document.getElementById('selected-element')
+    if(selectedElement === null){
+        createSelectedElement(e)
+    } else {
+        selectedElement.remove();
+        createSelectedElement(e)
+    }
+    })
+}
+
+function deleteHighlight(){
+    let circles = document.querySelectorAll('#balance .pie-chart .pie-chart-container svg');
         let percentageElements = document.querySelectorAll('#balance .pie-chart-info div');
         circles.forEach(circle =>{
             circle.firstElementChild.classList.remove('active', 'unactive')
@@ -195,8 +172,36 @@ balanceSection.addEventListener('click', e =>{
         if(document.getElementById('selected-element') !== null){
             document.getElementById('selected-element').remove()
         }
-    }
-})
+}
+
+function createSelectedElement(e){
+    //gets data from the target
+    let pieChartResult = document.querySelector('.pie-chart-result')
+    let elCategory = e.target.querySelector('.category').textContent;
+    let elAmount = e.target.querySelector('.amount').textContent;
+    let elPercentage = e.target.querySelector('.percentage').textContent;
+
+    //adds data to variables and populates pie chart result
+    let div = document.createElement('div');
+        div.setAttribute('id', 'selected-element');
+        let icon = document.createElement('i');
+        icon.setAttribute('class', 'fa-solid fa-basket-shopping')
+        let selectedCategory =  document.createElement('p');
+        selectedCategory.setAttribute('class', 'category')
+        selectedCategory.textContent = elCategory;
+        let amount =  document.createElement('p');
+        amount.setAttribute('class', 'amount')
+        amount.textContent = elAmount;
+        let percentage =  document.createElement('p');
+        percentage.setAttribute('class', 'percentage')
+        percentage.textContent = elPercentage;
+        div.appendChild(icon)
+        div.appendChild(selectedCategory)
+        div.appendChild(amount)
+        div.appendChild(percentage)
+        pieChartResult.appendChild(div)
+        div.classList.add('active')
+}
 
 // Add section functions
 
