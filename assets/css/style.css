@@ -508,6 +508,7 @@ section{
 #add .input-container .input-box input{
     height: 100%;
     width: 100%;
+    background: white;
     color: var(--dark-blue);
     border-radius: var(--border);
     border: 1.5px solid var(--blue);
