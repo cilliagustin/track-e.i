@@ -586,6 +586,10 @@ section{
     width: 40%;
 }
 
+#add .input-container .input-box.input-box-date label{
+    width: 100px;
+}
+
 #add .input-container .input-box.input-box-date input:invalid{
     color: white;
 }
@@ -610,8 +614,13 @@ section{
 }
 
 #add .input-container .input-box-input-category input.active ~ label{
-    left: 30%;
-}
+   left: 30%;
+} 
+
+#add .input-container .input-box.input-box-date input:focus ~ label,
+#add .input-container .input-box.input-box-date input:valid ~ label{
+    width: auto;
+ } 
 
 #add .input-container h2{
     width: 100%;
