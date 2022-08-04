@@ -59,7 +59,9 @@ body{
     background: rgb(251,254,250);
     width: 100vw;
     min-height: 100vh;
+    max-height: 100vh;
     min-height: -webkit-fill-available;
+    max-height: -webkit-fill-available;
     overflow: hidden;
     box-sizing: border-box;
     display: grid;
