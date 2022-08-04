@@ -248,6 +248,8 @@ addRadioInput.forEach(input => {
     })
 })
 
+inputDate.max = new Date().toLocaleDateString('en-ca')
+
 // Helper functions
 
 /**
