@@ -18,29 +18,29 @@
     rgba(0, 0, 0, 0.07) 0px 16px 32px,
     rgba(0, 0, 0, 0.07) 0px 32px 64px;
 
-    --income-shade-salary: rgb(9, 42, 24);
-    --income-shade-loanrecieve: rgb(28, 125, 71);
-    --income-shade-savings: rgb(46, 209, 118);
-    --income-shade-sellstockcrypto: rgb(130, 227, 173);
-    --income-shade-otherincome: rgb(213, 246, 228);
+    --income-shade-salary: rgb(19, 80, 47);
+    --income-shade-loanrecieve: rgb(36, 141, 83);
+    --income-shade-savings: rgb(42, 185, 106);
+    --income-shade-sellstockcrypto: rgb(92, 203, 142);
+    --income-shade-otherincome: rgb(138, 216, 173);
 
-    --expense-shade-rent:rgb(8, 2, 3);
-    --expense-shade-groceries:rgb(25, 6, 8);
-    --expense-shade-bills:rgb(34, 9, 11);
-    --expense-shade-clothing:rgb(56, 14, 18);
-    --expense-shade-gifts:rgb(79, 20, 26);
-    --expense-shade-transportation:rgb(102, 26, 33);
-    --expense-shade-health:rgb(147, 37, 48);
-    --expense-shade-pets:rgb(170, 43, 55);
-    --expense-shade-restaurants:rgb(192, 49, 63);
-    --expense-shade-entertaining:rgb(206, 63, 77);
-    --expense-shade-buystockcrypto:rgb(212, 85, 98);
-    --expense-shade-vacations:rgb(218, 108, 119);
-    --expense-shade-house:rgb(224, 131, 140);
-    --expense-shade-studies:rgb(229, 153, 161);
-    --expense-shade-loanpay:rgb(235, 176, 182);
-    --expense-shade-familysupport:rgb(241, 198, 203);
-    --expense-shade-otherexpense:rgb(246, 221, 224);
+    --expense-shade-rent:rgb(102, 26, 33);
+    --expense-shade-groceries:rgb(142, 36, 46);
+    --expense-shade-bills:rgb(183, 46, 60);
+    --expense-shade-clothing:rgb(209, 72, 85);
+    --expense-shade-gifts:rgb(219, 113, 123);
+    --expense-shade-transportation:rgb(229, 153, 161);
+    --expense-shade-health:rgb(240, 194, 198);
+    --expense-shade-pets:rgb(253,147,8);
+    --expense-shade-restaurants:rgb(228, 130, 2);
+    --expense-shade-entertaining:rgb(253, 155, 27);
+    --expense-shade-buystockcrypto:rgb(254, 178, 78);
+    --expense-shade-vacations:rgb(254, 200, 129);
+    --expense-shade-house:rgb(254, 222, 179);
+    --expense-shade-studies:rgb(243, 247, 33);
+    --expense-shade-loanpay:rgb(246, 249, 83);
+    --expense-shade-familysupport:rgb(249, 251, 132);
+    --expense-shade-otherexpense:rgb(251, 252, 181);
 }
 
 *{
@@ -366,7 +366,7 @@ section{
 
 #balance.income .pie-chart .pie-chart-container svg circle.unactive,
 #balance.expense .pie-chart .pie-chart-container svg circle.unactive{
-    stroke:var(--dark-blue);
+    stroke:black;
 }
 
 #balance.income .pie-chart-info .percentage-element.active{
