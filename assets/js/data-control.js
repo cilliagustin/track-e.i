@@ -1,6 +1,6 @@
 let data = []
 let dataByDate;
-let incomedata
+let incomedata;
 let expensedata
 let incomeTotal
 let expenseTotal
@@ -162,13 +162,7 @@ const groupBy = (key,arr) => arr
     {}
 )
 
-//Orders the object by key value in reverse
-function sortObj(obj) {
-    return Object.keys(obj).sort().reverse().reduce(function (result, key) {
-      result[key] = obj[key];
-      return result;
-    }, {});
-  }
+
 
 //Populate calendar section with dataByDate obj
 function populateCalendar(obj){
@@ -253,6 +247,8 @@ function createBalanceData(arr){
     let expenseObj = {}
     let incomeAmount = 0
     let expenseAmount = 0
+    incomedata = {}
+    expensedata = {}
     //Iterates each object and gets necesary information
     arr.forEach(obj => {
         let transtype = obj.type;
@@ -291,8 +287,8 @@ function createBalanceData(arr){
     }
 
     //returns the data to the global scope
-    incomedata = incomeObj;
-    expensedata = expenseObj;
+    sortBalanceObj(incomeObj, incomedata)
+    sortBalanceObj(expenseObj, expensedata)
     incomeTotal = parseFloat(incomeAmount).toFixed(2);
     expenseTotal = parseFloat(expenseAmount).toFixed(2);
 }
@@ -383,5 +379,19 @@ function populateBalance(){
     pieChartInfo.innerHTML = balanceInfo
 }
 
+//Orders the array of objects by key value in reverse
+function sortObj(obj) {
+    return Object.keys(obj).sort().reverse().reduce(function (result, key) {
+      result[key] = obj[key];
+      return result;
+    }, {});
+  }
 
-
+//orders the object of objects by inner parameter
+function sortBalanceObj(obj, selectedData){
+    Object.keys(obj).sort(function(a, b){
+        return obj[b].percentage - obj[a].percentage;
+    }).forEach(function(key) {
+        selectedData[key] = obj[key];
+    });
+}
