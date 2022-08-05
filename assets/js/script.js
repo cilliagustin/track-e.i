@@ -2,6 +2,8 @@
 const navLinks = document.querySelectorAll('.nav-link');
 const currency = document.getElementById('currency');
 let selectedCurrency = currency.value;
+const decimal = document.getElementById('decimal');
+let selectedDecimal = decimal.value;
 const sections = document.querySelectorAll('section');
 const balanceNavLink = document.getElementById('balance-navlink');
 const balanceSection = document.getElementById('balance');
@@ -60,7 +62,7 @@ navLinks.forEach(link =>{
     })
 })
 
-
+//Select currency and populate Dom with this
 currency.addEventListener('change', e =>{
     selectedCurrency = e.target.value;
     console.log(selectedCurrency)
@@ -70,6 +72,18 @@ currency.addEventListener('change', e =>{
     })
 })
 
+//Select Decimal and populate Dom with this
+decimal.addEventListener('change', e =>{
+    selectedDecimal = e.target.value;
+    let displayedAmounts = document.querySelectorAll('[data-amount]')
+    displayedAmounts.forEach(amount =>{
+        if(selectedDecimal === ','){
+            amount.innerText = amount.innerText.replaceAll('.', selectedDecimal);
+        } else if(selectedDecimal === '.'){
+            amount.innerText = amount.innerText.replaceAll(',', selectedDecimal);
+        }
+    })
+})
 
 //Checks website when rezising and activates different functionalities
 window.addEventListener('resize', () => {
