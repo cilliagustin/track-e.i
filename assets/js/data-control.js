@@ -199,7 +199,7 @@ function populateCalendar(obj){
             </li>
             `;
             transactionsOfTheDay += transactionLi;
-        }
+        } 
         //if the dailyResult is positive add a "$"", if is negative style it with a "$" between the number and the "-" 
         if(dailyResult >= 0){
             dailyResult = `<span data-currency>${selectedCurrency}</span> ${dailyResult.toFixed(2)}`
