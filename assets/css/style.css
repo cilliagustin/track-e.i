@@ -165,6 +165,116 @@ nav ul li .active::after{
     width: 100%;
 }
 
+nav ul li input{
+    display: none;
+}
+
+nav ul li .hamb{
+    height: 15px;
+    width: 20px;
+    position: relative;
+    display: block;
+    top:2px;
+    cursor: pointer;
+}
+
+nav ul li .hamb span{
+    height: 1.5px;
+    width: 14px;
+    background: rgb(214, 214, 214);
+    position: absolute;
+    top: 7px;
+    left: 3px;
+    transition: all .4s ease;
+}
+
+nav ul li .hamb span:before,
+nav ul li .hamb span::after{
+    content: "";
+    height: 1.5px;
+    width: 14px;
+    background: rgb(214, 214, 214);
+    position: absolute;
+    top: 3.5px;
+    left: 0;
+    transition: all .4s ease;
+}
+
+nav ul li .hamb:hover span,
+nav ul li .hamb:hover span:before,
+nav ul li .hamb:hover span::after{
+    background: rgb(251, 254, 250);
+}
+
+nav ul li .hamb span::after{
+    top: -3px;
+}
+
+nav ul li input:checked ~ .hamb span{
+    background: transparent;
+}
+
+nav ul li input:checked ~ .hamb span::before{
+    top: 0;
+    left: 0;
+    transform: rotate(225deg);
+}
+
+nav ul li input:checked ~ .hamb span::after{
+    top: 0;
+    left: 0;
+    transform: rotate(-225deg);
+}
+
+nav ul li div{
+    background: rgb(28 77 124);
+    width: 100%;
+    height: 0px;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    transition: all .4s ease-in;
+}
+
+nav ul li input:checked ~ div{
+    height: 20px;
+}
+
+nav ul li div label{
+    font-size: 10px;
+    color: rgb(251, 254, 250);
+}
+
+nav ul li div select{
+    background: none;
+    border: none;
+    color: rgb(251, 254, 250);
+    font-size: 10px;
+}
+
+nav ul li div select:focus{
+    outline: none;
+}
+
+nav ul li div #currency{
+    height: 18px;
+    width: 40px;
+}
+
+nav ul li div #decimal{
+    height: 18px;
+    width: 24px;
+}
+
+nav ul li div select option{
+    color: black;
+}
+
 /* Sections */
 
 section{
@@ -947,7 +1057,7 @@ footer a i{
         grid-row: 1;
     }
 
-    nav ul li:last-child{
+    nav ul #add-navlink{
         display: none;
     }
 
