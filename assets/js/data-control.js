@@ -159,7 +159,7 @@ function populateCalendar(obj){
     for(let transactionDay in obj){
         //transform yyyy/mm/dd format of date into dd/mm/yyyy
         let [year, month, day] = transactionDay.split('-');
-        let transactionDate = [month, day, year].join('/');
+        let transactionDate = [day, month, year].join('/');
         //Create empty string that will include all information of the day
         let transactionsOfTheDay = "";
         //Create variable for the result of the day (all the incomes - all expenses)
