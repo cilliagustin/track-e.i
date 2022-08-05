@@ -1,5 +1,7 @@
 // Variables
 const navLinks = document.querySelectorAll('.nav-link');
+const currency = document.getElementById('currency');
+let selectedCurrency = currency.value;
 const sections = document.querySelectorAll('section');
 const balanceNavLink = document.getElementById('balance-navlink');
 const balanceSection = document.getElementById('balance');
@@ -57,6 +59,17 @@ navLinks.forEach(link =>{
         }
     })
 })
+
+
+currency.addEventListener('change', e =>{
+    selectedCurrency = e.target.value;
+    console.log(selectedCurrency)
+    let displayedCurrency = document.querySelectorAll('[data-currency]')
+    displayedCurrency.forEach(el =>{
+        el.textContent = selectedCurrency
+    })
+})
+
 
 //Checks website when rezising and activates different functionalities
 window.addEventListener('resize', () => {
@@ -118,7 +131,7 @@ balanceExpenseIncomeBtn.forEach(btn =>{
 })
 
 //Highlight elements
-balanceSection.addEventListener('click', e =>{
+document.body.addEventListener('click', e =>{
     if(e.target.classList.contains('percentage-element')){
        highlightElement(e)
     } else{

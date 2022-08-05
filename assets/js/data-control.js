@@ -55,19 +55,6 @@ submit.addEventListener('click', (e)=>{
                 el.classList.remove('hide')
             }
         })
-        
-
-    console.log("data")
-    console.log(data)
-    console.log("incomedata")
-    console.log(incomedata)
-    console.log("expensedata")
-    console.log(expensedata)
-    console.log("incomeTotal")
-    console.log(incomeTotal)
-    console.log("expenseTotal")
-    console.log(expenseTotal)
- 
 }
 })
 
@@ -193,10 +180,10 @@ function populateCalendar(obj){
             //will have "-$" added and the daily reult will have this amount subtracted
             if(transactionType === "income"){
                 dailyResult = dailyResult + Number(transactionAmount)
-                transactionAmountStyled = `$ ${transactionAmount}`
+                transactionAmountStyled = `<span data-currency>${selectedCurrency}</span> ${transactionAmount}`
             } else if (transactionType === "expense"){
                 dailyResult = dailyResult - Number(transactionAmount)
-                transactionAmountStyled = `-$ ${transactionAmount}`
+                transactionAmountStyled = `<span data-currency>-${selectedCurrency}</span> ${transactionAmount}`
             }
 
             // Add variables to a string with the html code and each loop add it to the transactionsOfTheDay variable
@@ -215,9 +202,9 @@ function populateCalendar(obj){
         }
         //if the dailyResult is positive add a "$"", if is negative style it with a "$" between the number and the "-" 
         if(dailyResult >= 0){
-            dailyResult = `$ ${dailyResult.toFixed(2)}`
+            dailyResult = `<span data-currency>${selectedCurrency}</span> ${dailyResult.toFixed(2)}`
         } else if(dailyResult < 0){
-            dailyResult = `-$ ${Math.abs(dailyResult).toFixed(2)}`
+            dailyResult = `<span data-currency>-${selectedCurrency}</span> ${Math.abs(dailyResult).toFixed(2)}`
         }
         //Create a variable for all the information of the day
         let dateLi = `
@@ -298,17 +285,16 @@ function populateBalance(){
     let finalBalance
 
     if(incomeTotal >= expenseTotal){
-        finalBalance = `$ ${parseFloat(incomeTotal - expenseTotal).toFixed(2)}`
+        finalBalance = `<span data-currency>${selectedCurrency}</span> ${parseFloat(incomeTotal - expenseTotal).toFixed(2)}`
     } else if(incomeTotal < expenseTotal){
-        finalBalance = `-$ ${parseFloat(Math.abs(expenseTotal - incomeTotal)).toFixed(2)}`
+        finalBalance = `<span data-currency>-${selectedCurrency}</span> ${parseFloat(Math.abs(expenseTotal - incomeTotal)).toFixed(2)}`
     }
     let pieChartBalance = "";
     let balanceInfo = "";
-    console.log(finalBalance)
     pieChartBalance += `
     <div class="pie-chart-result">
-        <p>$ ${incomeTotal}</p>
-        <p>-$ ${expenseTotal}</p>
+        <p><span data-currency><span data-currency>${selectedCurrency}</span></span> ${incomeTotal}</p>
+        <p><span data-currency><span data-currency>-${selectedCurrency}</span></span> ${expenseTotal}</p>
         <hr>
         <p>${finalBalance}</p>
     </div>
@@ -335,7 +321,7 @@ function populateBalance(){
         <div data-add-category="${noSpecialCaseCategory}" data-add-type="income" class="percentage-element hide">
                 <i class="fa-solid fa-basket-shopping"></i>
                 <p class="category"> ${incomeCategory}</p>
-                <p class="amount">$ ${incomeAmount}</p>
+                <p class="amount"><span data-currency>${selectedCurrency}</span> ${incomeAmount}</p>
                 <p class="percentage">${incomePercentage}%</p>
             </div>
         `
@@ -364,7 +350,7 @@ function populateBalance(){
         <div data-add-category="${noSpecialCaseCategory}" data-add-type="expense" class="percentage-element hide">
                 <i class="fa-solid fa-basket-shopping"></i>
                 <p class="category"> ${expenseCategory}</p>
-                <p class="amount">$ ${expenseAmount}</p>
+                <p class="amount"><span data-currency>${selectedCurrency}</span> ${expenseAmount}</p>
                 <p class="percentage">${expensePercentage}%</p>
             </div>
         `
