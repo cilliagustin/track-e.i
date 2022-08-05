@@ -381,7 +381,7 @@ function sortBalanceObj(obj, selectedData){
         selectedData[key] = obj[key];
     });
 }
-
+ 
 //get data from local storage and populate dom
 function getData(){
     data = JSON.parse(localStorage.getItem('data')) || [];
