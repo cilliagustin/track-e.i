@@ -61,21 +61,34 @@ navLinks.forEach(link =>{
         }
     })
 })
-
+ 
 //Select currency and populate Dom with this
 currency.addEventListener('change', e =>{
+    //set value of selected currency and store it in local storage
     selectedCurrency = e.target.value;
-    console.log(selectedCurrency)
+    localStorage.setItem('selectedCurrency', JSON.stringify(selectedCurrency))
+    //replace the money sign in dom
+    changeCurrency(selectedCurrency)
+})
+
+function changeCurrency(selectedCurrency){
     let displayedCurrency = document.querySelectorAll('[data-currency]')
     displayedCurrency.forEach(el =>{
         el.textContent = selectedCurrency
     })
-})
+}
 
 //Select Decimal and populate Dom with this
 decimal.addEventListener('change', e =>{
+    //set value of selected decimal and store it in local storage
     selectedDecimal = e.target.value;
+    localStorage.setItem('selectedDecimal', JSON.stringify(selectedDecimal))
+    changeDecimal(selectedDecimal)
+})
+
+function changeDecimal(selectedDecimal){
     let displayedAmounts = document.querySelectorAll('[data-amount]')
+    //replace for selected decimal
     displayedAmounts.forEach(amount =>{
         if(selectedDecimal === ','){
             amount.innerText = amount.innerText.replaceAll('.', selectedDecimal);
@@ -83,7 +96,7 @@ decimal.addEventListener('change', e =>{
             amount.innerText = amount.innerText.replaceAll(',', selectedDecimal);
         }
     })
-})
+}
 
 //Checks website when rezising and activates different functionalities
 window.addEventListener('resize', () => {

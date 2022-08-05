@@ -19,8 +19,9 @@ submit.addEventListener('click', (e)=>{
     } else if (a == null || a == "" || isNaN(a) === true || b == null || b == "" || c == null || c == "" || d == null || d == ""){
         alert("Please complete all the fields")} 
     else {
-        //Create data with all transaction information
+        //Create data with all transaction information and add to local storage
         createData(a,b,c,d)
+        localStorage.setItem('data', JSON.stringify(data))
         //Adds to the dataBy date transactions grouped by date and orders ir from most recent to oldestone
         dataByDate = sortObj(groupBy('date', data))
         //Populates the calendar section with the dataByDate
@@ -73,8 +74,9 @@ calendarList.addEventListener('click', e =>{
                 newData.push(obj)
             }
         })
-        //update data array
+        //update data array and store in local storage
         data = newData
+        localStorage.setItem('data', JSON.stringify(data))
 
         //Repeat functions that create all data and populate sections
         dataByDate = sortObj(groupBy('date', data))
@@ -148,8 +150,6 @@ const groupBy = (key,arr) => arr
     },
     {}
 )
-
-
 
 //Populate calendar section with dataByDate obj
 function populateCalendar(obj){
@@ -381,3 +381,20 @@ function sortBalanceObj(obj, selectedData){
         selectedData[key] = obj[key];
     });
 }
+
+//get data from local storage and populate dom
+function getData(){
+    data = JSON.parse(localStorage.getItem('data')) || [];
+    selectedCurrency = JSON.parse(localStorage.getItem('selectedCurrency')) || currency.value;
+    selectedDecimal = JSON.parse(localStorage.getItem('selectedDecimal')) || decimal.value;
+    //Adds to the dataBy date transactions grouped by date and orders ir from most recent to oldestone
+    dataByDate = sortObj(groupBy('date', data))
+    //Populates the calendar section with the dataByDate
+    populateCalendar(dataByDate)
+    //Create data for expense and income transactions
+    createBalanceData(data)
+    //Populates the Add section with the income and expense data
+    populateBalance()
+}
+
+getData()
