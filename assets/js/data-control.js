@@ -170,7 +170,7 @@ function populateCalendar(obj){
             let transactionData = obj[transactionDay][transaction]
             let transactionCategory = transactionData.category
             let transactionNote = transactionData.note
-            let transactionAmount = transactionData.amount
+            let transactionAmount = transactionData.amount.toFixed(2)
             let transactionId = transactionData.timeStamp
             let transactionType = transactionData.type
 
@@ -321,7 +321,7 @@ function populateBalance(){
         <div data-add-category="${noSpecialCaseCategory}" data-add-type="income" class="percentage-element hide">
                 <i class="fa-solid fa-basket-shopping"></i>
                 <p class="category"> ${incomeCategory}</p>
-                <p class="amount"><span data-currency>${selectedCurrency}</span> ${incomeAmount}</p>
+                <p class="amount"><span data-currency>${selectedCurrency}</span> ${incomeAmount.toFixed(2)}</p>
                 <p class="percentage">${incomePercentage}%</p>
             </div>
         `
@@ -350,7 +350,7 @@ function populateBalance(){
         <div data-add-category="${noSpecialCaseCategory}" data-add-type="expense" class="percentage-element hide">
                 <i class="fa-solid fa-basket-shopping"></i>
                 <p class="category"> ${expenseCategory}</p>
-                <p class="amount"><span data-currency>${selectedCurrency}</span> ${expenseAmount}</p>
+                <p class="amount"><span data-currency>${selectedCurrency}</span> ${expenseAmount.toFixed(2)}</p>
                 <p class="percentage">${expensePercentage}%</p>
             </div>
         `
