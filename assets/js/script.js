@@ -129,7 +129,7 @@ balanceExpenseIncomeBtn.forEach(btn =>{
 
     })
 })
-
+ 
 //Highlight elements
 document.body.addEventListener('click', e =>{
     if(e.target.classList.contains('percentage-element')){
