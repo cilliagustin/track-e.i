@@ -56,6 +56,36 @@ submit.addEventListener('click', (e)=>{
                 el.classList.remove('hide')
             }
         })
+
+        console.log("test")
+        //create Popup confirming new transaction
+        let popUp = document.createElement('div');
+        popUp.setAttribute('id', 'pop-up');
+        let popUpContent = document.createElement('div');
+        popUpContent.classList.add('pop-up-content');
+        let popUpHead = document.createElement('div');
+        popUpHead.classList.add('pop-up-head');
+        let checked = document.createElement('i');
+        checked.classList.add('fa-solid', 'fa-circle-check');
+        popUpHead.appendChild(checked)
+        popUpContent.appendChild(popUpHead)
+        let popUpBody = document.createElement('div');
+        popUpBody.classList.add('pop-up-body');
+        let h2 = document.createElement('h2');
+        h2.textContent = 'Transaction succesfully added!'
+        let h3 = document.createElement('h3');
+        h3.textContent = 'Click to continue';
+        popUpBody.appendChild(h2)
+        popUpBody.appendChild(h3)
+        popUpContent.appendChild(popUpBody)
+        popUp.appendChild(popUpContent)
+
+        document.body.insertBefore(popUp, balanceSection)
+
+        popUp.addEventListener('click', e=>{
+            popUp.remove()
+        })
+
 }
 })
 
