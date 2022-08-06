@@ -228,11 +228,11 @@ nav ul li input:checked ~ .hamb span::after{
 
 nav ul li div{
     background: rgb(28 77 124);
-    width: 100%;
-    height: 0px;
+    width: 0;
+    height: 30px;
     position: absolute;
-    top: 30px;
-    left: 0;
+    top: 0;
+    right: 31px;
     z-index: 3;
     display: flex;
     align-items: center;
@@ -242,7 +242,19 @@ nav ul li div{
 }
 
 nav ul li input:checked ~ div{
-    height: 20px;
+    width: 70%;
+}
+
+nav ul li div:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0px;
+    height: 0px;
+    border-right: 30px solid transparent;
+    border-top: 30px solid var(--blue);
+    background: none;
 }
 
 nav ul li div label{
