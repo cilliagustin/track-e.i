@@ -929,6 +929,67 @@ footer a i{
     cursor: pointer;
 }
 
+
+#pop-up{
+    position: absolute;
+    z-index: 3;
+    height: calc(100% - 65px);
+    width: 100%;
+    top: 30px;
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+#pop-up .pop-up-content{
+    position: absolute;
+    z-index: 4;
+    height: 300px;
+    width: 200px;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -100px;
+    background: rgb(119,158,203);
+    border-radius: 0 0 var(--border) var(--border);
+}
+
+#pop-up .pop-up-content .pop-up-head{
+    width: 100%;
+    height: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pop-up .pop-up-content .pop-up-head i{
+    color: white;
+    font-size: 88px;
+}
+
+#pop-up .pop-up-content .pop-up-body{
+    width: 100%;
+    height: 45%;
+    background: rgb(251,254,250);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 var(--border) var(--border); 
+}
+
+#pop-up .pop-up-content .pop-up-body h2{
+    color: var(--dark-blue); 
+    text-align: center;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+#pop-up .pop-up-content .pop-up-body h3{
+    color: var(--blue); 
+    text-align: center;
+    font-size: 11px;
+}
+
 /* Mediaqueries tablet */
 @media screen and (min-width: 576px) and (max-width: 767px) {
     /* Balance */
