@@ -409,7 +409,8 @@ section{
     margin-right: 10px;
 }
 
-#balance .pie-chart-info .percentage-element p{
+#balance .pie-chart-info .percentage-element p,
+#balance .pie-chart-info .percentage-element p span{
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     text-transform: uppercase;
@@ -601,7 +602,7 @@ section{
     position: relative;
     margin: 0 auto 0 auto;
     background: white;
-    padding: 10px 5px 0px;
+    padding: 15px 5px 0px;
     border-radius:0 0 var(--border) var(--border);
     display: flex;
     flex-flow: row;
@@ -614,7 +615,7 @@ section{
 #add .input-container .input-box{
     height: 30px;
     position: relative;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 #add .input-container .input-box input{
@@ -636,11 +637,10 @@ section{
     position: absolute;
     top: 5px;
     left: 2px;
-    z-index: 2;
+    z-index: 3;
     font-size: 12px;
     font-weight: 600;
     background: white;
-    border: 1.5px solid white;
     color: var(--blue);
     border-radius: 5px;
     transition: all .5s;
@@ -654,10 +654,11 @@ section{
 #add .input-container .input-box-input-category input.active ~ label{
     padding: 1px 3px;
     margin: auto;
-    font-size: 8px;
+    font-size: 14px;
     font-weight: 600;
-    border-color: var(--dark-blue);
-    top: -8px;
+    background: none;
+    border: none;
+    top: -19px;
     left: 10px;
 }
 
@@ -673,6 +674,10 @@ section{
     margin-right: auto;
 }
 
+#add .input-container .input-box.input-box-amount input{
+    padding-left: 53px;
+}
+
 #add .input-container .input-box-amount #amount{
     font-size: 25px;
     text-align: center;
@@ -682,6 +687,18 @@ section{
     text-align: center;
     font-size: 25px;
     top: 3px;
+}
+
+#add .input-container .input-box.input-box-amount [data-currency]{
+    position: absolute;
+    background: none;
+    z-index: 2;
+    top: 5px;
+    left: 5px;
+    font-size: 25px;
+    color: var(--dark-blue);
+    font-weight: 600;
+
 }
 
 #add .input-container .input-box.input-box-note{
