@@ -423,8 +423,11 @@ function getData(){
     populateCalendar(dataByDate)
     //Create data for expense and income transactions
     createBalanceData(data)
-    //Populates the Add section with the income and expense data
+    //Populates the Balance section with the income and expense data
     populateBalance()
+
+    //Adds selected currency to span in amount input
+    document.querySelector('#add .input-container .input-box-amount [data-currency]').textContent = selectedCurrency;
 }
 
 getData()
