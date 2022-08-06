@@ -692,7 +692,6 @@ section{
 
 #add .input-container .input-box-amount #amount{
     font-size: 25px;
-    text-align: center;
 }
 
 #add .input-container .input-box.input-box-amount label{
@@ -1110,7 +1109,7 @@ footer a i{
 
     /* Add */
     #add .input-container{
-        padding: 10px 30px 0px;
+        padding: 17px 30px 0px;
     }
 
     #add .category-container{
