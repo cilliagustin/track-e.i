@@ -416,6 +416,12 @@ section{
     rgb(0 0 0 / 10%) 0px 20px 25px -5px, rgb(0 0 0 / 4%) 0px 10px 10px -5px
 }
 
+#balance .pie-chart-info .percentage-element i,
+#balance .pie-chart-info .percentage-element p,
+#balance .pie-chart-info .percentage-element p span{
+    pointer-events: none;
+}
+
 #balance .pie-chart-info .percentage-element i{
     font-size: 30px;
     margin-right: 10px;
