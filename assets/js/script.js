@@ -128,7 +128,7 @@ window.addEventListener('resize', checkLandscapeMode)
 function checkLandscapeMode(){
     let height = this.window.innerHeight
     let width = this.window.innerWidth
-    if(height < width &&  height < 600  &&(width - height) >= 200){
+    if(height < width &&  height < 500 && width < 900 &&(width - height) >= 200){
         let popUpError = document.createElement('div');
         popUpError.setAttribute('id', 'pop-up-error');
         let popUpContent = document.createElement('div');
@@ -150,6 +150,7 @@ function checkLandscapeMode(){
         popUpContent.appendChild(popUpBody)
         popUpError.appendChild(popUpContent)
         document.body.insertBefore(popUpError, balanceSection)
+
     } else {
         let popUpError = document.getElementById('pop-up-error')
         if(popUpError){
