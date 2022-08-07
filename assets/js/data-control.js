@@ -349,7 +349,7 @@ function populateBalance(){
         `
         let incomeElement = `
         <div data-add-category="${noSpecialCaseCategory}" data-add-type="income" class="percentage-element hide">
-                <i class="fa-solid fa-basket-shopping"></i>
+                <i class="${iconsObj[noSpecialCaseCategory]}"></i>
                 <p class="category"> ${incomeCategory}</p>
                 <p class="amount"><span data-currency>${selectedCurrency}</span> <span data-amount>${incomeAmount.toFixed(2)}</span></p>
                 <p class="percentage">${incomePercentage}%</p>
@@ -378,7 +378,7 @@ function populateBalance(){
         `
         let expenseElement = `
         <div data-add-category="${noSpecialCaseCategory}" data-add-type="expense" class="percentage-element hide">
-                <i class="fa-solid fa-basket-shopping"></i>
+                <i class="${iconsObj[noSpecialCaseCategory]}"></i>
                 <p class="category"> ${expenseCategory}</p>
                 <p class="amount"><span data-currency>${selectedCurrency}</span> <span data-amount>${expenseAmount.toFixed(2)}</span></p>
                 <p class="percentage">${expensePercentage}%</p>
