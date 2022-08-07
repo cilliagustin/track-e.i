@@ -21,7 +21,31 @@ const submit = document.getElementById('submit');
 const addExpenseIncomeBtn = document.querySelectorAll('#add .input-container button');
 const addRadioInput = document.querySelectorAll('#add .category-container input');
 const addRadioLabel = document.querySelectorAll('#add .category-container label');
-const calendarList = document.querySelector('#calendar .container ul')
+const calendarList = document.querySelector('#calendar .container ul');
+const iconsObj = {
+    salary: "fa-solid fa-money-bill-1-wave",
+    loanrecieve: "fa-solid fa-money-bill-transfer",
+    savings: "fa-solid fa-piggy-bank",
+    sellstockcrypto: "fa-solid fa-money-bill-trend-up",
+    otherincome: "fa-solid fa-circle",
+    rent: "fa-solid fa-house-chimney",
+    groceries: "fa-solid fa-basket-shopping",
+    bills: "fa-solid fa-file-invoice-dollar",
+    clothing: "fa-solid fa-shirt",
+    gifts: "fa-solid fa-gift",
+    transportation: "fa-solid fa-bus",
+    health: "fa-solid fa-heart-pulse",
+    pets: "fa-solid fa-paw",
+    restaurants: "fa-solid fa-utensils",
+    entertaining: "fa-solid fa-martini-glass-citrus",
+    buystockcrypto: "fa-solid fa-money-bill-trend-up",
+    vacations: "fa-solid fa-umbrella-beach",
+    house: "fa-solid fa-house-chimney",
+    studies: "fa-solid fa-graduation-cap",
+    loanpay: "fa-solid fa-money-bill-transfer",
+    familysupport: "fa-solid fa-people-roof",
+    otherexpense: "fa-solid fa-circle"
+}
 
 
 // Navbar and section functions
