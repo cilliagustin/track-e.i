@@ -430,4 +430,7 @@ function getData(){
     document.querySelector('#add .input-container .input-box-amount [data-currency]').textContent = selectedCurrency;
 }
 
-getData()
+window.addEventListener('DOMContentLoaded', getData)
+
+//check phone position (if in landscape trigger alert)
+window.addEventListener('DOMContentLoaded', checkLandscapeMode)
