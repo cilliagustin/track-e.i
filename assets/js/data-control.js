@@ -57,6 +57,7 @@ submit.addEventListener('click', (e)=>{
             }
         })
 
+        console.log("test")
         //create Popup confirming new transaction
         let popUp = document.createElement('div');
         popUp.setAttribute('id', 'pop-up');
@@ -81,19 +82,9 @@ submit.addEventListener('click', (e)=>{
 
         document.body.insertBefore(popUp, balanceSection)
 
-        popUp.addEventListener('click', () =>{
+        popUp.addEventListener('click', e=>{
             popUp.remove()
         })
-
-
-        console.log("data")
-        console.log(data)
-        console.log("dataByDate")
-        console.log(dataByDate)
-        console.log("incomeData")
-        console.log(incomedata)
-        console.log("expenseData")
-        console.log(expensedata)
 
 }
 })
@@ -168,7 +159,6 @@ function createData(a, b, c, d){
     obj.note = b;
     obj.date = c;
     obj.category = d;
-    obj.noSpecialCaseCategory  = d.replace(/[^a-zA-Z]/g,"")
     //push the object to the data Array
     data.push(obj)
     //Clean inputs but mantain current transaction type
