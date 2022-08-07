@@ -957,6 +957,7 @@ footer a i{
     cursor: pointer;
 }
 
+/* Pop up confirmation */
 
 #pop-up{
     position: absolute;
@@ -1017,6 +1018,72 @@ footer a i{
     text-align: center;
     font-size: 11px;
 }
+
+#pop-up-error{
+    position: absolute;
+    z-index: 5;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+
+#pop-up-error .pop-up-content{
+    position: absolute;
+    z-index: 5;
+    height: 200px;
+    width: 300px;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -150px;
+    background: rgb(232,135,36);
+    display: flex;
+    
+    border-radius:var(--border);
+}
+
+#pop-up-error .pop-up-content .pop-up-head{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:var(--border) 0 0 var(--border);
+}
+
+#pop-up-error .pop-up-content .pop-up-head i{
+    color: white;
+    font-size: 88px;
+}
+
+#pop-up-error .pop-up-content .pop-up-body{
+    width: 50%;
+    height: 100%;
+    background: rgb(251,254,250);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0  var(--border) var(--border) 0; 
+}
+
+#pop-up-error .pop-up-content .pop-up-body h2{
+    color: var(--dark-blue); 
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+#pop-up-error .pop-up-content .pop-up-body h3{
+    color: var(--blue); 
+    text-align: center;
+    font-size: 11px;
+}
+
+/* Pop up error */
 
 /* Mediaqueries tablet */
 @media screen and (min-width: 576px) and (max-width: 767px) {
