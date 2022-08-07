@@ -124,6 +124,16 @@ function changeDecimal(selectedDecimal){
 
 //Rezise functions
 
+//set body height as window innerheight
+window.addEventListener('resize', setheight)
+
+function setheight(){
+    let height = this.window.innerHeight;
+    document.body.style.height = `${height}px`
+}
+
+setheight()
+
 //Checks website when rezising to change sections
 window.addEventListener('resize', () => {
     //if website goes desktop mode when add section is on, gives balance section the active class to navbar and deletes hide class
