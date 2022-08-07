@@ -811,12 +811,14 @@ label{
     margin: 4px;
 }
 
-#add .category-container label p{
+#add .category-container label span{
     font-size: 10px;
     font-weight: 500;
     margin: auto;
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
+    display: inline-block;
+    line-height: 15px;
 }
 
 #add .category-container input[type="radio"]:checked + label i,
@@ -873,7 +875,7 @@ label{
     color: var(--green-button);
 }
 
-#add.income .category-container label p{
+#add.income .category-container label span{
     color: var(--green-button);
 }
 
@@ -915,7 +917,7 @@ label{
     color: var(--red-button);
 }
 
-#add.expense .category-container label p{
+#add.expense .category-container label span{
     color: var(--red-button);
 }
 
@@ -1199,7 +1201,7 @@ footer a i{
         font-size: 55px;
     }
     
-    #add .category-container label p{
+    #add .category-container label span{
         font-size: 14px;
     }
 }
@@ -1316,7 +1318,7 @@ footer a i{
         margin: 10px 0 5px 0;
     }
     
-    #add .category-container label p{
+    #add .category-container label span{
         font-size: 9px;
     }
 
