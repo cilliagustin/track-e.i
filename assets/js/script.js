@@ -286,12 +286,13 @@ function createSelectedElement(e){
     let elCategory = e.target.querySelector('.category').textContent;
     let elAmount = e.target.querySelector('.amount').textContent;
     let elPercentage = e.target.querySelector('.percentage').textContent;
+    let iconClass = iconsObj[e.target.getAttribute('data-add-category')] 
 
     //adds data to variables and populates pie chart result
     let div = document.createElement('div');
         div.setAttribute('id', 'selected-element');
         let icon = document.createElement('i');
-        icon.setAttribute('class', 'fa-solid fa-basket-shopping')
+        icon.setAttribute('class', iconClass)
         let selectedCategory =  document.createElement('p');
         selectedCategory.setAttribute('class', 'category')
         selectedCategory.textContent = elCategory;
