@@ -98,7 +98,9 @@ function changeDecimal(selectedDecimal){
     })
 }
 
-//Checks website when rezising and activates different functionalities
+//Rezise functions
+
+//Checks website when rezising to change sections
 window.addEventListener('resize', () => {
     //if website goes desktop mode when add section is on, gives balance section the active class to navbar and deletes hide class
     if(this.window.innerWidth >= 767 && addNavLink.classList.contains('active')){
@@ -116,6 +118,45 @@ window.addEventListener('resize', () => {
         hideElements(addRadioLabel);
     }
 })
+
+
+//trigger function when resizing
+window.addEventListener('resize', checkLandscapeMode)
+
+
+//check window size, if phone is on landscape mode trigger alert else, delete alert if exists
+function checkLandscapeMode(){
+    let height = this.window.innerHeight
+    let width = this.window.innerWidth
+    if(height < width &&  height < 600  &&(width - height) >= 200){
+        let popUpError = document.createElement('div');
+        popUpError.setAttribute('id', 'pop-up-error');
+        let popUpContent = document.createElement('div');
+        popUpContent.classList.add('pop-up-content');
+        let popUpHead = document.createElement('div');
+        popUpHead.classList.add('pop-up-head');
+        let warning = document.createElement('i');
+        warning.classList.add('fa-solid', 'fa-circle-exclamation');
+        popUpHead.appendChild(warning)
+        popUpContent.appendChild(popUpHead)
+        let popUpBody = document.createElement('div');
+        popUpBody.classList.add('pop-up-body');
+        let h2 = document.createElement('h2');
+        h2.textContent = 'It looks Like You are using your phone on landscape mode'
+        let h3 = document.createElement('h3');
+        h3.textContent = 'For a good experience in your phone please rotate your screen back to vertical mode';
+        popUpBody.appendChild(h2)
+        popUpBody.appendChild(h3)
+        popUpContent.appendChild(popUpBody)
+        popUpError.appendChild(popUpContent)
+        document.body.insertBefore(popUpError, balanceSection)
+    } else {
+        let popUpError = document.getElementById('pop-up-error')
+        if(popUpError){
+            popUpError.remove()
+        }
+    }
+}
 
 // Balance section functions
 
@@ -333,5 +374,6 @@ function deleteValues(elements){
     el.checked = false ;
   });
 }
+
 
  
