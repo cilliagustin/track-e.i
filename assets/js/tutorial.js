@@ -2,7 +2,7 @@ const tutorialBtn = document.getElementById("tutorial-button");
 
 
 tutorialBtn.addEventListener("click", startTutorial);
-
+document.body.addEventListener("click", endTutorial)
 
 function startTutorial(){
     let tutorialBackground = document.createElement('div');
@@ -24,3 +24,12 @@ function startTutorial(){
     document.body.insertBefore(modal, balanceSection)
 }
 
+function endTutorial(e){
+    if(e.target.id === "close-modal"){
+        let tutorialBackground = document.querySelector('.tutorial-background');
+        let modal = document.querySelector('.modal');
+
+        tutorialBackground.remove();
+        modal.remove();
+    }
+}
