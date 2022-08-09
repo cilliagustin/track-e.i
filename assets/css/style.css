@@ -941,7 +941,6 @@ footer{
     background: var(--blue);
     display: flex;
     flex-flow: row;
-    justify-content: center;
     align-items: center;
 }
 
@@ -951,9 +950,27 @@ footer a i{
     margin: 5px;
 }
 
+footer p{
+    margin-left: auto;
+}
+
 footer a i{
     font-size: 25px;
     cursor: pointer;
+}
+
+footer button{
+    margin-left: auto;
+    margin-right: 5px;
+    background: none;
+    border: none;
+    width: auto;
+    height: auto;
+}
+
+footer button i{
+    color: white;
+    font-size: 25px;
 }
 
 /* Pop up confirmation */
