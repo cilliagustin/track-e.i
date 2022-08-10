@@ -66,6 +66,10 @@
     margin-left: auto;
 }
 
+.modal-body button i,
+.modal-body button p{
+    pointer-events: none;
+}
 .modal-body button i{
     font-size: 18px;
 }
