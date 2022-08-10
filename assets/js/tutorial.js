@@ -93,3 +93,34 @@ function centerModal(){
     modal.style.top = `calc(50% - ${height / 2}px)`;
 }
 
+function locateModal(){
+    //set highlited element measures and positions
+    let modal = document.querySelector(".modal");
+    let currentTutotialElement = document.querySelectorAll('.tutorial-step')[0];
+    let rect =currentTutotialElement.getBoundingClientRect()
+
+    //delete previous style    
+    modal.removeAttribute("style")
+
+    //decide modal position regarding the highlited element
+    let topPoint = rect.top;
+    let bottomPoint = rect.bottom;
+    let leftPoint = rect.left;
+    let rightPoint = rect.right;
+    let modalHeight = modal.offsetHeight;
+    let modalWidth = modal.offsetHeight;
+
+    //if element is on top of the window locate modal bellow
+    if(topPoint <= window.innerHeight - bottomPoint){
+        modal.style.top = `${rect.top + rect.height + 10}px`;
+    } else {
+        modal.style.top = `${rect.top - rect.height - modalHeight}px`;
+    }
+
+    //if element is on the left part of the window locate modal slightly to the right
+    if(leftPoint <= window.innerWidth - rightPoint){
+        modal.style.left = `${rect.left + (rect.width /2)}px`;
+    } else {
+        modal.style.left = `${rect.left - modalWidth }px`;
+    }
+}
