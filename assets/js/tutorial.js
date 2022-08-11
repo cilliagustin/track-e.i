@@ -96,7 +96,8 @@ function centerModal(){
 function locateModal(){
     //set highlited element measures and positions
     let modal = document.querySelector(".modal");
-    let currentTutotialElement = document.querySelectorAll('.tutorial-step')[0];
+    let lastElement = (document.querySelectorAll('.tutorial-step').length) -1;
+    let currentTutotialElement = document.querySelectorAll('.tutorial-step')[lastElement];
     let rect =currentTutotialElement.getBoundingClientRect()
     console.log(rect)
     //delete previous style    
@@ -127,7 +128,7 @@ function locateModal(){
 
     //When highlighting sections center modal
 
-    if(topPoint = bottomPoint - rect.height){
+    if(topPoint === 30 && bottomPoint - rect.height === 30){
         centerModal()
     }
 }
