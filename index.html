@@ -14,7 +14,7 @@
 <body>
 
     <!-- Navbar -->
-    <nav id="navbar">
+    <nav id="navbar" data-tutorial-step="1">
         <a href="#">Logo</a>
         <ul>
             <li> 
@@ -29,7 +29,7 @@
             <li>
                 <input class="side-menu" type="checkbox" name="side-menu" id="side-menu">
                 <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
-                <div class="dropdown">
+                <div class="dropdown" data-tutorial-step="2">
                     <label for="currency">Currency:</label>
                     <select id="currency">
                         <option value="US$" selected>US$</option>
@@ -48,10 +48,10 @@
     </nav>
 
     <!-- Balance -->
-    <section id="balance">
+    <section id="balance" data-tutorial-step="9">
         <div class="pie-chart">
             <div class="pie-chart-container">
-                <div class="pie-chart-result">
+                <div class="pie-chart-result" data-tutorial-step="10">
                     <p>$00,00</p>
                     <p>-$00,00</p>
                     <hr>
@@ -62,21 +62,21 @@
                 </svg>
             </div>
             <div class="toggle-buttons">
-                <button class="expense-income-btn" data-button-category="income">
+                <button class="expense-income-btn" data-button-category="income" data-tutorial-step="11">
                     Incomes
                 </button>
-                <button class="expense-income-btn" data-button-category="expense">
+                <button class="expense-income-btn" data-button-category="expense" data-tutorial-step="11">
                     Expenses
                 </button>
             </div>  
         </div>
-        <div class="pie-chart-info">
+        <div class="pie-chart-info" data-tutorial-step="12">
             
         </div>
     </section>
     
     <!-- Calendar -->
-    <section id="calendar" class="hide">
+    <section id="calendar" class="hide" data-tutorial-step="15">
         <div class="container">
             <ul>
             </ul>
@@ -84,27 +84,27 @@
     </section>
 
     <!-- Add -->
-    <section id="add" class="hide">
+    <section id="add" class="hide" data-tutorial-step="3">
         <div class="input-container">
-            <div class="input-box input-box-amount">
+            <div class="input-box input-box-amount" data-tutorial-step="4">
                 <input type="number" id="amount" required>
                 <label for="amount">Amount</label>
                 <span data-currency></span>
             </div>
-            <div class="input-box input-box-note">
+            <div class="input-box input-box-note" data-tutorial-step="4">
                 <input type="text" id="note"  maxlength="20" required>
                 <label for="note">Note</label>
             </div>
-            <div class="input-box input-box-date">
+            <div class="input-box input-box-date" data-tutorial-step="4">
                 <input id="date" type="date" min="2022-01-01" required>
                 <label for="date">Date</label>
             </div>
-            <div class="input-box input-box-input-category">
+            <div class="input-box input-box-input-category" data-tutorial-step="7">
                 <input type="text" id="input-category" readonly="readonly" required>  
                 <label for="input-category">Category</label>
             </div>
-            <button data-button-category="income" class="expense-income-btn">Incomes</button>
-            <button data-button-category="expense" class="expense-income-btn">Expenses</button>
+            <button data-button-category="income" data-tutorial-step="5" class="expense-income-btn">Incomes</button>
+            <button data-button-category="expense" data-tutorial-step="5" class="expense-income-btn">Expenses</button>
             <h2>Select a category</h2>
         </div>
         <div class="category-container">
@@ -119,7 +119,7 @@
                 <span>groceries</span>
             </label>
             <input type="radio" name="expense" id="bills" value="bills">
-            <label for="bills" class="hide" data-radio-category="expense">
+            <label for="bills" class="hide" data-radio-category="expense" data-tutorial-step="6">
                 <i class="fa-solid fa-file-invoice-dollar"></i> <br>
                 <span>bills</span>
             </label>
@@ -220,12 +220,12 @@
             </label>
         </div>
         <div class="submit-container">
-            <input type="submit" id="submit" value="submit">
+            <input type="submit" id="submit" value="submit" data-tutorial-step="8">
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="footer">
+    <footer id="footer" data-tutorial-step="18">
         <p>© 2022 Agustin Cilli</p>
         <a href="https://github.com/cilliagustin?tab=repositories" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
         <a href="mailto:cilli.agustin@gmail.com?subject=Contact" target="_blank" rel="noopener"><i class="fa-solid fa-envelope"></i></a>
