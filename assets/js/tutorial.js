@@ -98,7 +98,7 @@ function locateModal(){
     let modal = document.querySelector(".modal");
     let currentTutotialElement = document.querySelectorAll('.tutorial-step')[0];
     let rect =currentTutotialElement.getBoundingClientRect()
-
+    console.log(rect)
     //delete previous style    
     modal.removeAttribute("style")
 
@@ -108,19 +108,26 @@ function locateModal(){
     let leftPoint = rect.left;
     let rightPoint = rect.right;
     let modalHeight = modal.offsetHeight;
-    let modalWidth = modal.offsetHeight;
+    let modalWidth = modal.offsetWidth;
 
     //if element is on top of the window locate modal bellow
     if(topPoint <= window.innerHeight - bottomPoint){
         modal.style.top = `${rect.top + rect.height + 10}px`;
     } else {
-        modal.style.top = `${rect.top - rect.height - modalHeight}px`;
+        modal.style.top = `${rect.top - modalHeight - 10}px`;
+    }
+    
+    //if element is on the left part of the window locate modal slightly to the right
+    if(leftPoint <= window.innerWidth - rightPoint + 1){
+        modal.style.left = `${rect.left + 10}px`;
+    } else {
+        modal.style.left = `${rect.left + rect.width - modalWidth - 10}px`;
+        console.log(leftPoint, innerWidth, rightPoint)
     }
 
-    //if element is on the left part of the window locate modal slightly to the right
-    if(leftPoint <= window.innerWidth - rightPoint){
-        modal.style.left = `${rect.left + (rect.width /2)}px`;
-    } else {
-        modal.style.left = `${rect.left - modalWidth }px`;
+    //When highlighting sections center modal
+
+    if(topPoint = bottomPoint - rect.height){
+        centerModal()
     }
 }
