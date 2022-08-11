@@ -1,4 +1,43 @@
 const tutorialBtn = document.getElementById("tutorial-button");
+const tutorialContent = [
+`Hello, thank you for using Track-e.i, in this tutorial you will learn how to use this site.</br>
+ You can close this tutorial with the X button and move to the previous or next step of this 
+ Walkthrough with the buttons below.`,
+`You can use the Navbar to change the different sections. Next to this you have the hamburger
+ menu which opens the dropdown menu with some extra options.`,
+`Here you can select the currency of your preference and the decimal separator symbol that is 
+used in your country.`,
+`In this section you can add all your transactions (either incomes or expenses) and add all 
+the relevant information.`,
+`In these boxes, you can add the amount, a small note and date of your transaction.</br>
+Remember, the selected date cannot be after the current day.`,
+`Before adding the category, select using these buttons if the transaction is either an 
+income or an expense.`,
+`Here all the category options will be displayed, select the one that suits better your transaction.`,
+`After selecting it, the category will be displayed here.`,
+`Press the submit button to send the information, you will see a confirmation popup if all 
+the information provided is correct.`,
+`Now we can go the Balance section. Here you can see your current Balance as well how you 
+earned or spend the money.`,
+`Here a total of your incomes and expenses will be displayed, after that you will see the 
+total balance.`,
+`By pressing these buttons you can see all transactions categorized below as well as a 
+donut chart on the top.`,
+`All the transactions are categorized here, and you can see the total amount and what 
+percentage it occupies.</br>The percentage for a better experience is rounded, so it 
+is possible that the result of summing all numbers won’t be 100%`,
+`When one of these elements is clicked or hovered with the mouse, it will be 
+highlighted for a better reference.`,
+`The donut chart will also be highlighted, showing the selected element and displaying 
+the rest in a darker tone.</br>the information (category, amount and percentage) will 
+be displayed instead of the balance.`,
+`In this section, every transaction will be displayed ordered by date (from most recent to oldest)`,
+`Each day will have its own balance with every transaction displayed on that specific day grouped.`,
+`In every transaction you will find at the end an X button which when pressed deletes 
+the transaction for the database.`,
+`In the footer besides the button you just pressed there are links to the creator of this website's GitHub page as well a link to send him an email.`,
+`This is all, thanks for going through this tutorial and enjoy the site.</br>Remember that for an optimal experience, if you are using this website with a phone to avoid using the landscape mode.`
+]
 let tutorialIndex
 
 
