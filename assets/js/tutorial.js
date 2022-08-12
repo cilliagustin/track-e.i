@@ -40,7 +40,88 @@ the transaction for the database.`,
 `This is all, thanks for going through this tutorial and enjoy the site.</br>Remember that for an optimal experience, if you are using this website with a phone to avoid using the landscape mode.`
 ]
 let tutorialIndex
-
+let tutorialData1 = [
+    {amount: 1200,
+    category: "salary",
+    date: "2022-07-01",
+    note: "Salary july",
+    timeStamp: 1660325421332,
+    type: "income"},
+    {amount: 300,
+    category: "sell stock crypto",
+    date: "2022-07-12",
+    note: "sell Bitcoin",
+    timeStamp: 1660325458172,
+    type: "income"},
+    {amount: 250,
+    category: "sell stock crypto",
+    date: "2022-07-06",
+    note: "Sell ETH",
+    timeStamp: 1660325514750,
+    type: "income"},
+    {amount: 1200,
+    category: "salary",
+    date: "2022-06-01",
+    note: "Salary June",
+    timeStamp: 1660325535645,
+    type: "income"},
+    {amount: 200,
+    category: "other (income)",
+    date: "2022-06-15",
+    note: "Sold old phone",
+    timeStamp: 1660325578149,
+    type: "income"},
+    {amount: 350,
+    category: "rent",
+    date: "2022-06-01",
+    note: "Rent apartment",
+    timeStamp: 1660325599621,
+    type: "expense"},
+    {amount: 350,
+    category: "rent",
+    date: "2022-07-01",
+    note: "Rent Apartment",
+    timeStamp: 1660325619500,
+    type: "expense"},
+    {amount: 278,
+    category: "groceries",
+    date: "2022-06-03",
+    note: "supermaket",
+    timeStamp: 1660325652419,
+    type: "expense"},
+    {amount: 243,
+    category: "groceries",
+    date: "2022-06-14",
+    note: "supermarket",
+    timeStamp: 1660325668748,
+    type: "expense"},
+    {amount: 265,
+    category: "groceries",
+    date: "2022-06-22",
+    note: "supermarket",
+    timeStamp: 1660325704694,
+    type: "expense"},
+    {amount: 300,
+    category: "groceries",
+    date: "2022-07-10",
+    note: "supermarket",
+    timeStamp: 1660325719982,
+    type: "expense"},
+    {amount: 50,
+    category: "entertaining",
+    date: "2022-07-04",
+    note: "movie Theater",
+    timeStamp: 1660325765349,
+    type: "expense"},
+    {amount: 87,
+    category: "restaurants",
+    date: "2022-07-06",
+    note: "Date",
+    timeStamp: 1660325796989,
+    type: "expense"}
+]
+let tutorialData2 = [...tutorialData1];
+tutorialData2.push({amount: 40,category: "bills",date: "2022-08-01",note: "Internet bill",timeStamp: 1660326348787,type: "expense"})
 
 
 
@@ -68,6 +149,7 @@ function startTutorial(){
     let modalButtons = document.querySelectorAll('.modal .modal-body button')
     modalButtons[0].classList.add('hide')
     centerModal();
+    populateTutorial(tutorialData1);
 }
 
 function changeTutorialStep(e){
@@ -110,7 +192,7 @@ function changeTutorialStep(e){
                 deleteValues(inputs)
                 break;
             case 4:
-                inputAmount.value = 500;
+                inputAmount.value = 40;
                 inputNote.value = "Internet bill";
                 inputDate.value = "2022-08-01";
                 resetAddSection();
@@ -125,13 +207,14 @@ function changeTutorialStep(e){
                 inputCategory.classList.add("active");
                 break;
             case 8:
-                inputAmount.value = 500;
+                inputAmount.value = 40;
                 inputNote.value = "Internet bill";
                 inputDate.value = "2022-08-01";
                 showAddExpense()
                 document.getElementById("bills").checked = true
                 inputCategory.value = "bills";
                 inputCategory.classList.add("active");
+                populateTutorial(tutorialData1)
                 break;
             case 9:
                 resetAddSection()
@@ -213,7 +296,7 @@ function locateModal(){
 
 //tutorial functions
 
-
+//give expense look to add section
 function showAddExpense(){
     //add expense class to add section
     addSection.classList.add("expense");
@@ -229,6 +312,7 @@ function showAddExpense(){
     })
 }
 
+//reset add section style + content
 function resetAddSection(){
     //delete expense class to add section
     addSection.classList.remove("expense");
@@ -243,4 +327,17 @@ function resetAddSection(){
     addRadioLabel.forEach(label => {
             label.classList.add('hide')
     })
+}
+
+//populate tutorial with data
+function populateTutorial(tutorialArray){
+    data = tutorialArray;
+    //Adds to the dataBy date transactions grouped by date and orders ir from most recent to oldestone
+    dataByDate = sortObj(groupBy('date', data))
+    //Populates the calendar section with the dataByDate
+    populateCalendar(dataByDate)
+    //Create data for expense and income transactions
+    createBalanceData(data)
+    //Populates the Balance section with the income and expense data
+    populateBalance()
 }
