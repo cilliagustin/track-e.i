@@ -57,17 +57,20 @@ function startTutorial(){
     modal.innerHTML = `
             <div class="modal-head">
             <i class="fa-solid fa-xmark" id="close-modal"></i>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum id qui ipsa repudiandae est quod dolores aliquid eos dignissimos. Dignissimos?</p>
+            <p>${tutorialContent[0]}</p>
         </div>
         <div class="modal-body">
             <button data-modal-btn id="btn-prev"><p>Prev</p><i class="fa-solid fa-circle-chevron-left"></i></button>
             <button data-modal-btn id="btn-next"><p>Next</p><i class="fa-solid fa-circle-chevron-right"></i></button>
         </div>`
     document.body.insertBefore(modal, balanceSection)
-    tutorialStep()
+    let modalButtons = document.querySelectorAll('.modal .modal-body button')
+    modalButtons[0].classList.add('hide')
+    centerModal();
 }
 
 function changeTutorialStep(e){
+    let modalButtons = document.querySelectorAll('.modal .modal-body button');
     //check that a prev next button was pressed
     if(e.target.hasAttribute('data-modal-btn')){
         //sum or subtract to index depending on which button was pressed
@@ -76,41 +79,37 @@ function changeTutorialStep(e){
         } else if(e.target.id === "btn-next"){
             tutorialIndex++;
         }
-        //hide or show prev next btn
-        if(tutorialIndex === 0){
-            let modalButtons = document.querySelectorAll('.modal .modal-body button');
-            modalButtons[0].classList.add("hide")
-        } else {
-            let modalButtons = document.querySelectorAll('.modal .modal-body button');
-            modalButtons.forEach(btn =>{
-                btn.classList.remove("hide");
-            })
-        }
 
         //check if there are highlighted elements and delete highlight
         let prevTutorialElementsArray = document.querySelectorAll('.tutorial-step');
         prevTutorialElementsArray.forEach(el =>{
             el.classList.remove("tutorial-step")
         })
+
+        //Add inner html to modal text
+        let modalText = document.querySelector('.modal .modal-head p')
+        modalText.innerHTML = tutorialContent[tutorialIndex];
+
+        switch(tutorialIndex){
+            case 0:
+            modalButtons[0].classList.add('hide');
+            centerModal();
+            break;
+            default:
+            modalButtons.forEach(btn =>{
+                btn.classList.remove('hide')
+            });
+       }
         
         //check current index, highlight element with that data tutorial step
-        let tutorialElementsArray = document.querySelectorAll(`[data-tutorial-step="${tutorialIndex}"]`)
-        tutorialElementsArray.forEach(el =>{
+        let tutorialElementsArray = document.querySelectorAll(`[data-tutorial-step="${tutorialIndex}"]`);
+        if(tutorialElementsArray[0] !== undefined){
+            tutorialElementsArray.forEach(el =>{
             el.classList.add("tutorial-step")
-        })
-
-        //locate modal next to highlited element
-        locateModal()
-    }
-}
-
-function tutorialStep(){
-    if(tutorialIndex === 0){
-        let modalButtons = document.querySelectorAll('.modal .modal-body button')
-        centerModal();
-        modalButtons[0].classList.add('hide')
-    } else{
-        console.log("hi")
+            });
+            //locate modal next to highlited element
+            locateModal()
+        } 
     }
 }
 
