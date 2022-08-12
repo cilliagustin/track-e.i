@@ -118,7 +118,13 @@ let tutorialData1 = [
     date: "2022-07-06",
     note: "Date",
     timeStamp: 1660325796989,
-    type: "expense"}
+    type: "expense"},
+    {amount: 1200,
+    category: "salary",
+    date: "2022-08-01",
+    note: "salary August",
+    timeStamp: 1660325796189,
+    type: "income"}
 ]
 let tutorialData2 = [...tutorialData1];
 tutorialData2.push({amount: 40,category: "bills",date: "2022-08-01",note: "Internet bill",timeStamp: 1660326348787,type: "expense"})
@@ -217,7 +223,9 @@ function changeTutorialStep(e){
                 populateTutorial(tutorialData1)
                 break;
             case 9:
+                populateTutorial(tutorialData2)
                 resetAddSection()
+                deleteValues(inputs)
                 break;
        }
         
@@ -340,4 +348,16 @@ function populateTutorial(tutorialArray){
     createBalanceData(data)
     //Populates the Balance section with the income and expense data
     populateBalance()
+
+    //dinamically add data-tutorial-step to new elements
+    //add data-tutorial-step to pie chart result
+    document.querySelector('.pie-chart-result').setAttribute('data-tutorial-step', '10');
+    //add data-tutorial-step to bills element in pie chart info
+    if(document.querySelector('.pie-chart-info [data-add-category="bills"]')){
+        document.querySelector('.pie-chart-info [data-add-category="bills"]').setAttribute('data-tutorial-step', '13');
+    }
+    //add data-tutorial-step to donut chart
+    document.querySelector('.pie-chart-container svg[data-add-category]').setAttribute('data-tutorial-step', '14');
+    //add data-tutorial-step to cross icon in second transaction on calendar section
+    document.querySelectorAll('#calendar .container ul li ul li div i')[1].setAttribute('data-tutorial-step', '16');
 }
