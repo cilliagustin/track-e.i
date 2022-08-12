@@ -1,5 +1,6 @@
 // Variables
 const navLinks = document.querySelectorAll('.nav-link');
+const checkbox = document.getElementById('side-menu');
 const currency = document.getElementById('currency');
 let selectedCurrency = currency.value;
 const decimal = document.getElementById('decimal');
