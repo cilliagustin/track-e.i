@@ -2,14 +2,15 @@ const tutorialBtn = document.getElementById("tutorial-button");
 const tutorialContent = [
 `Hello, thank you for using Track-e.i, in this tutorial you will learn how to use this site.</br>
  You can close this tutorial with the X button and move to the previous or next step of this 
- Walkthrough with the buttons below.`,
+ Walkthrough with the buttons below.</br>Now we will see all the sites tools and how it would
+ look if we add lots of information!`,
 `You can use the Navbar to change the different sections. Next to this you have the hamburger
  menu which opens the dropdown menu with some extra options.`,
 `Here you can select the currency of your preference and the decimal separator symbol that is 
 used in your country.`,
 `In this section you can add all your transactions (either incomes or expenses) and add all 
-the relevant information.`,
-`In these boxes, you can add the amount, a small note and date of your transaction.</br>
+the relevant information.</br>Let’s see an example of how to add new transactions.`,
+`In these first three boxes, you can add the amount, a small note and date of your transaction.</br>
 Remember, the selected date cannot be after the current day.`,
 `Before adding the category, select using these buttons if the transaction is either an 
 income or an expense.`,
@@ -92,13 +93,49 @@ function changeTutorialStep(e){
 
         switch(tutorialIndex){
             case 0:
-            modalButtons[0].classList.add('hide');
-            centerModal();
-            break;
-            default:
-            modalButtons.forEach(btn =>{
-                btn.classList.remove('hide')
-            });
+                modalButtons[0].classList.add('hide');
+                centerModal();
+                break;
+            case 1:
+                checkbox.checked = false;
+                modalButtons.forEach(btn =>{
+                    btn.classList.remove('hide')
+                });
+                break;
+            case 2:
+                checkbox.checked = true;
+                break;
+            case 3:
+                checkbox.checked = false;
+                deleteValues(inputs)
+                break;
+            case 4:
+                inputAmount.value = 500;
+                inputNote.value = "Internet bill";
+                inputDate.value = "2022-08-01";
+                resetAddSection();
+                break;
+            case 6:
+                showAddExpense()
+                document.getElementById("bills").checked = true
+                inputCategory.classList.remove("active");
+                break;
+            case 7:
+                inputCategory.value = "bills";
+                inputCategory.classList.add("active");
+                break;
+            case 8:
+                inputAmount.value = 500;
+                inputNote.value = "Internet bill";
+                inputDate.value = "2022-08-01";
+                showAddExpense()
+                document.getElementById("bills").checked = true
+                inputCategory.value = "bills";
+                inputCategory.classList.add("active");
+                break;
+            case 9:
+                resetAddSection()
+                break;
        }
         
         //check current index, highlight element with that data tutorial step
@@ -109,7 +146,8 @@ function changeTutorialStep(e){
             });
             //locate modal next to highlited element
             locateModal()
-        } 
+        }
+        console.log(tutorialIndex) 
     }
 }
 
@@ -169,4 +207,40 @@ function locateModal(){
     if(topPoint === 30 && bottomPoint - rect.height === 30){
         centerModal()
     }
+}
+
+
+
+//tutorial functions
+
+
+function showAddExpense(){
+    //add expense class to add section
+    addSection.classList.add("expense");
+
+    //add active class to button
+    addExpenseIncomeBtn[1].classList.add('active')
+
+    //filter radio lebel with expense category
+    addRadioLabel.forEach(label => {
+        if(label.getAttribute('data-radio-category') === "expense"){
+            label.classList.remove('hide')
+        } 
+    })
+}
+
+function resetAddSection(){
+    //delete expense class to add section
+    addSection.classList.remove("expense");
+
+    //delete active class to button
+    addExpenseIncomeBtn[1].classList.remove('active')
+
+    //delete input category active class
+    inputCategory.classList.remove("active")
+
+    //hide radio lebel with expense category
+    addRadioLabel.forEach(label => {
+            label.classList.add('hide')
+    })
 }
