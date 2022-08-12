@@ -1,3 +1,5 @@
+/* background */
+
 .tutorial-background{
     position: fixed;
     top: 0;
@@ -8,10 +10,15 @@
     background: rgba(0, 0, 0, 0.5);
     pointer-events: none;
 }
+
+/* Highlited element */
+
 .tutorial-step{
     position: relative;
     z-index: 100!important;
 }
+
+/* Modal */
 
 .modal{
     position: absolute;
@@ -72,4 +79,14 @@
 }
 .modal-body button i{
     font-size: 18px;
+}
+
+/* Overwrite specific styling */
+nav ul li .dropdown.tutorial-step{
+    transition: none;
+}
+
+
+.expense-income-btn.tutorial-step{
+    background: white;
 }
