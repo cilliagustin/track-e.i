@@ -812,7 +812,7 @@ label{
 }
 
 #add .category-container input[type="radio"]:checked + label i,
-#add .category-container input[type="radio"]:checked + label p{
+#add .category-container input[type="radio"]:checked + label span{
     color: white;
 }
 
@@ -874,7 +874,7 @@ label{
 }
 
 #add.income .category-container input[type="radio"]:checked + label i,
-#add.income .category-container input[type="radio"]:checked + label p{
+#add.income .category-container input[type="radio"]:checked + label span{
     color: white;
 }
 
