@@ -241,6 +241,7 @@ function changeTutorialStep(e){
                 createHighlightPiechart();
                 break;
             case 14:
+                showBalanceExpense()
                 createHighlightPiechart();
                 document.querySelector('[data-tutorial-step="10"]').classList.add('tutorial-step');
                 document.querySelector('[data-tutorial-step="13"]').classList.add('active');
