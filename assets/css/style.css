@@ -655,6 +655,10 @@ section{
     cursor: text;
 }
 
+#add .input-container .input-box.input-box-input-category label{
+    padding:3px 0px;
+}
+
 #add .input-container .input-box-amount input:focus ~ label,
 #add .input-container .input-box-note input:focus ~ label,
 #add .input-container .input-box-date input:focus ~ label,
