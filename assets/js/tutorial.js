@@ -41,6 +41,7 @@ At the end you will see the button thats starts the walkthourgh for the page.`, 
 [`This is all, thanks for going through this tutorial and enjoy the site.</br>Remember that for an optimal 
 experience, if you are using this website with a phone to avoid using the landscape mode.`, "calendar"]
 ]
+let tutorialSection
 let tutorialIndex
 let tutorialData1 = [
     {amount: 1200,
@@ -139,6 +140,7 @@ document.body.addEventListener("click", changeTutorialStep);
 
 function startTutorial(){
     tutorialIndex = 0;
+    tutorialSection = "balance";
     let tutorialBackground = document.createElement('div');
     tutorialBackground.classList.add('tutorial-background')
     document.body.insertBefore(tutorialBackground, balanceSection)
@@ -158,6 +160,7 @@ function startTutorial(){
     modalButtons[0].classList.add('hide')
     centerModal();
     populateTutorial(tutorialData1);
+    showTutorialSection()
 }
 
 function changeTutorialStep(e){
@@ -170,6 +173,10 @@ function changeTutorialStep(e){
         } else if(e.target.id === "btn-next"){
             tutorialIndex++;
         }
+
+        //select what section should be shown
+        tutorialSection = tutorialContent[tutorialIndex][1];
+        showTutorialSection()
 
         //check if there are highlighted elements and delete highlight
         let prevTutorialElementsArray = document.querySelectorAll('.tutorial-step');
@@ -339,6 +346,11 @@ function locateModal(){
 
 
 //tutorial functions
+
+//select visible section
+function showTutorialSection(){
+    console.log(tutorialSection)
+}
 
 //populate tutorial with data
 function populateTutorial(tutorialArray){
