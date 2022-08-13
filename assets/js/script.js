@@ -138,20 +138,23 @@ setheight()
 
 //Checks website when rezising to change sections
 window.addEventListener('resize', () => {
-    //if website goes desktop mode when add section is on, gives balance section the active class to navbar and deletes hide class
-    if(this.window.innerWidth >= 767 && addNavLink.classList.contains('active')){
-        deleteActive(navLinks);
-        hideElements(sections);
-        balanceNavLink.classList.add('active');
-        balanceSection.classList.remove('hide')
-        // If website goes mobile it deletes information on add section so if is resized to desktop the add section appears blank again, but if website goes desktop when add section in active it keeps the information visible
-    } else if (this.window.innerWidth <= 766 && !addNavLink.classList.contains('active')){
-        addSection.classList.remove('income', 'expense')
-        deleteValues(inputs)
-        inputCategory.classList.remove('active')
-        deleteActive(addExpenseIncomeBtn)
-        uncheckRadioInputs(addRadioInput)
-        hideElements(addRadioLabel);
+    //make sure function only triggers if tutorial is not running
+    if(document.querySelector('.tutorial-background') === null){
+        //if website goes desktop mode when add section is on, gives balance section the active class to navbar and deletes hide class
+        if(this.window.innerWidth >= 767 && addNavLink.classList.contains('active')){
+            deleteActive(navLinks);
+            hideElements(sections);
+            balanceNavLink.classList.add('active');
+            balanceSection.classList.remove('hide')
+            // If website goes mobile it deletes information on add section so if is resized to desktop the add section appears blank again, but if website goes desktop when add section in active it keeps the information visible
+        } else if (this.window.innerWidth <= 766 && !addNavLink.classList.contains('active')){
+            addSection.classList.remove('income', 'expense')
+            deleteValues(inputs)
+            inputCategory.classList.remove('active')
+            deleteActive(addExpenseIncomeBtn)
+            uncheckRadioInputs(addRadioInput)
+            hideElements(addRadioLabel);
+        }
     }
 })
 
