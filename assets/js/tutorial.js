@@ -1,7 +1,7 @@
 const tutorialBtn = document.getElementById("tutorial-button");
 const tutorialContent = [
 [`Hello, thank you for using Track-e.i, in this tutorial you will learn how to use this site.</br>
- You can close this tutorial with the X button and move to the previous or next step of this 
+ You can close this tutorial with the X button or clicking outside the modal and move to the previous or next step of this 
  Walkthrough with the buttons below.</br>Now we will see all the sites tools and how it would
  look if we add lots of information!`, "balance"],
 [`You can use the Navbar to change the different sections. Next to this you have the hamburger
@@ -150,6 +150,9 @@ function startTutorial(){
     let tutorialBackground = document.createElement('div');
     tutorialBackground.classList.add('tutorial-background')
     document.body.insertBefore(tutorialBackground, balanceSection)
+    let tutorialCourtain = document.createElement('div');
+    tutorialCourtain.classList.add('tutorial-courtain')
+    document.body.insertBefore(tutorialCourtain, balanceSection)
     let modal = document.createElement('div');
     modal.classList.add('modal');
     modal.innerHTML = `
@@ -291,11 +294,13 @@ function changeTutorialStep(e){
 }
 
 function endTutorial(e){
-    if(e.target.id === "close-modal"){
+    if(e.target.id === "close-modal" || e.target.classList.contains('tutorial-courtain')){
         let tutorialBackground = document.querySelector('.tutorial-background');
+        let tutorialCourtain = document.querySelector('.tutorial-courtain');
         let modal = document.querySelector('.modal');
 
         tutorialBackground.remove();
+        tutorialCourtain.remove();
         modal.remove();
     }
 }
