@@ -295,7 +295,7 @@ function locateModal(){
 
     //When highlighting sections center modal
 
-    if(topPoint === 30 && bottomPoint - rect.height === 30){
+    if(topPoint === 35 && bottomPoint - rect.height === 35){
         centerModal()
     }
 }
