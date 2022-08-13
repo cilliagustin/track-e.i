@@ -349,7 +349,37 @@ function locateModal(){
 
 //select visible section
 function showTutorialSection(){
-    console.log(tutorialSection)
+    switch(tutorialSection){
+        case "balance":
+            if(!navLinks[0].classList.contains('active')){
+                deleteActive(navLinks);
+                hideElements(sections);
+                navLinks[0].classList.add('active');
+                balanceSection.classList.remove('hide')
+            }
+            break;
+        case "calendar":
+            if(!navLinks[1].classList.contains('active')){
+                deleteActive(navLinks);
+                hideElements(sections);
+                navLinks[1].classList.add('active');
+                calendarSection.classList.remove('hide')
+            }
+            break;
+        case "add":
+            if(!navLinks[2].classList.contains('active') && this.window.innerWidth <= 766){
+                deleteActive(navLinks);
+                hideElements(sections);
+                navLinks[2].classList.add('active');
+                addSection.classList.remove('hide')
+            } else if(!navLinks[0].classList.contains('active') && this.window.innerWidth >= 767){
+                deleteActive(navLinks);
+                hideElements(sections);
+                navLinks[0].classList.add('active');
+                balanceSection.classList.remove('hide')
+            }
+            break;
+    }
 }
 
 //populate tutorial with data
