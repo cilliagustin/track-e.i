@@ -1219,7 +1219,6 @@ footer button i{
     body{
         display: grid;
         grid-template-columns: 1fr 350px;
-        grid-template-rows: 30px 1fr 35px;
     }
 
     /* Navbar */
