@@ -86,7 +86,18 @@ nav ul li .dropdown.tutorial-step{
     transition: none;
 }
 
-
 .expense-income-btn.tutorial-step{
     background: white;
+}
+
+#balance .pie-chart-info.tutorial-step{
+    background: rgb(251,254,250);
+}
+
+#balance .pie-chart .pie-chart-container .pie-chart-result.tutorial-step{
+    z-index: 101!important;
+}
+
+#calendar.tutorial-step{
+    background: rgb(251,254,250);
 }
