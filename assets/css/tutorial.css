@@ -8,7 +8,15 @@
     height: 100%;
     z-index: 99;
     background: rgba(0, 0, 0, 0.5);
-    pointer-events: none;
+}
+.tutorial-courtain{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 110;
+    background: none;
 }
 
 /* Highlited element */
