@@ -147,6 +147,7 @@ window.addEventListener("resize", ()=>{
 function startTutorial(){
     tutorialIndex = 0;
     tutorialSection = "balance";
+    selectedCurrency = "US$";
     let tutorialBackground = document.createElement('div');
     tutorialBackground.classList.add('tutorial-background')
     document.body.insertBefore(tutorialBackground, balanceSection)
@@ -169,7 +170,8 @@ function startTutorial(){
     modalButtons[0].classList.add('hide')
     centerModal();
     populateTutorial(tutorialData1);
-    showTutorialSection()
+    changeCurrency(selectedCurrency);
+    showTutorialSection();
 }
 
 function changeTutorialStep(e){
@@ -295,13 +297,29 @@ function changeTutorialStep(e){
 
 function endTutorial(e){
     if(e.target.id === "close-modal" || e.target.classList.contains('tutorial-courtain')){
+        //delete tutorial elements
         let tutorialBackground = document.querySelector('.tutorial-background');
         let tutorialCourtain = document.querySelector('.tutorial-courtain');
         let modal = document.querySelector('.modal');
-
         tutorialBackground.remove();
         tutorialCourtain.remove();
         modal.remove();
+
+        //block dropdoen in navbar
+        checkbox.checked = false;
+        //reset balance and add section in case the tutorial had some stylings
+        resetAddSection()
+        resetBalanceSection()
+        deleteValues(inputs)
+        
+        //repopulate DOM with correct data
+        getData();
+
+        //go back to balance section
+        deleteActive(navLinks);
+        hideElements(sections);
+        navLinks[0].classList.add('active');
+        balanceSection.classList.remove('hide')
     }
 }
 
