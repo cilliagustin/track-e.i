@@ -102,3 +102,11 @@ nav ul li .dropdown.tutorial-step{
 #calendar.tutorial-step{
     background: rgb(251,254,250);
 }
+
+#calendar .container ul .date.tutorial-step{
+    background: rgb(251,254,250);
+}
+
+#calendar .container ul .date ul li .date-movement i.tutorial-step{
+    background: rgb(251,254,250);
+}
