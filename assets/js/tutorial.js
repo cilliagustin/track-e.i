@@ -36,8 +36,10 @@ be displayed instead of the balance.`,
 `Each day will have its own balance with every transaction displayed on that specific day grouped.`,
 `In every transaction you will find at the end an X button which when pressed deletes 
 the transaction for the database.`,
-`In the footer besides the button you just pressed there are links to the creator of this website's GitHub page as well a link to send him an email.`,
-`This is all, thanks for going through this tutorial and enjoy the site.</br>Remember that for an optimal experience, if you are using this website with a phone to avoid using the landscape mode.`
+`In the footer there are links to the creator of this website's GitHub page as well a link to send him an email.></br>
+At the end you will see the button thats starts the walkthourgh for the page.`,
+`This is all, thanks for going through this tutorial and enjoy the site.</br>Remember that for an optimal 
+experience, if you are using this website with a phone to avoid using the landscape mode.`
 ]
 let tutorialIndex
 let tutorialData1 = [
@@ -247,7 +249,18 @@ function changeTutorialStep(e){
                 document.querySelector('[data-tutorial-step="13"]').classList.add('active');
                 break;
             case 15:
-                    resetBalanceSection()
+                resetBalanceSection()
+                break;
+            case 17:
+                populateTutorial(tutorialData2)
+                break;
+            case 18:
+                populateTutorial(tutorialData1)
+                modalButtons[1].classList.remove('hide');
+                break;
+            case 19:
+                modalButtons[1].classList.add('hide');
+                centerModal();
                 break;
        }
         
@@ -349,8 +362,11 @@ function populateTutorial(tutorialArray){
     document.querySelectorAll('.pie-chart-container svg[data-add-category]').forEach(svg =>{
         svg.setAttribute('data-tutorial-step', '14');
     })
+
+    document.querySelector('#calendar .container ul .date').setAttribute('data-tutorial-step', '16');
+    
     //add data-tutorial-step to cross icon in second transaction on calendar section
-    document.querySelectorAll('#calendar .container ul li ul li div i')[1].setAttribute('data-tutorial-step', '16');
+    document.querySelectorAll('#calendar .container ul li ul li div i')[1].setAttribute('data-tutorial-step', '17');
 }
 
 //give expense look to add section
