@@ -1,45 +1,45 @@
 const tutorialBtn = document.getElementById("tutorial-button");
 const tutorialContent = [
-`Hello, thank you for using Track-e.i, in this tutorial you will learn how to use this site.</br>
+[`Hello, thank you for using Track-e.i, in this tutorial you will learn how to use this site.</br>
  You can close this tutorial with the X button and move to the previous or next step of this 
  Walkthrough with the buttons below.</br>Now we will see all the sites tools and how it would
- look if we add lots of information!`,
-`You can use the Navbar to change the different sections. Next to this you have the hamburger
- menu which opens the dropdown menu with some extra options.`,
-`Here you can select the currency of your preference and the decimal separator symbol that is 
-used in your country.`,
-`In this section you can add all your transactions (either incomes or expenses) and add all 
-the relevant information.</br>Let’s see an example of how to add new transactions.`,
-`In these first three boxes, you can add the amount, a small note and date of your transaction.</br>
-Remember, the selected date cannot be after the current day.`,
-`Before adding the category, select using these buttons if the transaction is either an 
-income or an expense.`,
-`Here all the category options will be displayed, select the one that suits better your transaction.`,
-`After selecting it, the category will be displayed here.`,
-`Press the submit button to send the information, you will see a confirmation popup if all 
-the information provided is correct.`,
-`Now we can go the Balance section. Here you can see your current Balance as well how you 
-earned or spend the money.`,
-`Here a total of your incomes and expenses will be displayed, bellow that you will see the 
-total balance.`,
-`By pressing these buttons you can see all transactions categorized below as well as a 
-donut chart on the top.`,
-`All the transactions are categorized here, and you can see the total amount and what 
+ look if we add lots of information!`, "balance"],
+[`You can use the Navbar to change the different sections. Next to this you have the hamburger
+ menu which opens the dropdown menu with some extra options.`, "balance"],
+[`Here you can select the currency of your preference and the decimal separator symbol that is 
+used in your country.`, "balance"],
+[`In this section you can add all your transactions (either incomes or expenses) and add all 
+the relevant information.</br>Let’s see an example of how to add new transactions.`, "add"],
+[`In these first three boxes, you can add the amount, a small note and date of your transaction.</br>
+Remember, the selected date cannot be after the current day.`, "add"],
+[`Before adding the category, select using these buttons if the transaction is either an 
+income or an expense.`, "add"],
+[`Here all the category options will be displayed, select the one that suits better your transaction.`, "add"],
+[`After selecting it, the category will be displayed here.`, "add"],
+[`Press the submit button to send the information, you will see a confirmation popup if all 
+the information provided is correct.`, "add"],
+[`Now we can go the Balance section. Here you can see your current Balance as well how you 
+earned or spend the money.`, "balance"],
+[`Here a total of your incomes and expenses will be displayed, bellow that you will see the 
+total balance.`, "balance"],
+[`By pressing these buttons you can see all transactions categorized below as well as a 
+donut chart on the top.`, "balance"],
+[`All the transactions are categorized here, and you can see the total amount and what 
 percentage it occupies.</br>The percentage for a better experience is rounded, so it 
-is possible that the result of summing all numbers won’t be 100%`,
-`When one of these elements is clicked or hovered with the mouse, it will be 
-highlighted for a better reference.`,
-`The donut chart will also be highlighted, showing the selected element and displaying 
+is possible that the result of summing all numbers won’t be 100%`, "balance"],
+[`When one of these elements is clicked or hovered with the mouse, it will be 
+highlighted for a better reference.`, "balance"],
+[`The donut chart will also be highlighted, showing the selected element and displaying 
 the rest in a darker tone.</br>the information (category, amount and percentage) will 
-be displayed instead of the balance.`,
-`In this section, every transaction will be displayed ordered by date (from most recent to oldest)`,
-`Each day will have its own balance with every transaction displayed on that specific day grouped.`,
-`In every transaction you will find at the end an X button which when pressed deletes 
-the transaction for the database.`,
-`In the footer there are links to the creator of this website's GitHub page as well a link to send him an email.></br>
-At the end you will see the button thats starts the walkthourgh for the page.`,
-`This is all, thanks for going through this tutorial and enjoy the site.</br>Remember that for an optimal 
-experience, if you are using this website with a phone to avoid using the landscape mode.`
+be displayed instead of the balance.`, "balance"],
+[`In this section, every transaction will be displayed ordered by date (from most recent to oldest)`, "calendar"],
+[`Each day will have its own balance with every transaction displayed on that specific day grouped.`, "calendar"],
+[`In every transaction you will find at the end an X button which when pressed deletes 
+the transaction for the database.`, "calendar"],
+[`In the footer there are links to the creator of this website's GitHub page as well a link to send him an email.></br>
+At the end you will see the button thats starts the walkthourgh for the page.`, "calendar"],
+[`This is all, thanks for going through this tutorial and enjoy the site.</br>Remember that for an optimal 
+experience, if you are using this website with a phone to avoid using the landscape mode.`, "calendar"]
 ]
 let tutorialIndex
 let tutorialData1 = [
@@ -147,7 +147,7 @@ function startTutorial(){
     modal.innerHTML = `
             <div class="modal-head">
             <i class="fa-solid fa-xmark" id="close-modal"></i>
-            <p>${tutorialContent[0]}</p>
+            <p>${tutorialContent[0][0]}</p>
         </div>
         <div class="modal-body">
             <button data-modal-btn id="btn-prev"><p>Prev</p><i class="fa-solid fa-circle-chevron-left"></i></button>
@@ -179,8 +179,9 @@ function changeTutorialStep(e){
 
         //Add inner html to modal text
         let modalText = document.querySelector('.modal .modal-head p')
-        modalText.innerHTML = tutorialContent[tutorialIndex];
+        modalText.innerHTML = tutorialContent[tutorialIndex][0];
 
+        //toggles necessary functions to show the website
         switch(tutorialIndex){
             case 0:
                 modalButtons[0].classList.add('hide');
