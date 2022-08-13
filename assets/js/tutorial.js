@@ -8,7 +8,7 @@ const tutorialContent = [
  menu which opens the dropdown menu with some extra options.`, "balance"],
 [`Here you can select the currency of your preference and the decimal separator symbol that is 
 used in your country.`, "balance"],
-[`In this section you can add all your transactions (either incomes or expenses) and add all 
+[`In the add section you can write all your transactions (either incomes or expenses) and add all 
 the relevant information.</br>Let’s see an example of how to add new transactions.`, "add"],
 [`In these first three boxes, you can add the amount, a small note and date of your transaction.</br>
 Remember, the selected date cannot be after the current day.`, "add"],
@@ -32,7 +32,7 @@ highlighted for a better reference.`, "balance"],
 [`The donut chart will also be highlighted, showing the selected element and displaying 
 the rest in a darker tone.</br>the information (category, amount and percentage) will 
 be displayed instead of the balance.`, "balance"],
-[`In this section, every transaction will be displayed ordered by date (from most recent to oldest)`, "calendar"],
+[`In thie calendar section, every transaction will be displayed ordered by date (from most recent to oldest)`, "calendar"],
 [`Each day will have its own balance with every transaction displayed on that specific day grouped.`, "calendar"],
 [`In every transaction you will find at the end an X button which when pressed deletes 
 the transaction for the database.`, "calendar"],
@@ -133,10 +133,16 @@ let tutorialData2 = [...tutorialData1];
 tutorialData2.push({amount: 40,category: "bills",date: "2022-08-01",note: "Internet bill",timeStamp: 1660326348787,type: "expense"})
 
 
-
 tutorialBtn.addEventListener("click", startTutorial);
 document.body.addEventListener("click", endTutorial);
 document.body.addEventListener("click", changeTutorialStep);
+window.addEventListener("resize", showTutorialSection)
+window.addEventListener("resize", ()=>{
+    if(tutorialIndex > 0 && tutorialIndex < 19){
+        locateModal();
+    }
+})
+
 
 function startTutorial(){
     tutorialIndex = 0;
@@ -281,7 +287,6 @@ function changeTutorialStep(e){
             //locate modal next to highlited element
             locateModal()
         }
-        console.log(tutorialIndex) 
     }
 }
 
@@ -309,7 +314,6 @@ function locateModal(){
     let lastElement = (document.querySelectorAll('.tutorial-step').length) -1;
     let currentTutotialElement = document.querySelectorAll('.tutorial-step')[lastElement];
     let rect =currentTutotialElement.getBoundingClientRect()
-    console.log(rect)
     //delete previous style    
     modal.removeAttribute("style")
 
@@ -333,7 +337,6 @@ function locateModal(){
         modal.style.left = `${rect.left + 10}px`;
     } else {
         modal.style.left = `${rect.left + rect.width - modalWidth - 10}px`;
-        console.log(leftPoint, innerWidth, rightPoint)
     }
 
     //When highlighting sections center modal
@@ -345,40 +348,43 @@ function locateModal(){
 
 
 
-//tutorial functions
+//tutorial helper functions
 
 //select visible section
 function showTutorialSection(){
-    switch(tutorialSection){
-        case "balance":
-            if(!navLinks[0].classList.contains('active')){
-                deleteActive(navLinks);
-                hideElements(sections);
-                navLinks[0].classList.add('active');
-                balanceSection.classList.remove('hide')
-            }
-            break;
-        case "calendar":
-            if(!navLinks[1].classList.contains('active')){
-                deleteActive(navLinks);
-                hideElements(sections);
-                navLinks[1].classList.add('active');
-                calendarSection.classList.remove('hide')
-            }
-            break;
-        case "add":
-            if(!navLinks[2].classList.contains('active') && this.window.innerWidth <= 766){
-                deleteActive(navLinks);
-                hideElements(sections);
-                navLinks[2].classList.add('active');
-                addSection.classList.remove('hide')
-            } else if(!navLinks[0].classList.contains('active') && this.window.innerWidth >= 767){
-                deleteActive(navLinks);
-                hideElements(sections);
-                navLinks[0].classList.add('active');
-                balanceSection.classList.remove('hide')
-            }
-            break;
+    //make sure function only triggers if tutorial is running
+    if(document.querySelector('.tutorial-background')){
+        switch(tutorialSection){
+            case "balance":
+                if(!navLinks[0].classList.contains('active')){
+                    deleteActive(navLinks);
+                    hideElements(sections);
+                    navLinks[0].classList.add('active');
+                    balanceSection.classList.remove('hide')
+                }
+                break;
+            case "calendar":
+                if(!navLinks[1].classList.contains('active')){
+                    deleteActive(navLinks);
+                    hideElements(sections);
+                    navLinks[1].classList.add('active');
+                    calendarSection.classList.remove('hide')
+                }
+                break;
+            case "add":
+                if(!navLinks[2].classList.contains('active') && this.window.innerWidth <= 766){
+                    deleteActive(navLinks);
+                    hideElements(sections);
+                    navLinks[2].classList.add('active');
+                    addSection.classList.remove('hide')
+                } else if(!navLinks[0].classList.contains('active') && this.window.innerWidth >= 767){
+                    deleteActive(navLinks);
+                    hideElements(sections);
+                    navLinks[0].classList.add('active');
+                    balanceSection.classList.remove('hide')
+                }
+                break;
+        }
     }
 }
 
