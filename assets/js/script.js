@@ -10,6 +10,7 @@ const balanceNavLink = document.getElementById('balance-navlink');
 const balanceSection = document.getElementById('balance');
 const addNavLink = document.getElementById('add-navlink');
 const addSection = document.getElementById('add');
+const calendarSection = document.getElementById('calendar');
 const pieChartContainer = document.querySelector('.pie-chart-container');
 const balanceExpenseIncomeBtn = document.querySelectorAll('#balance .pie-chart .toggle-buttons button');
 const pieChartInfo = document.querySelector('.pie-chart-info');
