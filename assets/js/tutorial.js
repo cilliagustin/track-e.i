@@ -20,7 +20,7 @@ income or an expense.`,
 the information provided is correct.`,
 `Now we can go the Balance section. Here you can see your current Balance as well how you 
 earned or spend the money.`,
-`Here a total of your incomes and expenses will be displayed, after that you will see the 
+`Here a total of your incomes and expenses will be displayed, bellow that you will see the 
 total balance.`,
 `By pressing these buttons you can see all transactions categorized below as well as a 
 donut chart on the top.`,
@@ -201,6 +201,8 @@ function changeTutorialStep(e){
                 inputAmount.value = 40;
                 inputNote.value = "Internet bill";
                 inputDate.value = "2022-08-01";
+                break;
+            case 5:
                 resetAddSection();
                 break;
             case 6:
@@ -226,6 +228,25 @@ function changeTutorialStep(e){
                 populateTutorial(tutorialData2)
                 resetAddSection()
                 deleteValues(inputs)
+                break;
+            case 11:
+                resetBalanceSection()
+                break;
+            case 12:
+                showBalanceExpense()
+                document.querySelector('[data-tutorial-step="13"]').classList.remove('active');
+                break;
+            case 13:
+                document.querySelector('[data-tutorial-step="13"]').classList.add('active');
+                createHighlightPiechart();
+                break;
+            case 14:
+                createHighlightPiechart();
+                document.querySelector('[data-tutorial-step="10"]').classList.add('tutorial-step');
+                document.querySelector('[data-tutorial-step="13"]').classList.add('active');
+                break;
+            case 15:
+                    resetBalanceSection()
                 break;
        }
         
@@ -304,6 +325,33 @@ function locateModal(){
 
 //tutorial functions
 
+//populate tutorial with data
+function populateTutorial(tutorialArray){
+    data = tutorialArray;
+    //Adds to the dataBy date transactions grouped by date and orders ir from most recent to oldestone
+    dataByDate = sortObj(groupBy('date', data))
+    //Populates the calendar section with the dataByDate
+    populateCalendar(dataByDate)
+    //Create data for expense and income transactions
+    createBalanceData(data)
+    //Populates the Balance section with the income and expense data
+    populateBalance()
+
+    //dinamically add data-tutorial-step to new elements
+    //add data-tutorial-step to pie chart result
+    document.querySelector('.pie-chart-result').setAttribute('data-tutorial-step', '10');
+    //add data-tutorial-step to bills element in pie chart info
+    if(document.querySelector('.pie-chart-info [data-add-category="bills"]')){
+        document.querySelector('.pie-chart-info [data-add-category="bills"]').setAttribute('data-tutorial-step', '13');
+    }
+    //add data-tutorial-step to donut chart
+    document.querySelectorAll('.pie-chart-container svg[data-add-category]').forEach(svg =>{
+        svg.setAttribute('data-tutorial-step', '14');
+    })
+    //add data-tutorial-step to cross icon in second transaction on calendar section
+    document.querySelectorAll('#calendar .container ul li ul li div i')[1].setAttribute('data-tutorial-step', '16');
+}
+
 //give expense look to add section
 function showAddExpense(){
     //add expense class to add section
@@ -337,27 +385,56 @@ function resetAddSection(){
     })
 }
 
-//populate tutorial with data
-function populateTutorial(tutorialArray){
-    data = tutorialArray;
-    //Adds to the dataBy date transactions grouped by date and orders ir from most recent to oldestone
-    dataByDate = sortObj(groupBy('date', data))
-    //Populates the calendar section with the dataByDate
-    populateCalendar(dataByDate)
-    //Create data for expense and income transactions
-    createBalanceData(data)
-    //Populates the Balance section with the income and expense data
-    populateBalance()
+function showBalanceExpense(){
+    //add expense class to balance section
+    balanceSection.classList.add("expense");
 
-    //dinamically add data-tutorial-step to new elements
-    //add data-tutorial-step to pie chart result
-    document.querySelector('.pie-chart-result').setAttribute('data-tutorial-step', '10');
-    //add data-tutorial-step to bills element in pie chart info
-    if(document.querySelector('.pie-chart-info [data-add-category="bills"]')){
-        document.querySelector('.pie-chart-info [data-add-category="bills"]').setAttribute('data-tutorial-step', '13');
-    }
-    //add data-tutorial-step to donut chart
-    document.querySelector('.pie-chart-container svg[data-add-category]').setAttribute('data-tutorial-step', '14');
-    //add data-tutorial-step to cross icon in second transaction on calendar section
-    document.querySelectorAll('#calendar .container ul li ul li div i')[1].setAttribute('data-tutorial-step', '16');
+    //add active class to button
+    balanceExpenseIncomeBtn[1].classList.add('active')
+
+    //Show pie chart elements with data-add-type expense
+    let balanceElements = document.querySelectorAll('[data-add-category]');
+    balanceElements.forEach(el =>{
+        if(el.getAttribute('data-add-type') === "expense"){
+            el.classList.remove("hide");
+        }
+    })
+}
+
+function resetBalanceSection(){
+    //delete expense class to balance section
+    balanceSection.classList.remove("expense");
+
+    //delete active class to button
+    balanceExpenseIncomeBtn[1].classList.remove('active')
+
+    //hide all pie chart elements
+    let balanceElements = document.querySelectorAll('[data-add-category]');
+    balanceElements.forEach(el =>{
+        el.classList.add("hide");
+    })
+    
+}
+
+function createHighlightPiechart(){
+    let pieChartResult = document.querySelector('.pie-chart-result')
+    let div = document.createElement('div');
+    div.setAttribute('id', 'selected-element');
+    div.classList.add('active')
+    div.setAttribute('data-tutorial-step', '14');
+    div.innerHTML = `
+    <i class="fa-solid fa-file-invoice-dollar"></i>
+        <p class="category"> bills</p>
+        <p class="amount">US$ 40.00</p>
+        <p class="percentage">2.04%</p>
+    `
+    pieChartResult.appendChild(div)
+    let circles = document.querySelectorAll('#balance .pie-chart .pie-chart-container svg[data-add-type]');
+    circles.forEach(circle =>{
+        if(circle.getAttribute('data-add-category') === 'bills'){
+            circle.firstElementChild.classList.add('active');
+        }else{
+            circle.firstElementChild.classList.add('unactive')
+        }
+    })
 }
