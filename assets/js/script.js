@@ -370,6 +370,13 @@ addRadioInput.forEach(input => {
     })
 })
 
+//add active class to input amount when something is written
+inputAmount.addEventListener('input', ()=>{
+    if(inputAmount.value === ""){
+        inputAmount.classList.remove("active")
+    } else {inputAmount.classList.add("active")}
+})
+
 inputDate.max = new Date().toLocaleDateString('en-ca')
 
 // Helper functions
