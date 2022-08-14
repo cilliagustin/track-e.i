@@ -187,7 +187,8 @@ function populateCalendar(obj){
     //Create empty string that will finally populate the calendar section
     let calendarContent = "";
     //iterate the object
-    for(let transactionDay in obj){
+    Object.keys(obj).forEach(key=>{
+        let transactionDay = key;
         //transform yyyy/mm/dd format of date into dd/mm/yyyy
         let [year, month, day] = transactionDay.split('-');
         let transactionDate = [day, month, year].join('/');
@@ -196,8 +197,9 @@ function populateCalendar(obj){
         //Create variable for the result of the day (all the incomes - all expenses)
         let dailyResult = 0;
         //Iterate in the objects inside the array for each day
-        for(let transaction in obj[transactionDay]){
+        Object.keys(obj[transactionDay]).forEach(objKey =>{
             //Get all values for each transaction
+            let transaction = objKey;
             let transactionData = obj[transactionDay][transaction];
             let transactionCategory = transactionData.category;
             let transactionNote = transactionData.note;
@@ -230,7 +232,7 @@ function populateCalendar(obj){
             </li>
             `;
             transactionsOfTheDay += transactionLi;
-        } 
+        });
         //if the dailyResult is positive add a "$"", if is negative style it with a "$" between the number and the "-" 
         if(dailyResult >= 0){
             dailyResult = `<span data-currency>${selectedCurrency}</span> <span data-amount>${dailyResult.toFixed(2)}</span>`;
@@ -254,7 +256,7 @@ function populateCalendar(obj){
         </li>
         `;
         calendarContent += dateLi;
-    }
+    });
     //populate html with all the information
     calendarList.innerHTML = calendarContent;
 }
@@ -296,13 +298,13 @@ function createBalanceData(arr){
         }
     });
     //adds percetage of each category in income and expense array
-    for(let key in incomeObj){
+    Object.keys(incomeObj).forEach( key=>{
         incomeObj[key].percentage = parseFloat(incomeObj[key].amount * 100 / incomeAmount).toFixed(2);
-    }
+    });
 
-    for(let key in expenseObj){
+    Object.keys(expenseObj).forEach( key=>{
         expenseObj[key].percentage = parseFloat(expenseObj[key].amount * 100 / expenseAmount).toFixed(2);
-    }
+    });
 
     //returns the data to the global scope
     sortBalanceObj(incomeObj, incomedata);
@@ -334,7 +336,7 @@ function populateBalance(){
     </svg>`;
     let incomeCurrentAngle = -90;
     let expenseCurrentAngle = -90;
-    for(let key in incomedata){
+    Object.keys(incomedata).forEach(key=>{
         let incomeCategory = key;
         let noSpecialCaseCategory = incomeCategory.replace(/[^a-zA-Z]/g,"");
         let incomeAmount = incomedata[key].amount;
@@ -361,9 +363,9 @@ function populateBalance(){
 
         pieChartBalance += incomeSvg;
         balanceInfo += incomeElement;
-    }
+    });
 
-    for(let key in expensedata){
+    Object.keys(expensedata).forEach(key=>{
         let expenseCategory = key;
         let noSpecialCaseCategory = expenseCategory.replace(/[^a-zA-Z]/g,"");
         let expenseAmount = expensedata[key].amount;
@@ -390,7 +392,7 @@ function populateBalance(){
 
         pieChartBalance += expenseSvg;
         balanceInfo += expenseElement;
-    }
+    });
 
     pieChartContainer.innerHTML = pieChartBalance;
     pieChartInfo.innerHTML = balanceInfo;
