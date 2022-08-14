@@ -655,7 +655,7 @@ section{
     cursor: text;
 }
 
-#add .input-container .input-box.input-box-input-category label{
+#add .input-container .input-box.input-box-category label{
     padding:3px 0px;
 }
 
@@ -663,7 +663,8 @@ section{
 #add .input-container .input-box-note input:focus ~ label,
 #add .input-container .input-box-date input:focus ~ label,
 #add .input-container .input-box input:valid ~ label,
-#add .input-container .input-box-input-category input.active ~ label{
+#add .input-container .input-box-amount input.active ~ label,
+#add .input-container .input-box-category input.active ~ label{
     padding: 1px 3px;
     margin: auto;
     font-size: 14px;
@@ -736,22 +737,22 @@ section{
     color: black;
 }
 
-#add .input-container .input-box.input-box-input-category{
+#add .input-container .input-box.input-box-category{
     width: 100%;   
     text-align: center;
     margin-bottom: 0;
 }
 
-#add .input-container .input-box.input-box-input-category input{
+#add .input-container .input-box.input-box-category input{
     width: 50%;
     min-width: 20px; 
 }
 
-#add .input-container .input-box-input-category label{
+#add .input-container .input-box-category label{
     left: 26%;
 }
 
-#add .input-container .input-box-input-category input.active ~ label{
+#add .input-container .input-box-category input.active ~ label{
    left: 30%;
 } 
 
