@@ -1,3 +1,5 @@
+/* jshint esversion: 11 */
+
 const tutorialBtn = document.getElementById("tutorial-button");
 const tutorialContent = [
 [`Hello, thank you for using Track-e.i, in this tutorial you will learn how to use this site.</br>
@@ -40,9 +42,9 @@ the transaction for the database.`, "calendar"],
 At the end you will see the button thats starts the walkthourgh for the page.`, "calendar"],
 [`This is all, thanks for going through this tutorial and enjoy the site.</br>Remember that for an optimal 
 experience, if you are using this website with a phone to avoid using the landscape mode.`, "calendar"]
-]
-let tutorialSection
-let tutorialIndex
+];
+let tutorialSection;
+let tutorialIndex;
 let tutorialData1 = [
     {amount: 1200,
     category: "salary",
@@ -128,20 +130,20 @@ let tutorialData1 = [
     note: "salary August",
     timeStamp: 1660325796189,
     type: "income"}
-]
+];
 let tutorialData2 = [...tutorialData1];
-tutorialData2.push({amount: 40,category: "bills",date: "2022-08-01",note: "Internet bill",timeStamp: 1660326348787,type: "expense"})
+tutorialData2.push({amount: 40,category: "bills",date: "2022-08-01",note: "Internet bill",timeStamp: 1660326348787,type: "expense"});
 
 
 tutorialBtn.addEventListener("click", startTutorial);
 document.body.addEventListener("click", endTutorial);
 document.body.addEventListener("click", changeTutorialStep);
-window.addEventListener("resize", showTutorialSection)
+window.addEventListener("resize", showTutorialSection);
 window.addEventListener("resize", ()=>{
     if(tutorialIndex > 0 && tutorialIndex < 19){
         locateModal();
     }
-})
+});
 
 
 function startTutorial(){
@@ -149,11 +151,11 @@ function startTutorial(){
     tutorialSection = "balance";
     selectedCurrency = "US$";
     let tutorialBackground = document.createElement('div');
-    tutorialBackground.classList.add('tutorial-background')
-    document.body.insertBefore(tutorialBackground, balanceSection)
+    tutorialBackground.classList.add('tutorial-background');
+    document.body.insertBefore(tutorialBackground, balanceSection);
     let tutorialCourtain = document.createElement('div');
-    tutorialCourtain.classList.add('tutorial-courtain')
-    document.body.insertBefore(tutorialCourtain, balanceSection)
+    tutorialCourtain.classList.add('tutorial-courtain');
+    document.body.insertBefore(tutorialCourtain, balanceSection);
     let modal = document.createElement('div');
     modal.classList.add('modal');
     modal.innerHTML = `
@@ -164,10 +166,10 @@ function startTutorial(){
         <div class="modal-body">
             <button data-modal-btn id="btn-prev"><p>Prev</p><i class="fa-solid fa-circle-chevron-left"></i></button>
             <button data-modal-btn id="btn-next"><p>Next</p><i class="fa-solid fa-circle-chevron-right"></i></button>
-        </div>`
-    document.body.insertBefore(modal, balanceSection)
-    let modalButtons = document.querySelectorAll('.modal .modal-body button')
-    modalButtons[0].classList.add('hide')
+        </div>`;
+    document.body.insertBefore(modal, balanceSection);
+    let modalButtons = document.querySelectorAll('.modal .modal-body button');
+    modalButtons[0].classList.add('hide');
     centerModal();
     populateTutorial(tutorialData1);
     changeCurrency(selectedCurrency);
@@ -190,19 +192,19 @@ function changeTutorialStep(e){
 
         //select what section should be shown
         tutorialSection = tutorialContent[tutorialIndex][1];
-        showTutorialSection()
+        showTutorialSection();
 
         //check if there are highlighted elements and delete highlight
         let prevTutorialElementsArray = document.querySelectorAll('.tutorial-step');
         prevTutorialElementsArray.forEach(el =>{
-            el.classList.remove("tutorial-step")
-        })
+            el.classList.remove("tutorial-step");
+        });
 
         //Add inner html to modal text
-        let modalText = document.querySelector('.modal .modal-head p')
+        let modalText = document.querySelector('.modal .modal-head p');
         modalText.innerHTML = tutorialContent[tutorialIndex][0];
 
-        console.log(tutorialIndex)
+        console.log(tutorialIndex);
 
         //toggles necessary functions to show the website
         switch(tutorialIndex){
@@ -213,7 +215,7 @@ function changeTutorialStep(e){
             case 1:
                 checkbox.checked = false;
                 modalButtons.forEach(btn =>{
-                    btn.classList.remove('hide')
+                    btn.classList.remove('hide');
                 });
                 break;
             case 2:
@@ -221,7 +223,7 @@ function changeTutorialStep(e){
                 break;
             case 3:
                 checkbox.checked = false;
-                deleteValues(inputs)
+                deleteValues(inputs);
                 break;
             case 4:
                 inputAmount.value = 40;
@@ -232,8 +234,8 @@ function changeTutorialStep(e){
                 resetAddSection();
                 break;
             case 6:
-                showAddExpense()
-                document.getElementById("bills").checked = true
+                showAddExpense();
+                document.getElementById("bills").checked = true;
                 inputCategory.classList.remove("active");
                 break;
             case 7:
@@ -244,22 +246,22 @@ function changeTutorialStep(e){
                 inputAmount.value = 40;
                 inputNote.value = "Internet bill";
                 inputDate.value = "2022-08-01";
-                showAddExpense()
-                document.getElementById("bills").checked = true
+                showAddExpense();
+                document.getElementById("bills").checked = true;
                 inputCategory.value = "bills";
                 inputCategory.classList.add("active");
-                populateTutorial(tutorialData1)
+                populateTutorial(tutorialData1);
                 break;
             case 9:
-                populateTutorial(tutorialData2)
-                resetAddSection()
-                deleteValues(inputs)
+                populateTutorial(tutorialData2);
+                resetAddSection();
+                deleteValues(inputs);
                 break;
             case 11:
-                resetBalanceSection()
+                resetBalanceSection();
                 break;
             case 12:
-                showBalanceExpense()
+                showBalanceExpense();
                 document.querySelector('[data-tutorial-step="13"]').classList.remove('active');
                 scrollToElement();
                 break;
@@ -268,19 +270,19 @@ function changeTutorialStep(e){
                 createHighlightPiechart();
                 break;
             case 14:
-                showBalanceExpense()
+                showBalanceExpense();
                 createHighlightPiechart();
                 document.querySelector('[data-tutorial-step="10"]').classList.add('tutorial-step');
                 document.querySelector('[data-tutorial-step="13"]').classList.add('active');
                 break;
             case 15:
-                resetBalanceSection()
+                resetBalanceSection();
                 break;
             case 17:
-                populateTutorial(tutorialData2)
+                populateTutorial(tutorialData2);
                 break;
             case 18:
-                populateTutorial(tutorialData1)
+                populateTutorial(tutorialData1);
                 modalButtons[1].classList.remove('hide');
                 break;
             case 19:
@@ -293,10 +295,10 @@ function changeTutorialStep(e){
         let tutorialElementsArray = document.querySelectorAll(`[data-tutorial-step="${tutorialIndex}"]`);
         if(tutorialElementsArray[0] !== undefined){
             tutorialElementsArray.forEach(el =>{
-            el.classList.add("tutorial-step")
+            el.classList.add("tutorial-step");
             });
             //locate modal next to highlited element
-            locateModal()
+            locateModal();
         }
     }
 }
@@ -314,9 +316,9 @@ function endTutorial(e){
         //block dropdoen in navbar
         checkbox.checked = false;
         //reset balance and add section in case the tutorial had some stylings
-        resetAddSection()
-        resetBalanceSection()
-        deleteValues(inputs)
+        resetAddSection();
+        resetBalanceSection();
+        deleteValues(inputs);
         
         //repopulate DOM with correct data
         getData();
@@ -325,7 +327,7 @@ function endTutorial(e){
         deleteActive(navLinks);
         hideElements(sections);
         navLinks[0].classList.add('active');
-        balanceSection.classList.remove('hide')
+        balanceSection.classList.remove('hide');
     }
 }
 
@@ -342,9 +344,9 @@ function locateModal(){
     let modal = document.querySelector(".modal");
     let lastElement = (document.querySelectorAll('.tutorial-step').length) -1;
     let currentTutotialElement = document.querySelectorAll('.tutorial-step')[lastElement];
-    let rect =currentTutotialElement.getBoundingClientRect()
+    let rect =currentTutotialElement.getBoundingClientRect();
     //delete previous style    
-    modal.removeAttribute("style")
+    modal.removeAttribute("style");
 
     //decide modal position regarding the highlited element
     let topPoint = rect.top;
@@ -371,7 +373,7 @@ function locateModal(){
     //When highlighting sections center modal
 
     if(topPoint === 35 && bottomPoint - rect.height === 35){
-        centerModal()
+        centerModal();
     }
 }
 
@@ -389,7 +391,7 @@ function showTutorialSection(){
                     deleteActive(navLinks);
                     hideElements(sections);
                     navLinks[0].classList.add('active');
-                    balanceSection.classList.remove('hide')
+                    balanceSection.classList.remove('hide');
                 }
                 break;
             case "calendar":
@@ -397,7 +399,7 @@ function showTutorialSection(){
                     deleteActive(navLinks);
                     hideElements(sections);
                     navLinks[1].classList.add('active');
-                    calendarSection.classList.remove('hide')
+                    calendarSection.classList.remove('hide');
                 }
                 break;
             case "add":
@@ -405,12 +407,12 @@ function showTutorialSection(){
                     deleteActive(navLinks);
                     hideElements(sections);
                     navLinks[2].classList.add('active');
-                    addSection.classList.remove('hide')
+                    addSection.classList.remove('hide');
                 } else if(!navLinks[0].classList.contains('active') && this.window.innerWidth >= 767){
                     deleteActive(navLinks);
                     hideElements(sections);
                     navLinks[0].classList.add('active');
-                    balanceSection.classList.remove('hide')
+                    balanceSection.classList.remove('hide');
                 }
                 break;
         }
@@ -421,13 +423,13 @@ function showTutorialSection(){
 function populateTutorial(tutorialArray){
     data = tutorialArray;
     //Adds to the dataBy date transactions grouped by date and orders ir from most recent to oldestone
-    dataByDate = sortObj(groupBy('date', data))
+    dataByDate = sortObj(groupBy('date', data));
     //Populates the calendar section with the dataByDate
-    populateCalendar(dataByDate)
+    populateCalendar(dataByDate);
     //Create data for expense and income transactions
-    createBalanceData(data)
+    createBalanceData(data);
     //Populates the Balance section with the income and expense data
-    populateBalance()
+    populateBalance();
 
     //dinamically add data-tutorial-step to new elements
     //add data-tutorial-step to pie chart result
@@ -439,7 +441,7 @@ function populateTutorial(tutorialArray){
     //add data-tutorial-step to donut chart
     document.querySelectorAll('.pie-chart-container svg[data-add-category]').forEach(svg =>{
         svg.setAttribute('data-tutorial-step', '14');
-    })
+    });
 
     document.querySelector('#calendar .container ul .date').setAttribute('data-tutorial-step', '16');
     
@@ -453,14 +455,14 @@ function showAddExpense(){
     addSection.classList.add("expense");
 
     //add active class to button
-    addExpenseIncomeBtn[1].classList.add('active')
+    addExpenseIncomeBtn[1].classList.add('active');
 
     //filter radio lebel with expense category
     addRadioLabel.forEach(label => {
         if(label.getAttribute('data-radio-category') === "expense"){
-            label.classList.remove('hide')
+            label.classList.remove('hide');
         } 
-    })
+    });
 }
 
 //reset add section style + content
@@ -470,16 +472,16 @@ function resetAddSection(){
 
     //delete active class to buttons
     addExpenseIncomeBtn.forEach(btn =>{
-        btn.classList.remove('active')
-    })
+        btn.classList.remove('active');
+    });
 
     //delete input category active class
-    inputCategory.classList.remove("active")
+    inputCategory.classList.remove("active");
 
     //hide radio lebel with expense category
     addRadioLabel.forEach(label => {
-            label.classList.add('hide')
-    })
+            label.classList.add('hide');
+    });
 }
 
 function showBalanceExpense(){
@@ -487,7 +489,7 @@ function showBalanceExpense(){
     balanceSection.classList.add("expense");
 
     //add active class to button
-    balanceExpenseIncomeBtn[1].classList.add('active')
+    balanceExpenseIncomeBtn[1].classList.add('active');
 
     //Show pie chart elements with data-add-type expense
     let balanceElements = document.querySelectorAll('[data-add-category]');
@@ -495,7 +497,7 @@ function showBalanceExpense(){
         if(el.getAttribute('data-add-type') === "expense"){
             el.classList.remove("hide");
         }
-    })
+    });
 }
 
 function resetBalanceSection(){
@@ -504,38 +506,38 @@ function resetBalanceSection(){
 
     //delete active class to button
     balanceExpenseIncomeBtn.forEach(btn =>{
-        btn.classList.remove('active')
-    })
+        btn.classList.remove('active');
+    });
 
     //hide all pie chart elements
     let balanceElements = document.querySelectorAll('[data-add-category]');
     balanceElements.forEach(el =>{
         el.classList.add("hide");
-    })
+    });
     
 }
 
 function createHighlightPiechart(){
-    let pieChartResult = document.querySelector('.pie-chart-result')
+    let pieChartResult = document.querySelector('.pie-chart-result');
     let div = document.createElement('div');
     div.setAttribute('id', 'selected-element');
-    div.classList.add('active')
+    div.classList.add('active');
     div.setAttribute('data-tutorial-step', '14');
     div.innerHTML = `
     <i class="fa-solid fa-file-invoice-dollar"></i>
         <p class="category"> bills</p>
         <p class="amount">US$ 40.00</p>
         <p class="percentage">2.04%</p>
-    `
-    pieChartResult.appendChild(div)
+    `;
+    pieChartResult.appendChild(div);
     let circles = document.querySelectorAll('#balance .pie-chart .pie-chart-container svg[data-add-type]');
     circles.forEach(circle =>{
         if(circle.getAttribute('data-add-category') === 'bills'){
             circle.firstElementChild.classList.add('active');
         }else{
-            circle.firstElementChild.classList.add('unactive')
+            circle.firstElementChild.classList.add('unactive');
         }
-    })
+    });
 }
 
 //scroll inside div to show bills element
@@ -543,4 +545,4 @@ function scrollToElement(){
    let bills =  document.querySelector("[data-tutorial-step='13']");
    let billsPosition = bills.offsetTop;
    document.querySelector(".pie-chart-info").scrollTop = billsPosition;
-};
+}
