@@ -60,35 +60,50 @@ submit.addEventListener('click', (e)=>{
         });
 
         //create Popup confirming new transaction
-        let popUp = document.createElement('div');
-        popUp.setAttribute('id', 'pop-up');
-        let popUpContent = document.createElement('div');
-        popUpContent.classList.add('pop-up-content');
-        let popUpHead = document.createElement('div');
-        popUpHead.classList.add('pop-up-head');
-        let checked = document.createElement('i');
-        checked.classList.add('fa-solid', 'fa-circle-check');
-        popUpHead.appendChild(checked);
-        popUpContent.appendChild(popUpHead);
-        let popUpBody = document.createElement('div');
-        popUpBody.classList.add('pop-up-body');
-        let h2 = document.createElement('h2');
-        h2.textContent = 'Transaction succesfully added!';
-        let h3 = document.createElement('h3');
-        h3.textContent = 'Click to continue';
-        popUpBody.appendChild(h2);
-        popUpBody.appendChild(h3);
-        popUpContent.appendChild(popUpBody);
-        popUp.appendChild(popUpContent);
+        if(!document.querySelector("#pop-up")){
+            createPopUp();
+        }else {
+            closePopUp();
+            createPopUp();
+        }
 
-        document.body.insertBefore(popUp, balanceSection);
-
-        popUp.addEventListener('click', e=>{
-            popUp.remove();
-        });
-
-}
+    }
 });
+
+function createPopUp(){
+    let popUp = document.createElement('div');
+    popUp.setAttribute('id', 'pop-up');
+    let popUpHead = document.createElement('div');
+    popUpHead.classList.add('pop-up-head');
+    let checked = document.createElement('i');
+    checked.classList.add('fa-solid', 'fa-circle-check');
+    popUpHead.appendChild(checked);
+    popUp.appendChild(popUpHead);
+    let popUpBody = document.createElement('div');
+    popUpBody.classList.add('pop-up-body');
+    let h2 = document.createElement('h2');
+    h2.textContent = 'Transaction succesfully added!';
+    let h3 = document.createElement('h3');
+    h3.textContent = 'This pop up will close in 3 seconds';
+    let cross = document.createElement('i');
+    cross.setAttribute('id', 'close-pop-up');
+    cross.classList.add('fa-solid', 'fa-xmark');
+    let loader = document.createElement('div');
+    loader.classList.add('loader');
+    popUpBody.appendChild(h2);
+    popUpBody.appendChild(h3);
+    popUpBody.appendChild(cross);
+    popUpBody.appendChild(loader);
+    popUp.appendChild(popUpBody);
+    document.body.insertBefore(popUp, balanceSection);
+
+    setTimeout(closePopUp, 3000);
+}
+
+function closePopUp(){
+    let popUp = document.querySelector("#pop-up");
+    popUp.remove();
+}
 
 //Delete element from calendar and change all data structures
 calendarList.addEventListener('click', e =>{
