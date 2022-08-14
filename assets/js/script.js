@@ -1,3 +1,5 @@
+/* jshint esversion: 11 */
+
 // Variables
 const navLinks = document.querySelectorAll('.nav-link');
 const checkbox = document.getElementById('side-menu');
@@ -47,7 +49,7 @@ const iconsObj = {
     loanpay: "fa-solid fa-money-bill-transfer",
     familysupport: "fa-solid fa-people-roof",
     otherexpense: "fa-solid fa-circle"
-}
+};
 
 
 // Navbar and section functions
@@ -63,57 +65,57 @@ navLinks.forEach(link =>{
         sections.forEach(section => {
             //remove hide class to target´s section
             if(section.getAttribute('id')=== clickedNav){
-                section.classList.remove('hide')
+                section.classList.remove('hide');
             }
-        })
+        });
 
         //refresh balance section when changing sections
         balanceSection.classList.remove('income', 'expense');
-        deleteActive(balanceExpenseIncomeBtn)
+        deleteActive(balanceExpenseIncomeBtn);
         hideElements(document.querySelectorAll('[data-add-category]'));
         //check if selected element exists, if it does, delete it
         if(document.getElementById('selected-element') !== null){
-            document.getElementById('selected-element').remove()
+            document.getElementById('selected-element').remove();
         }
 
         //if page is in mobile version refresh all information from add section when toggle between sections
         if(window.innerWidth <= 766){
-            addSection.classList.remove('income', 'expense')
-            deleteValues(inputs)
-            inputCategory.classList.remove('active')
-            deleteActive(addExpenseIncomeBtn)
-            uncheckRadioInputs(addRadioInput)
+            addSection.classList.remove('income', 'expense');
+            deleteValues(inputs);
+            inputCategory.classList.remove('active');
+            deleteActive(addExpenseIncomeBtn);
+            uncheckRadioInputs(addRadioInput);
             hideElements(addRadioLabel);
         }
-    })
-})
+    });
+});
  
 //Select currency and populate Dom with this
 currency.addEventListener('change', e =>{
     //set value of selected currency and store it in local storage
     selectedCurrency = e.target.value;
-    localStorage.setItem('selectedCurrency', JSON.stringify(selectedCurrency))
+    localStorage.setItem('selectedCurrency', JSON.stringify(selectedCurrency));
     //replace the money sign in dom
-    changeCurrency(selectedCurrency)
-})
+    changeCurrency(selectedCurrency);
+});
 
 function changeCurrency(selectedCurrency){
-    let displayedCurrency = document.querySelectorAll('[data-currency]')
+    let displayedCurrency = document.querySelectorAll('[data-currency]');
     displayedCurrency.forEach(el =>{
-        el.textContent = selectedCurrency
-    })
+        el.textContent = selectedCurrency;
+    });
 }
 
 //Select Decimal and populate Dom with this
 decimal.addEventListener('change', e =>{
     //set value of selected decimal and store it in local storage
     selectedDecimal = e.target.value;
-    localStorage.setItem('selectedDecimal', JSON.stringify(selectedDecimal))
-    changeDecimal(selectedDecimal)
-})
+    localStorage.setItem('selectedDecimal', JSON.stringify(selectedDecimal));
+    changeDecimal(selectedDecimal);
+});
 
 function changeDecimal(selectedDecimal){
-    let displayedAmounts = document.querySelectorAll('[data-amount]')
+    let displayedAmounts = document.querySelectorAll('[data-amount]');
     //replace for selected decimal
     displayedAmounts.forEach(amount =>{
         if(selectedDecimal === ','){
@@ -121,20 +123,20 @@ function changeDecimal(selectedDecimal){
         } else if(selectedDecimal === '.'){
             amount.innerText = amount.innerText.replaceAll(',', selectedDecimal);
         }
-    })
+    });
 }
 
 //Rezise functions
 
 //set body height as window innerheight
-window.addEventListener('resize', setheight)
+window.addEventListener('resize', setheight);
 
 function setheight(){
     let height = this.window.innerHeight;
-    document.body.style.height = `${height}px`
+    document.body.style.height = `${height}px`;
 }
 
-setheight()
+setheight();
 
 //Checks website when rezising to change sections
 window.addEventListener('resize', () => {
@@ -145,28 +147,28 @@ window.addEventListener('resize', () => {
             deleteActive(navLinks);
             hideElements(sections);
             balanceNavLink.classList.add('active');
-            balanceSection.classList.remove('hide')
+            balanceSection.classList.remove('hide');
             // If website goes mobile it deletes information on add section so if is resized to desktop the add section appears blank again, but if website goes desktop when add section in active it keeps the information visible
         } else if (this.window.innerWidth <= 766 && !addNavLink.classList.contains('active')){
-            addSection.classList.remove('income', 'expense')
-            deleteValues(inputs)
-            inputCategory.classList.remove('active')
-            deleteActive(addExpenseIncomeBtn)
-            uncheckRadioInputs(addRadioInput)
+            addSection.classList.remove('income', 'expense');
+            deleteValues(inputs);
+            inputCategory.classList.remove('active');
+            deleteActive(addExpenseIncomeBtn);
+            uncheckRadioInputs(addRadioInput);
             hideElements(addRadioLabel);
         }
     }
-})
+});
 
 
 //trigger function when resizing
-window.addEventListener('resize', checkLandscapeMode)
+window.addEventListener('resize', checkLandscapeMode);
 
 
 //check window size, if phone is on landscape mode trigger alert else, delete alert if exists
 function checkLandscapeMode(){
-    let height = this.window.innerHeight
-    let width = this.window.innerWidth
+    let height = this.window.innerHeight;
+    let width = this.window.innerWidth;
     if(height < width &&  height < 500 && width < 900 &&(width - height) >= 200){
         let popUpError = document.createElement('div');
         popUpError.setAttribute('id', 'pop-up-error');
@@ -176,24 +178,24 @@ function checkLandscapeMode(){
         popUpHead.classList.add('pop-up-head');
         let warning = document.createElement('i');
         warning.classList.add('fa-solid', 'fa-circle-exclamation');
-        popUpHead.appendChild(warning)
-        popUpContent.appendChild(popUpHead)
+        popUpHead.appendChild(warning);
+        popUpContent.appendChild(popUpHead);
         let popUpBody = document.createElement('div');
         popUpBody.classList.add('pop-up-body');
         let h2 = document.createElement('h2');
-        h2.textContent = 'It looks Like You are using your phone on landscape mode'
+        h2.textContent = 'It looks Like You are using your phone on landscape mode';
         let h3 = document.createElement('h3');
         h3.textContent = 'For a good experience in your phone please rotate your screen back to vertical mode';
-        popUpBody.appendChild(h2)
-        popUpBody.appendChild(h3)
-        popUpContent.appendChild(popUpBody)
-        popUpError.appendChild(popUpContent)
-        document.body.insertBefore(popUpError, balanceSection)
+        popUpBody.appendChild(h2);
+        popUpBody.appendChild(h3);
+        popUpContent.appendChild(popUpBody);
+        popUpError.appendChild(popUpContent);
+        document.body.insertBefore(popUpError, balanceSection);
 
     } else {
-        let popUpError = document.getElementById('pop-up-error')
+        let popUpError = document.getElementById('pop-up-error');
         if(popUpError){
-            popUpError.remove()
+            popUpError.remove();
         }
     }
 }
@@ -203,8 +205,8 @@ function checkLandscapeMode(){
 //Filter pie chart + pie chart info
 balanceExpenseIncomeBtn.forEach(btn =>{
     btn.addEventListener('click', e =>{
-        let balanceElements = document.querySelectorAll('[data-add-category]')
-        let pressedBtn = e.target.getAttribute('data-button-category')
+        let balanceElements = document.querySelectorAll('[data-add-category]');
+        let pressedBtn = e.target.getAttribute('data-button-category');
         //Add income or expense class to balance section 
         switch(pressedBtn) {
             case "income":
@@ -218,39 +220,39 @@ balanceExpenseIncomeBtn.forEach(btn =>{
         }
 
         //Add active class to button
-        deleteActive(balanceExpenseIncomeBtn)
-        e.target.classList.add('active')
+        deleteActive(balanceExpenseIncomeBtn);
+        e.target.classList.add('active');
         
         //filter piechart and piechart info
         balanceElements.forEach(el => {
             if(el.getAttribute('data-add-type') !== pressedBtn){
-            el.classList.add("hide")
+            el.classList.add("hide");
         } else if (el.getAttribute('data-add-type') === pressedBtn){
-            el.classList.remove("hide")
+            el.classList.remove("hide");
         }
         });
 
         //check if selected element exists, if it does, delete it
         if(document.getElementById('selected-element') !== null){
-            document.getElementById('selected-element').remove()
+            document.getElementById('selected-element').remove();
         }
 
-    })
-})
+    });
+});
  
 //Highlight elements
 document.body.addEventListener('click', e =>{
     if(e.target.classList.contains('percentage-element')){
-       highlightElement(e)
+       highlightElement(e);
     } else{
-        deleteHighlight()
+        deleteHighlight();
     }
-})
+});
 
 balanceSection.addEventListener('mouseover', e => {
     if(e.target.classList.contains('percentage-element')){
-        deleteHighlight()
-        highlightElement(e)
+        deleteHighlight();
+        highlightElement(e);
     }
 });
 
@@ -262,67 +264,67 @@ function highlightElement(e){
     circles.forEach(circle =>{
         //adds necesry active or unactive class to svg
         if(circle.getAttribute('data-add-category') === category){
-            circle.firstElementChild.classList.remove('unactive')
-            circle.firstElementChild.classList.add('active')
+            circle.firstElementChild.classList.remove('unactive');
+            circle.firstElementChild.classList.add('active');
         } else {
-            circle.firstElementChild.classList.remove('active')
-            circle.firstElementChild.classList.add('unactive')
+            circle.firstElementChild.classList.remove('active');
+            circle.firstElementChild.classList.add('unactive');
         }
     //deletes active class to all percentage elements and gives it to the correct one
     deleteActive(percentageElements);
     e.target.classList.add('active');
 
     //check if selected elements exists, if it does deletes it and creates a new one
-    let selectedElement = document.getElementById('selected-element')
+    let selectedElement = document.getElementById('selected-element');
     if(selectedElement === null){
-        createSelectedElement(e)
+        createSelectedElement(e);
     } else {
         selectedElement.remove();
-        createSelectedElement(e)
+        createSelectedElement(e);
     }
-    })
+    });
 }
 
 function deleteHighlight(){
     let circles = document.querySelectorAll('#balance .pie-chart .pie-chart-container svg');
         let percentageElements = document.querySelectorAll('#balance .pie-chart-info div');
         circles.forEach(circle =>{
-            circle.firstElementChild.classList.remove('active', 'unactive')
-        })
+            circle.firstElementChild.classList.remove('active', 'unactive');
+        });
         deleteActive(percentageElements);
         if(document.getElementById('selected-element') !== null){
-            document.getElementById('selected-element').remove()
+            document.getElementById('selected-element').remove();
         }
 }
 
 function createSelectedElement(e){
     //gets data from the target
-    let pieChartResult = document.querySelector('.pie-chart-result')
+    let pieChartResult = document.querySelector('.pie-chart-result');
     let elCategory = e.target.querySelector('.category').textContent;
     let elAmount = e.target.querySelector('.amount').textContent;
     let elPercentage = e.target.querySelector('.percentage').textContent;
-    let iconClass = iconsObj[e.target.getAttribute('data-add-category')] 
+    let iconClass = iconsObj[e.target.getAttribute('data-add-category')]; 
 
     //adds data to variables and populates pie chart result
     let div = document.createElement('div');
         div.setAttribute('id', 'selected-element');
         let icon = document.createElement('i');
-        icon.setAttribute('class', iconClass)
+        icon.setAttribute('class', iconClass);
         let selectedCategory =  document.createElement('p');
-        selectedCategory.setAttribute('class', 'category')
+        selectedCategory.setAttribute('class', 'category');
         selectedCategory.textContent = elCategory;
         let amount =  document.createElement('p');
-        amount.setAttribute('class', 'amount')
+        amount.setAttribute('class', 'amount');
         amount.textContent = elAmount;
         let percentage =  document.createElement('p');
-        percentage.setAttribute('class', 'percentage')
+        percentage.setAttribute('class', 'percentage');
         percentage.textContent = elPercentage;
-        div.appendChild(icon)
-        div.appendChild(selectedCategory)
-        div.appendChild(amount)
-        div.appendChild(percentage)
-        pieChartResult.appendChild(div)
-        div.classList.add('active')
+        div.appendChild(icon);
+        div.appendChild(selectedCategory);
+        div.appendChild(amount);
+        div.appendChild(percentage);
+        pieChartResult.appendChild(div);
+        div.classList.add('active');
 }
 
 // Add section functions
@@ -330,7 +332,7 @@ function createSelectedElement(e){
 //Filter radio labels in Add section + add income/expense class to section + refresh input values
 addExpenseIncomeBtn.forEach(btn => {
     btn.addEventListener('click', e => {
-        let pressedBtn = e.target.getAttribute('data-button-category')
+        let pressedBtn = e.target.getAttribute('data-button-category');
         //Add income or expense class to Add section 
         switch(pressedBtn) {
             case "income":
@@ -343,41 +345,42 @@ addExpenseIncomeBtn.forEach(btn => {
                 break;
         }
         //Add active class to button
-        deleteActive(addExpenseIncomeBtn)
-        e.target.classList.add('active')
+        deleteActive(addExpenseIncomeBtn);
+        e.target.classList.add('active');
         //Delete input category value
         inputs[3].value = '';
         //Remove active class from input category
-        inputCategory.classList.remove('active')
+        inputCategory.classList.remove('active');
         //Desselect radio button
-        uncheckRadioInputs(addRadioInput)
+        uncheckRadioInputs(addRadioInput);
         //hide all label elements and show only selected ones
         addRadioLabel.forEach(label => {
             if(label.getAttribute('data-radio-category') === pressedBtn){
-                label.classList.remove('hide')
+                label.classList.remove('hide');
             } else {
-                label.classList.add('hide')
+                label.classList.add('hide');
             }
-        })
-    })
-})
+        });
+    });
+});
 
 addRadioInput.forEach(input => {
     input.addEventListener('click', () => {
         let selected = input.value;
-        inputCategory.value = selected
-        inputCategory.classList.add('active')
-    })
-})
+        inputCategory.value = selected;
+        inputCategory.classList.add('active');
+    });
+});
 
 //add active class to input amount when something is written
 inputAmount.addEventListener('input', ()=>{
     if(inputAmount.value === ""){
-        inputAmount.classList.remove("active")
-    } else {inputAmount.classList.add("active")}
-})
+        inputAmount.classList.remove("active");
+    } else {inputAmount.classList.add("active");
+}
+});
 
-inputDate.max = new Date().toLocaleDateString('en-ca')
+inputDate.max = new Date().toLocaleDateString('en-ca');
 
 // Helper functions
 
@@ -386,8 +389,8 @@ inputDate.max = new Date().toLocaleDateString('en-ca')
  */
  function deleteActive(elements){
     elements.forEach(el =>{
-        el.classList.remove("active")
-    })
+        el.classList.remove("active");
+    });
 }
 
 /**
@@ -395,14 +398,14 @@ inputDate.max = new Date().toLocaleDateString('en-ca')
  */
 function hideElements(elements){
     elements.forEach(el =>{
-        el.classList.add("hide")
-    })
+        el.classList.add("hide");
+    });
 }
 
 //set input amount always with 2 decimals
 inputAmount.onchange = function setTwoNumberDecimal(event) {
     this.value = parseFloat(this.value).toFixed(2);
-}
+};
 
 
 /**
@@ -422,6 +425,3 @@ function deleteValues(elements){
     el.checked = false ;
   });
 }
-
-
- 
