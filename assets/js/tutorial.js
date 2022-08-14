@@ -202,6 +202,8 @@ function changeTutorialStep(e){
         let modalText = document.querySelector('.modal .modal-head p')
         modalText.innerHTML = tutorialContent[tutorialIndex][0];
 
+        console.log(tutorialIndex)
+
         //toggles necessary functions to show the website
         switch(tutorialIndex){
             case 0:
@@ -259,6 +261,7 @@ function changeTutorialStep(e){
             case 12:
                 showBalanceExpense()
                 document.querySelector('[data-tutorial-step="13"]').classList.remove('active');
+                scrollToElement();
                 break;
             case 13:
                 document.querySelector('[data-tutorial-step="13"]').classList.add('active');
@@ -534,3 +537,10 @@ function createHighlightPiechart(){
         }
     })
 }
+
+//scroll inside div to show bills element
+function scrollToElement(){
+   let bills =  document.querySelector("[data-tutorial-step='13']");
+   let billsPosition = bills.offsetTop;
+   document.querySelector(".pie-chart-info").scrollTop = billsPosition;
+};
