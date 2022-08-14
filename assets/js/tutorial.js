@@ -172,6 +172,9 @@ function startTutorial(){
     populateTutorial(tutorialData1);
     changeCurrency(selectedCurrency);
     showTutorialSection();
+    resetAddSection();
+    resetBalanceSection();
+    deleteValues(inputs);
 }
 
 function changeTutorialStep(e){
@@ -459,11 +462,13 @@ function showAddExpense(){
 
 //reset add section style + content
 function resetAddSection(){
-    //delete expense class to add section
-    addSection.classList.remove("expense");
+    //delete expense or income class to add section
+    addSection.classList.remove("expense", "income");
 
-    //delete active class to button
-    addExpenseIncomeBtn[1].classList.remove('active')
+    //delete active class to buttons
+    addExpenseIncomeBtn.forEach(btn =>{
+        btn.classList.remove('active')
+    })
 
     //delete input category active class
     inputCategory.classList.remove("active")
@@ -492,10 +497,12 @@ function showBalanceExpense(){
 
 function resetBalanceSection(){
     //delete expense class to balance section
-    balanceSection.classList.remove("expense");
+    balanceSection.classList.remove("expense", "income");
 
     //delete active class to button
-    balanceExpenseIncomeBtn[1].classList.remove('active')
+    balanceExpenseIncomeBtn.forEach(btn =>{
+        btn.classList.remove('active')
+    })
 
     //hide all pie chart elements
     let balanceElements = document.querySelectorAll('[data-add-category]');
