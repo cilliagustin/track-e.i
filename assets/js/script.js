@@ -380,6 +380,13 @@ inputAmount.addEventListener('input', ()=>{
 }
 });
 
+//close confirmation PopUp
+document.body.addEventListener('click', (e) =>{
+    if (e.target.id === "close-pop-up"){
+        document.querySelector("#pop-up").remove();
+    }
+})
+
 inputDate.max = new Date().toLocaleDateString('en-ca');
 
 // Helper functions
