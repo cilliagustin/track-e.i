@@ -676,8 +676,8 @@ section{
 }
 
 #add .input-container .input-box input:focus-visible{
-    outline: 1.5px solid var(--dark-blue);
-    border: none;
+    outline: none;
+    border: 2.5px solid var(--blue);
 }
 
 #add .input-container .input-box.input-box-amount{
@@ -722,7 +722,11 @@ section{
 }
 
 #add .input-container .input-box.input-box-date{
-    width: 40%;
+    width: 45%;
+}
+
+#add .input-container .input-box.input-box-date input{
+    min-width: 90%;
 }
 
 #add .input-container .input-box.input-box-date label{
