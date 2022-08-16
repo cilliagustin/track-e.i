@@ -19,7 +19,11 @@ The website works with two css files: a general one and one just for the tutoria
 
 
 ## UX
-    briefly explain your design
+The website is a landing page that consists of the sections:
+* Balance Section
+* Calendar Section
+* Add Section
+The site has on top a navbar that allows the use to toggle in between this 3 unless the user is using the website on a desktop. In that case the Add Section is always displayed at the right half of the screen and the navbar allows you to toggle the left half between the Balance and Calendar Sections.
 ### User Stories
     bulletpoint any user stories you have... "As a user, I would like to __________", etc.
 ### Colour Scheme
