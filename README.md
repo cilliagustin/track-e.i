@@ -1,6 +1,12 @@
-# Title
-    Intro paragraph
-    amiresponisive image
+# Second Project Portfolio
+    *amiresponisive image*
+
+    [View the live project here](https://cilliagustin.github.io/track-e.i/)
+
+
+    ## Introduction
+    The website is a web aplication that allows the user to add any expense or income he/she has and allows them to view all this transaction organized by date and categorized by type of transaction.
+    The website works with two css files: a general one and one just for the tutorial elements (more of this will be explained later on this file) and 3 javascript files: the first one to change the website look and filter information, the second one to create the data that the used adds, manipulate it and populate the DOM with it and the third one to create the tutorial.
 ## UX
     briefly explain your design
 ### User Stories
