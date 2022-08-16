@@ -24,8 +24,19 @@ The website is a landing page that consists of the sections:
 * Calendar Section
 * Add Section
 The site has on top a navbar that allows the use to toggle in between this 3 unless the user is using the website on a desktop. In that case the Add Section is always displayed at the right half of the screen and the navbar allows you to toggle the left half between the Balance and Calendar Sections.
+
 ### User Stories
-    bulletpoint any user stories you have... "As a user, I would like to __________", etc.
+
+#### New User Goals
+* As a new user, I want to be able to intuitively navegate though the website.
+* As a new user, I want to have a walkthough that explains me in detail how to use the website.
+* As a new User, I want the website to be correctly designed to catch my attention.
+
+#### Current User Goals
+* As a current user, I want the website to store my information so I dont have to add it each time I use the website 
+* As a current user, I want to be able to see the information I added organized and displayed in a clear way.
+* As a current user I want to be able to delete information in case I made a mistake.
+
 ### Colour Scheme
     explain your colors, etc.... perhaps use coolors.co? to generate an image palette
 ### Typography
