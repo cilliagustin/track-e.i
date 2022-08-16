@@ -23,7 +23,8 @@ The website is a landing page that consists of the sections:
 * Balance Section
 * Calendar Section
 * Add Section
-The site has on top a navbar that allows the use to toggle in between this 3 unless the user is using the website on a desktop. In that case the Add Section is always displayed at the right half of the screen and the navbar allows you to toggle the left half between the Balance and Calendar Sections.
+
+The site has on top a navbar that allows the use to toggle in between this three sections unless the user is using the website on a desktop. In that case the Add Section is always displayed at the right half of the screen and the navbar allows you to toggle the left half between the Balance and Calendar Sections.
 
 ### User Stories
 
@@ -38,7 +39,65 @@ The site has on top a navbar that allows the use to toggle in between this 3 unl
 * As a current user I want to be able to delete information in case I made a mistake.
 
 ### Colour Scheme
-    explain your colors, etc.... perhaps use coolors.co? to generate an image palette
+The website uses three color schemes: Neutral, Expenses and Incomes.
+#### Neutral
+<details>
+<summary>View Palette</summary>
+
+![Neutral palette](documentation/testing/palette-neutral.png)
+</details>
+Is the one used in most of the website design as well as on the calendar section, it appears as default whenever a user opens the website and also when the Balance or Add Section are opened.
+
+
+#### Expenses
+<details>
+<summary>View Palette</summary>
+
+![Expense palette](documentation/testing/palette-expense.png)
+</details>
+This Palette is applied to the Balance and Add section when the expense button is pressed.
+
+#### Donut-chart expense
+<details>
+<summary>View Palette</summary>
+
+![Donut-chart expense palette](documentation/testing/palette-expense-chart.png)
+</details>
+This Palette is applied to the donut chart in balance section when the expense button is selected.
+
+#### Donut-chart highlight expense
+<details>
+<summary>Donut-chart Expense Highlight Palette</summary>
+
+![Donut-chart expense highlight palette](documentation/testing/palette-expense-chart-active.png)
+</details>
+This Palette is applied to the donut chart when one element of the expense type is highlithed and the others are hidden.
+
+
+#### Incomes
+<details>
+<summary>Income Palette</summary>
+
+![Income palette](documentation/testing/palette-income.png)
+</details>
+This Palette is applied to the Balance and Add section when the income button is pressed.
+
+#### Donut-chart income 
+<details>
+<summary>Donut-chart Income Palette</summary>
+
+![Donut-chart income palette](documentation/testing/palette-income-chart.png)
+</details>
+This Palette is applied to the donut chart in balance section when the income button is selected.
+
+#### Donut-chart highlight income 
+<details>
+<summary>Donut-chart Income Highlight Palette</summary>
+
+![Donut-chart income highlight palette](documentation/testing/palette-income-chart-active.png)
+</details>
+This Palette is applied to the donut chart when one element of the income type is highlithed and the others are hidden.
+
 ### Typography
     explain any fonts and icon libraries used, like font-awesome and google fonts
 ### Wireframes
