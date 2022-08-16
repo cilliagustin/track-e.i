@@ -1,12 +1,23 @@
 # Second Project Portfolio
     *amiresponisive image*
 
-    [View the live project here](https://cilliagustin.github.io/track-e.i/)
+[View the live project here](https://cilliagustin.github.io/track-e.i/)
 
 
-    ## Introduction
-    The website is a web aplication that allows the user to add any expense or income he/she has and allows them to view all this transaction organized by date and categorized by type of transaction.
-    The website works with two css files: a general one and one just for the tutorial elements (more of this will be explained later on this file) and 3 javascript files: the first one to change the website look and filter information, the second one to create the data that the used adds, manipulate it and populate the DOM with it and the third one to create the tutorial.
+## Introduction
+The website is a web aplication that allows the user to add any expense or income he/she has and allows them to view all this transaction organized by date and categorized by type of transaction.
+The website works with two css files: a general one and one just for the tutorial elements (more of this will be explained later on this file) and 3 javascript files: the first one to change the website look and filter information, the second one to create the data that the used adds, manipulate it and populate the DOM with it and the third one to create the tutorial.
+
+### Purpose
+#### For the creator:
+* To be able to show the creator capabilities, creating a complex and dinamic website with out the use of any framework or library, creating from scratch donut charts using svg on html and replicating (smaller scale versions) of libraries.
+
+#### For the user:
+* To be able to correcly track their transactions in order to keep a better control of their finances.
+* To be able to see in an organized list the order oh how each transaction was made.
+* To be able to keep in control how the user spends most of their money as well as to be able to track how they earn the most.
+
+
 ## UX
     briefly explain your design
 ### User Stories
