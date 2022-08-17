@@ -40,6 +40,7 @@ The site has on top a navbar that allows the use to toggle in between this three
 
 ### Colour Scheme
 The website uses three color schemes: Neutral, Expenses and Incomes.
+
 #### Neutral
 <details>
 <summary>View Palette</summary>
@@ -99,7 +100,9 @@ This Palette is applied to the donut chart in balance section when the income bu
 This Palette is applied to the donut chart when one element of the income type is highlithed and the others are hidden.
 
 ### Typography
-    explain any fonts and icon libraries used, like font-awesome and google fonts
+The idea of the website was to have a modern, yet,  design. The typographies selected for this were [Quicksand](https://fonts.google.com/specimen/Quicksand) and [Roboto](https://fonts.google.com/specimen/Roboto) with a backup of Sans-serif. 
+Quicksand was used for most of the website and Roboto was used for the navbar, the percentage elements (The menu that appears on Balance Section with transaction information), the category selectors and the submit button in the Add Section.
+
 ### Wireframes
      include screenshots of your wireframes (consider the markdown table format)
 ## Features
