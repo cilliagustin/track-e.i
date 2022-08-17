@@ -132,8 +132,9 @@ The website is a landing page divided in three sections. the first time the user
 
 ### Existing Features
 #### Navbar
-    
-    Add navbar image
+The navbar is located in the top of the website occupying 100% of the width. On the right side are located the links that toggle the different sections: Balance, Calendar and Add (Only the first two are visible on desktop mode).
+Next to the links is a hamburger menu which unfolds a dropdrown menu, here are two Select tag where the user can choose what kind of currency and decimal separator they want to use.
+    Add navbar images
 
 
 
