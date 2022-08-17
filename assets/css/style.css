@@ -1077,7 +1077,7 @@ footer button i{
 }
 
 
-#pop-up-error{
+#pop-up-error .pop-up-content{
     position: absolute;
     z-index: 5;
     height: 200px;
@@ -1092,7 +1092,7 @@ footer button i{
     border-radius:var(--border);
 }
 
-#pop-up-error .pop-up-head{
+#pop-up-error .pop-up-content .pop-up-head{
     width: 50%;
     height: 100%;
     display: flex;
@@ -1101,12 +1101,12 @@ footer button i{
     border-radius:var(--border) 0 0 var(--border);
 }
 
-#pop-up-error .pop-up-head i{
+#pop-up-error .pop-up-content .pop-up-head i{
     color: white;
     font-size: 88px;
 }
 
-#pop-up-error .pop-up-body{
+#pop-up-error .pop-up-content .pop-up-body{
     width: 50%;
     height: 100%;
     background: rgb(251,254,250);
@@ -1117,14 +1117,14 @@ footer button i{
     border-radius: 0  var(--border) var(--border) 0; 
 }
 
-#pop-up-error .pop-up-body h2{
+#pop-up-error .pop-up-content .pop-up-body h2{
     color: var(--dark-blue); 
     text-align: center;
     font-size: 17px;
     margin-bottom: 10px;
 }
 
-#pop-up-error .pop-up-body h3{
+#pop-up-error .pop-up-content .pop-up-body h3{
     color: var(--blue); 
     text-align: center;
     font-size: 11px;
