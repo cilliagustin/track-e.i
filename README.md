@@ -104,11 +104,39 @@ The idea of the website was to have a modern, yet,  design. The typographies sel
 Quicksand was used for most of the website and Roboto was used for the navbar, the percentage elements (The menu that appears on Balance Section with transaction information), the category selectors and the submit button in the Add Section.
 
 ### Wireframes
-     include screenshots of your wireframes (consider the markdown table format)
+The website was coded with the wireframes previously created in mind, although some changes were made during the coding phase and now the website present some slight changes compared to the skeleton.
+The wireframes were drawn using [Balsamiq](https://balsamiq.com/), the key for this aplication was provided by [Code Institute](https://codeinstitute.net/global/).
+
+<details>
+<summary>Mobile Wireframe</summary>
+
+![Mobile Wireframe](documentation/wireframes/wireframe-mobile.png)
+</details>
+
+<details>
+<summary>Tablet Wireframe</summary>
+
+![Tablet Wireframe](documentation/wireframes/wireframe-tablet.png)
+</details>
+
+<details>
+
+<summary>Desktop Wireframe</summary>
+
+![Desktop Wireframe](documentation/wireframes/wireframe-desktop.png)
+</details>
+
+
 ## Features
-    briefly explain the project
+The website is a landing page divided in three sections. the first time the user uses it they will have to start in the Add Section. Loading here the transaction information will  trigger lots of function which will populate the website´s sections.
+
 ### Existing Features
-    list out all of your project's features, and make sure to include a screenshot of each!!
+#### Navbar
+    
+    Add navbar image
+
+
+
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
 ## Technologies Used
