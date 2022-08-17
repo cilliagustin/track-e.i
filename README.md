@@ -10,7 +10,7 @@ The website works with two css files: a general one and one just for the tutoria
 
 ### Purpose
 #### For the creator:
-* To be able to show the creator capabilities, creating a complex and dinamic website with out the use of any framework or library, creating from scratch donut charts using svg on html and replicating (smaller scale versions) of libraries.
+* To be able to show the creator capabilities, creating a complex and dinamic website with out the use of any framework or library, creating from scratch pie charts using svg on html and replicating (smaller scale versions) of libraries.
 
 #### For the user:
 * To be able to correcly track their transactions in order to keep a better control of their finances.
@@ -58,21 +58,21 @@ Is the one used in most of the website design as well as on the calendar section
 </details>
 This Palette is applied to the Balance and Add section when the expense button is pressed.
 
-#### Donut-chart expense
+#### Pie-chart expense
 <details>
 <summary>View Palette</summary>
 
-![Donut-chart expense palette](documentation/testing/palette-expense-chart.png)
+![Pie-chart expense palette](documentation/testing/palette-expense-chart.png)
 </details>
-This Palette is applied to the donut chart in balance section when the expense button is selected.
+This Palette is applied to the pie chart in balance section when the expense button is selected.
 
-#### Donut-chart highlight expense
+#### Pie-chart highlight expense
 <details>
-<summary>Donut-chart Expense Highlight Palette</summary>
+<summary>Pie-chart Expense Highlight Palette</summary>
 
-![Donut-chart expense highlight palette](documentation/testing/palette-expense-chart-active.png)
+![Pie-chart expense highlight palette](documentation/testing/palette-expense-chart-active.png)
 </details>
-This Palette is applied to the donut chart when one element of the expense type is highlithed and the others are hidden.
+This Palette is applied to the pie chart when one element of the expense type is highlithed and the others are hidden.
 
 
 #### Incomes
@@ -83,21 +83,21 @@ This Palette is applied to the donut chart when one element of the expense type 
 </details>
 This Palette is applied to the Balance and Add section when the income button is pressed.
 
-#### Donut-chart income 
+#### Pie-chart income 
 <details>
 <summary>Donut-chart Income Palette</summary>
 
-![Donut-chart income palette](documentation/testing/palette-income-chart.png)
+![Pie-chart income palette](documentation/testing/palette-income-chart.png)
 </details>
-This Palette is applied to the donut chart in balance section when the income button is selected.
+This Palette is applied to the pie chart in balance section when the income button is selected.
 
-#### Donut-chart highlight income 
+#### Pie-chart highlight income 
 <details>
-<summary>Donut-chart Income Highlight Palette</summary>
+<summary>Pie-chart Income Highlight Palette</summary>
 
-![Donut-chart income highlight palette](documentation/testing/palette-income-chart-active.png)
+![Pie-chart income highlight palette](documentation/testing/palette-income-chart-active.png)
 </details>
-This Palette is applied to the donut chart when one element of the income type is highlithed and the others are hidden.
+This Palette is applied to the pie chart when one element of the income type is highlithed and the others are hidden.
 
 ### Typography
 The idea of the website was to have a modern, yet,  design. The typographies selected for this were [Quicksand](https://fonts.google.com/specimen/Quicksand) and [Roboto](https://fonts.google.com/specimen/Roboto) with a backup of Sans-serif. 
@@ -136,6 +136,26 @@ The navbar is located in the top of the website occupying 100% of the width. On 
 Next to the links is a hamburger menu which unfolds a dropdrown menu, here are two Select tag where the user can choose what kind of currency and decimal separator they want to use.
     Add navbar images
 
+#### Balance Section
+In this section the data is processed and expressed organized by transaction type (Income/Expense) and category.
+    Add navbar images
+
+#### Pie Chart and Balance
+In the Balanse Section, at the top are located both the Pie chart and the final balance. Both Are presented with a 0 value but once the user adds more and more information this are dinamically populated.
+The Pie chart, ehich is refered as a Donut Chart on the walkthrough because of how it looks for the user, is created with SVG elements in HTML. This take what percentage each category takes and using some math to calculate the rotation and the starting point of each SVG (each category creates it`s own SVG element and locates it on top of the other using absolute positioning) There is a posibility to highlight a specific element but this will be explained later on.
+The balance is located on top of the chart (giving it an appearance of a donut chart) here the total incomes and total expenses are added and bellow them a balance of these two. On top of this is dinamically created another element called selected element which will be explained in the next feature.
+
+    Add Pie chart + balance images
+
+
+#### Income Expense Buttons
+This buttons filter the elements shown according to the category selected and add a specific styling to the section changing its colours.
+    Add button images
+
+#### Pie Chart Info
+This area will look empty when the website is opened but if an income or expense button are pressed this will filter the correct elements that will appear in here, this elements are called percentage elements.
+This display either income or expense transaction with an icon, the category the total value and the percentage. If any of this elements is clicked or hovered will trigger a function that changes the appearence, highlight the pie chart and creates the prevoiusly said "Selected element" which will display the information of the highlighted "percentage element"
+    Add Pie Chart Info images
 
 
 ### Features Left to Implement
