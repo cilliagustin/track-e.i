@@ -240,12 +240,13 @@ This is the first file, here all the variables from the Dom are created. This fi
     * The next function makes sure that the website looks correcly when changing window with. originally if the add section was the active one on a phone, when going to a with higher that 767px it would only show this section and not the balance or calendar (The left side would look empty) to avoid this this function was created which makes sure that when the website width goes from less than 766px to more when the add section is on will show the balance section and give this link the active class. 
     It also makes sure that if the website goes from a desktop width to less than 767px it will refresh the information on the Add section.
     * Since the website does not look properly on a phone on landscape mode a function is created to make sure it send an alert if that happens. The function will trigger if the user is using a device with a width higher than the height, a width less than 920px, a height less of 500px and a difference between width and height over 200px(The reason of this last condition is that when the user has to write on a phone the keyboard resizes in some browsers so this makes sure when this happens the function does not trigger)
-    The alerts is a Pop up dinamically created which cast a shadow on the website and pops a modal that tells the user to use the phone on vertical mode.
+    The alerts is a Pop up dinamically created which cast a shadow on the website and pops a modal that tells the user to use the phone on vertical mode, once this conditions are no longer fullfilled the pop up will be deleted.
 * Balance Section Functions:
     * The first function is triggered with the Income/Expense buttons. This adds the correct style to the section and filter the pie chart and percentage elements to show the selected ones.
     * The function Highlight Element is triggered when the mouse hovers over a percentage element or the pie chart or when these are clicked. This adds an active class to the target percentage element, gives an active class to the pie chart section that corresponds to that selected element and gives an unactive class to the other SVG elements, finally it creates an element called selected element which displays the information selected on top of the pie chart result div.
     If the funtion is triggered with the svg elements this will also scroll the pie chart info div to show the target element.
     * Create Selected Elements is the function used on highlight element to create a div with the information of the target.
+    * Delete highlight makes sure to delete the active and unactive elements from the svg and pie chart info and deletes the select element. this triggers before the highlight element to avoid class overlapping and also triggers if clicked outside the percentage element and the SVG.
 
 
 
