@@ -366,6 +366,15 @@ section{
 #balance .pie-chart .pie-chart-container svg{
     height: 200px;
     width: 200px;
+    pointer-events: none;
+}
+
+#balance .pie-chart .pie-chart-container svg circle{
+    pointer-events: all;
+}
+
+#balance .pie-chart .pie-chart-container svg:nth-child(2) circle{
+    pointer-events: none;
 }
 
 #balance .pie-chart .toggle-buttons{
@@ -485,7 +494,7 @@ section{
 
 #balance.income .pie-chart .pie-chart-container svg circle.unactive,
 #balance.expense .pie-chart .pie-chart-container svg circle.unactive{
-    stroke:black;
+    filter: brightness(50%)
 }
 
 #balance.income .pie-chart-info .percentage-element.active{
