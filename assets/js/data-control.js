@@ -102,7 +102,9 @@ function createPopUp(){
 
 function closePopUp(){
     let popUp = document.querySelector("#pop-up");
-    popUp.remove();
+    if(popUp){
+        popUp.remove();
+    }
 }
 
 //Delete element from calendar and change all data structures
