@@ -208,7 +208,12 @@ This button is located at the right corner of the footer and starts a tutorial o
     Add Tutorial Button images
 
 ### Features Left to Implement
-    have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
+- To be able to filter the balance by Month
+    - This would allow the user to have a better control of their finances and compare their expenses with previous months.
+- Add a button to edit a specific transaction.
+    - This would allow the to change a transaction if they made an error insted of deleteing and createing the transaction again.
+
+
 ## Technologies Used
     explain various tech used, such as HTML, CSS, Gitpod, GitHub, Git, etc. - add a link to each respective site as well, if possible
 ## Testing
