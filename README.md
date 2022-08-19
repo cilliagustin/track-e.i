@@ -260,6 +260,10 @@ This is the first file, here all the variables from the Dom are created. This fi
     * Delete Values: deletes the element values in an array of elements, this was used to delete input values when refreshing the add section.
     * uncheck radio buttons: adds a false value to checked on array of elements.
 
+#### data-control.js
+This is the main JavaScript file and is where all the data is created, manupulated and where the information populates the DOM. The file starts with some variables that will be changed with the following functions.
+
+
 
 
 
