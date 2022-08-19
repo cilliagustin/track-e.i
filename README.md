@@ -157,6 +157,14 @@ This area will look empty when the website is opened but if an income or expense
 This display either income or expense transaction with an icon, the category the total value and the percentage. If any of this elements is clicked or hovered will trigger a function that changes the appearence, highlight the pie chart and creates the prevoiusly said "Selected element" which will display the information of the highlighted "percentage element"
     Add Pie Chart Info images
 
+#### Calendar Section
+The calendar section appears as blank when first opening it but that is because it´s whole content is created with the user´s data. 
+Originally this section consists of a container and an unordered list, once populated this will have a nested list where the first li elements will be dates (with the final balance of that date) and the inner list will be all the transactions that happened on those days.
+    Add Calendar images
+
+#### Delete Transaction
+Each transaction li element will have a div with all the information (category, note, amount) At the end will be a cross icon that if pressed will delete this transaction from the data and repopulate the dom with the new information.
+    Add Calendar cross icon images
 
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
