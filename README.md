@@ -252,7 +252,7 @@ This is the first file, here all the variables from the Dom are created. This fi
     * The next function takes the value from the selected element in the category container and adds it to the category input.
     * The following function makes sure the input amount has an active class when there is content on the input. The reasor for this is that sometimes when using diferent decimal separator "," or "." the input did not take the result as valid so this makes sure the style is applied correctly.
     * Then there is a function to close manually the confirmation pop up if desired. This pop up will be explained on the data control description.
-    * The last of the Add functions sets the input date max value to be the current day value
+    * The last of the Add functions sets the input date max value to be the current day value.
 
 
 
