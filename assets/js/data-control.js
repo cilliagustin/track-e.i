@@ -146,6 +146,14 @@ const groupBy = (key,arr) => arr
     {}
 );
 
+//Orders the array of objects by key value in reverse
+function sortObj(obj) {
+    return Object.keys(obj).sort().reverse().reduce(function (result, key) {
+      result[key] = obj[key];
+      return result;
+    }, {});
+  }
+
 //Populate calendar section with dataByDate obj
 function populateCalendar(obj){
     //Create empty string that will finally populate the calendar section
@@ -361,14 +369,6 @@ function populateBalance(){
     pieChartContainer.innerHTML = pieChartBalance;
     pieChartInfo.innerHTML = balanceInfo;
 }
-
-//Orders the array of objects by key value in reverse
-function sortObj(obj) {
-    return Object.keys(obj).sort().reverse().reduce(function (result, key) {
-      result[key] = obj[key];
-      return result;
-    }, {});
-  }
 
 //orders the object of objects by inner parameter
 function sortBalanceObj(obj, selectedData){
