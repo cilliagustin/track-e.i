@@ -245,7 +245,7 @@ balanceExpenseIncomeBtn.forEach(btn =>{
  
 //Highlight elements
 document.body.addEventListener('click', e =>{
-    if(e.target.classList.contains('percentage-element')){
+    if(e.target.classList.contains('percentage-element') || e.target.hasAttribute('stroke-width')){
        highlightElement(e);
     } else{
         deleteHighlight();
@@ -253,7 +253,7 @@ document.body.addEventListener('click', e =>{
 });
 
 balanceSection.addEventListener('mouseover', e => {
-    if(e.target.classList.contains('percentage-element')){
+    if(e.target.classList.contains('percentage-element') || e.target.hasAttribute('stroke-width')){
         deleteHighlight();
         highlightElement(e);
     }
@@ -261,10 +261,18 @@ balanceSection.addEventListener('mouseover', e => {
 
 //Highlight selected element in piechart, in piechart info and show information on top of final balance
 function highlightElement(e){
-    let category = e.target.getAttribute('data-add-category');
-    let circles = document.querySelectorAll('#balance .pie-chart .pie-chart-container svg');
+    let category;
+    let targetElement;
+    if(e.target.hasAttribute('data-add-category')){
+        category = e.target.getAttribute('data-add-category');
+        targetElement = e.target;
+    } else {
+        category = e.target.parentNode.getAttribute('data-add-category');
+        targetElement = document.querySelector(`#balance .pie-chart-info .percentage-element[data-add-category=${category}]`);
+    }
+    let svgs = document.querySelectorAll('#balance .pie-chart .pie-chart-container svg');
     let percentageElements = document.querySelectorAll('#balance .pie-chart-info div');
-    circles.forEach(circle =>{
+    svgs.forEach(circle =>{
         //adds necesry active or unactive class to svg
         if(circle.getAttribute('data-add-category') === category){
             circle.firstElementChild.classList.remove('unactive');
@@ -275,7 +283,12 @@ function highlightElement(e){
         }
     //deletes active class to all percentage elements and gives it to the correct one
     deleteActive(percentageElements);
-    e.target.classList.add('active');
+    targetElement.classList.add('active');
+    //scroll only if function triggered with svg
+    if(e.target.hasAttribute('stroke-width')){
+        let targetPosition = targetElement.offsetTop;
+        pieChartInfo.scrollTop = targetPosition - 318;
+    }
 
     //check if selected elements exists, if it does deletes it and creates a new one
     let selectedElement = document.getElementById('selected-element');
@@ -303,10 +316,17 @@ function deleteHighlight(){
 function createSelectedElement(e){
     //gets data from the target
     let pieChartResult = document.querySelector('.pie-chart-result');
-    let elCategory = e.target.querySelector('.category').textContent;
-    let elAmount = e.target.querySelector('.amount').textContent;
-    let elPercentage = e.target.querySelector('.percentage').textContent;
-    let iconClass = iconsObj[e.target.getAttribute('data-add-category')]; 
+    let targetElement;
+    if(e.target.hasAttribute('data-add-category')){
+        targetElement = e.target;
+    } else {
+       let category = e.target.parentNode.getAttribute('data-add-category');
+       targetElement = document.querySelector(`#balance .pie-chart-info .percentage-element[data-add-category=${category}]`)
+    }
+    let elCategory = targetElement.querySelector('.category').textContent;
+    let elAmount = targetElement.querySelector('.amount').textContent;
+    let elPercentage = targetElement.querySelector('.percentage').textContent;
+    let iconClass = iconsObj[targetElement.getAttribute('data-add-category')];
 
     //adds data to variables and populates pie chart result
     let div = document.createElement('div');
