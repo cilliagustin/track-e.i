@@ -241,6 +241,10 @@ This is the first file, here all the variables from the Dom are created. This fi
     It also makes sure that if the website goes from a desktop width to less than 767px it will refresh the information on the Add section.
     * Since the website does not look properly on a phone on landscape mode a function is created to make sure it send an alert if that happens. The function will trigger if the user is using a device with a width higher than the height, a width less than 920px, a height less of 500px and a difference between width and height over 200px(The reason of this last condition is that when the user has to write on a phone the keyboard resizes in some browsers so this makes sure when this happens the function does not trigger)
     The alerts is a Pop up dinamically created which cast a shadow on the website and pops a modal that tells the user to use the phone on vertical mode.
+* Balance Section Functions:
+    * The first function is triggered with the Income/Expense buttons. This adds the correct style to the section and filter the pie chart and percentage elements to show the selected ones.
+    * The function Highlight Element is triggered when the mouse hovers over a percentage element or when this is clicked. This adds an active class to the target percentage element, gives an active class to the pie chart section that corresponds to that selected element and gives an unactive class to the other SVG elements, finally it creates an element called selected element which displays the information selected on top of the pie chart result div.
+    * Create Selected Elements is the function used on highlight element to create a div with the information of the target.
 
 
 
