@@ -215,7 +215,18 @@ This button is located at the right corner of the footer and starts a tutorial o
 
 
 ## Technologies Used
-    explain various tech used, such as HTML, CSS, Gitpod, GitHub, Git, etc. - add a link to each respective site as well, if possible
+### Main Languages Used
+* [HTML](https://en.wikipedia.org/wiki/HTML)
+* [CSS](https://en.wikipedia.org/wiki/CSS)
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+
+### Other technologies Used
+I aplied for the website some technologies that are beyond the scope of what Code Institute teaches:
+* Flexbox
+* CSS Grid
+* Root variables
+* HTML SVG
+
 ## Testing
     ## Testing
 Testing information can be found in a separate testing [file](TESTING.md "Link to testing file")
