@@ -134,10 +134,12 @@ The website is a landing page divided in three sections. the first time the user
 #### Navbar
 The navbar is located in the top of the website occupying 100% of the width. On the right side are located the links that toggle the different sections: Balance, Calendar and Add (Only the first two are visible on desktop mode).
 Next to the links is a hamburger menu which unfolds a dropdrown menu, here are two Select tag where the user can choose what kind of currency and decimal separator they want to use.
+    
     Add navbar images
 
 #### Balance Section
 In this section the data is processed and expressed organized by transaction type (Income/Expense) and category.
+   
     Add navbar images
 
 #### Pie Chart and Balance
@@ -147,24 +149,53 @@ The balance is located on top of the chart (giving it an appearance of a donut c
 
     Add Pie chart + balance images
 
-
-#### Income Expense Buttons
+#### Income Expense Buttons (Balance)
 This buttons filter the elements shown according to the category selected and add a specific styling to the section changing its colours.
+    
     Add button images
 
 #### Pie Chart Info
 This area will look empty when the website is opened but if an income or expense button are pressed this will filter the correct elements that will appear in here, this elements are called percentage elements.
 This display either income or expense transaction with an icon, the category the total value and the percentage. If any of this elements is clicked or hovered will trigger a function that changes the appearence, highlight the pie chart and creates the prevoiusly said "Selected element" which will display the information of the highlighted "percentage element"
+    
     Add Pie Chart Info images
 
 #### Calendar Section
 The calendar section appears as blank when first opening it but that is because it´s whole content is created with the user´s data. 
 Originally this section consists of a container and an unordered list, once populated this will have a nested list where the first li elements will be dates (with the final balance of that date) and the inner list will be all the transactions that happened on those days.
+    
     Add Calendar images
 
 #### Delete Transaction
 Each transaction li element will have a div with all the information (category, note, amount) At the end will be a cross icon that if pressed will delete this transaction from the data and repopulate the dom with the new information.
+    
     Add Calendar cross icon images
+
+#### Add Section
+This is the only section that does not change when the new information is added. This section is always visible and located in the right falf of the screen when the vewport width is bigger than 767px.
+    
+    Add Add Section images
+
+#### Input Container
+Here are located the four input required for adding new information. The first three (Amount, note and date) are compleated normally with certain restrictions: The amount must be at least 1 cent and will be rounded to have only 2 decimals, the note has a max-value of 20 characters and the date must be between january the fist of 20222 and the current date.
+To complete the last input (category) this must be dinamically selected from the options in the category container, this will be explained bellow.
+    
+    Add Input Container images
+
+#### Income Expense Buttons (Add)
+Just like in the Balance Section there are 2 buttons located at the end of the container. When these are pressed the section colour changes and the below container (the category container will be populated the different categories availables for incomes or expenses)
+    
+    Add Income Expense Buttons images
+
+#### Category Container
+This div (Which looks blank in the beggining) is populated when the income/expense buttons are pressed. When this happens the correct radio button labels are unhidden and allows the user to select it loading it´s value on the category input.
+    
+    Add Category Container images
+
+#### Submit Button
+This is the button that triggers the main function of the website. It only works when the 4 inputs are correctly completed and send all the information to populate the DOM.
+    
+    Add Submit Button images
 
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
