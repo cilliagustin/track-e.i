@@ -262,8 +262,14 @@ This is the first file, here all the variables from the Dom are created. This fi
 
 #### data-control.js
 This is the main JavaScript file and is where all the data is created, manupulated and where the information populates the DOM. The file starts with some variables that will be changed with the following functions.
+* The first function is triggered with the submit button on the Add Section. In order to work the 4 inputs must be correctly filled:
+    * The function creates variables for the information the user just added: Amount, Note, Category and Date. 
+    * Then some functions that manipulate the data and that will be explained later are triggered and stores the created data on the local storage. 
+    * After this the balance section is refreshed to show the values just added: The add/Income class are added, the percentage elements and piechart is filtered to show the correct values. This happens so if the user is using a desktop and both the Balance and Add Sections are visible the user automatically sees the new transactions added.
+    * Then a Pop Up is created using some helper functions. This pop up confirms the transaction and is deleted automatically in 3 seconds but the user can choose to close it with the X icon.
+* The create data function creates an object with the values provided in the prevoius function + a time stamp and the transaction type(this is taken from the add section class that can be either income or expense). This object is then pushed to the data object.
 
-
+    
 
 
 
