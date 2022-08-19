@@ -208,10 +208,10 @@ This button is located at the right corner of the footer and starts a tutorial o
     Add Tutorial Button images
 
 ### Features Left to Implement
-- To be able to filter the balance by Month
-    - This would allow the user to have a better control of their finances and compare their expenses with previous months.
-- Add a button to edit a specific transaction.
-    - This would allow the to change a transaction if they made an error insted of deleteing and createing the transaction again.
+* To be able to filter the balance by Month
+    * This would allow the user to have a better control of their finances and compare their expenses with previous months.
+* Add a button to edit a specific transaction.
+    * This would allow the to change a transaction if they made an error insted of deleteing and createing the transaction again.
 
 
 ## Technologies Used
@@ -227,8 +227,18 @@ I aplied for the website some technologies that are beyond the scope of what Cod
 * Root variables
 * HTML SVG
 
+### Javascript
+This website has three Javascript files: script.js, data-control.js and tutorial.js. Here it will be explained how these files work and their functions.
+
+#### script.js
+This is the first file, here all the variables from the Dom are created. This files is the one where most of the DOM mnipulation happens (resize, filter information, change sections, etc)
+* Navbar Functions:
+    * The first function is in chanre of toggeling the sections. Since the website is a landing page is has only one HTML file when clicking a navbar link there is no loading of a new page. It simple hides all sections, shows the correct one and adds the active class to the corresponding nav link. It also makes sure to refresh the balance section (deletes income or expense class and hides the percentage elements) and does the same with the Add section unless the website is on a desktop. Since in a big device the Add section is always located on the right side, when changing between the Balance and the Calendar Section the Add Section keeps it´s information and does not refresh (It does though if is on a tablet or a phone)
+    
+
+
+
 ## Testing
-    ## Testing
 Testing information can be found in a separate testing [file](TESTING.md "Link to testing file")
 ## Deployment
     document all necessary steps you did in order to deploy this project (GitHub Pages, Heroku, etc.)
