@@ -243,7 +243,8 @@ This is the first file, here all the variables from the Dom are created. This fi
     The alerts is a Pop up dinamically created which cast a shadow on the website and pops a modal that tells the user to use the phone on vertical mode.
 * Balance Section Functions:
     * The first function is triggered with the Income/Expense buttons. This adds the correct style to the section and filter the pie chart and percentage elements to show the selected ones.
-    * The function Highlight Element is triggered when the mouse hovers over a percentage element or when this is clicked. This adds an active class to the target percentage element, gives an active class to the pie chart section that corresponds to that selected element and gives an unactive class to the other SVG elements, finally it creates an element called selected element which displays the information selected on top of the pie chart result div.
+    * The function Highlight Element is triggered when the mouse hovers over a percentage element or the pie chart or when these are clicked. This adds an active class to the target percentage element, gives an active class to the pie chart section that corresponds to that selected element and gives an unactive class to the other SVG elements, finally it creates an element called selected element which displays the information selected on top of the pie chart result div.
+    If the funtion is triggered with the svg elements this will also scroll the pie chart info div to show the target element.
     * Create Selected Elements is the function used on highlight element to create a div with the information of the target.
 
 
