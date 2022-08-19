@@ -410,6 +410,12 @@ document.body.addEventListener('click', (e) =>{
     }
 })
 
+
+//set input amount always with 2 decimals
+inputAmount.onchange = function setTwoNumberDecimal() {
+    this.value = parseFloat(this.value).toFixed(2);
+};
+//adds current date as max value on input date
 inputDate.max = new Date().toLocaleDateString('en-ca');
 
 // Helper functions
@@ -432,10 +438,6 @@ function hideElements(elements){
     });
 }
 
-//set input amount always with 2 decimals
-inputAmount.onchange = function setTwoNumberDecimal(event) {
-    this.value = parseFloat(this.value).toFixed(2);
-};
 
 
 /**
