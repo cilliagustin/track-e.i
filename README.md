@@ -247,6 +247,13 @@ This is the first file, here all the variables from the Dom are created. This fi
     If the funtion is triggered with the svg elements this will also scroll the pie chart info div to show the target element.
     * Create Selected Elements is the function used on highlight element to create a div with the information of the target.
     * Delete highlight makes sure to delete the active and unactive elements from the svg and pie chart info and deletes the select element. this triggers before the highlight element to avoid class overlapping and also triggers if clicked outside the percentage element and the SVG.
+* Add Section functions:
+    * The first function triggers with the Income/Expense buttons, just like in the Balance Section this changes the style of the section, filter the category container to show the desired options and deletes the value on the category container
+    * The next function takes the value from the selected element in the category container and adds it to the category input.
+    * The following function makes sure the input amount has an active class when there is content on the input. The reasor for this is that sometimes when using diferent decimal separator "," or "." the input did not take the result as valid so this makes sure the style is applied correctly.
+    * Then there is a function to close manually the confirmation pop up if desired. This pop up will be explained on the data control description.
+    * The last of the Add functions sets the input date max value to be the current day value
+
 
 
 
