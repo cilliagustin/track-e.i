@@ -197,6 +197,16 @@ This is the button that triggers the main function of the website. It only works
     
     Add Submit Button images
 
+#### Footer
+This is located at the bottom of the website and has two links (one to my GitHub profile and one to send me an email) and a button that starts the tutorial
+    
+    Add Footer images
+    
+#### Tutorial Button
+This button is located at the right corner of the footer and starts a tutorial of the website. When this is pressed the DOM will be repopulated with data so the user can see how to use all the features the website offers.
+    
+    Add Tutorial Button images
+
 ### Features Left to Implement
     have ideas on what you'd like to add in the future? add them here!! assessors LOVE seeing future concepts!
 ## Technologies Used
