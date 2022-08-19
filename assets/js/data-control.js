@@ -448,6 +448,8 @@ function getData(){
 
     //Adds selected currency to span in amount input
     document.querySelector('#add .input-container .input-box-amount [data-currency]').textContent = selectedCurrency;
+    //Adds the selected decimal to the DOM
+    changeDecimal(selectedDecimal)
 }
 
 window.addEventListener('DOMContentLoaded', getData);
