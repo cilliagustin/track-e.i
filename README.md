@@ -268,8 +268,8 @@ This is the main JavaScript file and is where all the data is created, manupulat
     * After this the balance section is refreshed to show the values just added: The add/Income class are added, the percentage elements and piechart is filtered to show the correct values. This happens so if the user is using a desktop and both the Balance and Add Sections are visible the user automatically sees the new transactions added.
     * Then a Pop Up is created using some helper functions. This pop up confirms the transaction and is deleted automatically in 3 seconds but the user can choose to close it with the X icon.
 * The create data function creates an object with the values provided in the prevoius function + a time stamp and the transaction type(this is taken from the add section class that can be either income or expense). This object is then pushed to the data object.
-
-    
+* The group by and sort obj are the next 2 functions to trigger. this work together. the first one takes an array of objects and grupes it into an object with some parameter as key, in this case is the date, then the sort obj function arranges this object by date (from newest to oldest) This 2 functions return an object where each key is a date and inside there is an array for each transaction made in that day, this object is assigned to the dataByDate variable.
+* Populate calendar takes the information from the dataByDate object. This function simply loops inside the object and the inner object, takes the data and uses this to create the nested list that is used to populate the calendar section. The timestamp is used in the transaction div as part of the id in order to easily target the element and delete it, this will be explained later on.
 
 
 
