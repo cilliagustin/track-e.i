@@ -293,6 +293,16 @@ The script beggins declaring some variables like all the text that will be intro
     * Refresh the DOM to delete any style that might have been added during any step of the tutorial (Opened the submenu, added classes to sections, etc)
     * Repopulate the DOM with the users data.
     * Goes back to the balance section
+* The rest of the functions are helper function that are used to avoid repeating so much code:
+    * The center modal is a function that as the title says, locates the modal in the exact center of the website. This function is used on the first and last step of the tutorial and when the walkthrough should highlight a whole section.
+    * Locate modal is used in every step of the tutorial and indicates where should the modal be located (Except for the first and last step) when this function is called it looks for the current highlithed elements and tracks their location respect to the screen. Then it calculates if it has more space on top, bottom left or right and located the modal accordingly. If a whole section is being highlited it will call the center modal function. This function is also called every time the website resized to make sure the modal is always correcly positioned.
+    * The show tutorial section selects from the tutorial content array what section should be shown in each step and using a switch case makes sure that the correct section is opened and the correct navlink is active. This section also is triggered when reisizng to make sure that if someone goes with a device that is bigger that 767px to a smaller size this does not keep showing the Balance Section that is visible on desktops when the Add Section should be visible.
+    * The populate tutorial function populates the DOM with the dummy data. This does not only reuse the populate calendar function, create balance data function, etc. It also adds to the dinamically created elements the "data-tutorial-step" property to the dinamically elements that should be highlithed in the tutorial. This function does not only activates when the start tutorial function is activated but also during the change tutorial step function because during the walkthrough some data will be added and the repopulates with the tutorial data 2 array, which is the same as the first but with a new transaction added.
+    * Show add expense and reset add section functions are used in the switch statement of the change tutorial step function.This adds the expense style to the add section and deletes it when necessary.
+    * The same way works the Show balance expense and reset section functions that add style and reset the Balance Section when triggered in the switch case.
+    * The create highlight piechart function is also triggered in the switch case when the walkthough shows how the piechart works. This is used to create a dummy selected element div and gives the highlighted piechart element an active class and an unactive to the rest.
+    * The final function scroll to element makes sure to scroll the pie chart info div to show the bills element that is located at the bottom.
+
 
 
 
