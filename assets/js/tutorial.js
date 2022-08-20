@@ -331,6 +331,8 @@ function endTutorial(e){
     }
 }
 
+//tutorial helper functions
+
 function centerModal(){
     let modal = document.querySelector(".modal");
     let width = modal.offsetWidth;
@@ -376,10 +378,6 @@ function locateModal(){
         centerModal();
     }
 }
-
-
-
-//tutorial helper functions
 
 //select visible section
 function showTutorialSection(){
