@@ -288,6 +288,11 @@ The script beggins declaring some variables like all the text that will be intro
     * After that the function check if there are any previous nhighlited elements and delete the highlight and the inner text of the modal is selected from the tutorial content array and changed.
     * The next part is a witch case with all the possible steps of the tutorial. Since in almost every step of the tutorial there is something that must be toggled (open the submenu in the navbar, add values to the inputs, give income or expense class to section and deleting this, etc) this switch case mas sure to activate and delete all this functionalities when necesary
     * The last functionality searches the element that should be highlited by searching for an element with the "data-tutorial-step" property and giving it a class of tutorial step that raises them up from the overlay.
+* The end tutorial function triggers when clicking the X icon on the modal or clicking outside from it.
+    * This deletes the background and modal.
+    * Refresh the DOM to delete any style that might have been added during any step of the tutorial (Opened the submenu, added classes to sections, etc)
+    * Repopulate the DOM with the users data.
+    * Goes back to the balance section
 
 
 
