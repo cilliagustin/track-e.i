@@ -303,12 +303,6 @@ The script beggins declaring some variables like all the text that will be intro
     * The create highlight piechart function is also triggered in the switch case when the walkthough shows how the piechart works. This is used to create a dummy selected element div and gives the highlighted piechart element an active class and an unactive to the rest.
     * The final function scroll to element makes sure to scroll the pie chart info div to show the bills element that is located at the bottom.
 
-
-
-
-
-
-
 ## Testing
 Testing information can be found in a separate testing [file](TESTING.md "Link to testing file")
 ## Deployment
@@ -316,10 +310,32 @@ Testing information can be found in a separate testing [file](TESTING.md "Link t
 ### Local Deployment
     document all the necessary steps someone else can take in order to make a local copy of your project, like cloning, forking, etc.
 ## Credits
-    explain about any particular places you took inspiration from
+* [Monefy](https://monefy.me/) was my main inspiration gow how the data should be displayed to the user and how they can interact with it.
+* [Intro.Js](https://introjs.com/) was the inspiration of how the tutorial should work. I opened the tutorial on their website and using developer tools realized how their css classes interact and refactor that into my own website.
 ### Content
     list out any URLs or links where you might've borrowed a snippet of code, or element
-### Media
-    list out any URLs for images/videos/audios you've borrowed from online (Markdown Table works best here!)
+### Frameworks, Libraries & Programs Used
+-   [Google Fonts](https://fonts.google.com/)
+    - Used to import fonts.
+-   [Font Awesome](https://fontawesome.com/)
+    - Used to add all icons in the website.
+-   [Balsamiq](https://balsamiq.com/)
+    - Used to create the wireframes.
+-   [Git](https://git-scm.com/)
+    - Used to deploy through the Gitpod terminal.
+-   [GitHub](https://github.com/)
+    - Used the GitHub pages to deploy the website.
+-   [W3C Markup Validation Service](https://validator.w3.org/)
+    - Used to validate HTML.
+-   [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+    - Used to validate CSS.
+-   [JSHint](https://jshint.com/)
+    - Used to validate Javascript.
+-   [Microsoft Paint](https://apps.microsoft.com/store/detail/paint/9PCFS5B6T72H?hl=en-us&gl=US)
+    - Used to edit the screenshots providided in the README and TESTING files.
+-   [Coolors](https://coolors.co/)
+      - Used to display palettes used for README file.
+-   [Am I Responsive?](https://ui.dev/amiresponsive)
+      - Used to provide responsive screenshots used at the begining of the README file.
 ### Acknowledgements
     list out any acknowledgements you have, if any... tutor support? fellow Slack student help? spouse, loved one, family member, etc.
