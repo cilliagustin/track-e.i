@@ -332,7 +332,6 @@ Testing information can be found in a separate testing [file](TESTING.md "Link t
     * To learn how to use Local Storage.
 
 
-
 ### Frameworks, Libraries & Programs Used
 *   [Google Fonts](https://fonts.google.com/)
     * Used to import fonts.
@@ -354,6 +353,8 @@ Testing information can be found in a separate testing [file](TESTING.md "Link t
     * Used to edit the screenshots providided in the README and TESTING files.
 *   [Coolors](https://coolors.co/)
       * Used to display palettes used for README file.
+*   [Color Shades Generator](https://mdigi.tools/color-shades/#270a34)
+      * Used to get different shades of a color, used to create the paleete for the pie chart.
 *   [Am I Responsive?](https://ui.dev/amiresponsive)
       * Used to provide responsive screenshots used at the begining of the README file.
 ### Acknowledgements
