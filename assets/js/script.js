@@ -169,7 +169,7 @@ window.addEventListener('resize', checkLandscapeMode);
 function checkLandscapeMode(){
     let height = this.window.innerHeight;
     let width = this.window.innerWidth;
-    if(height < width &&  height < 500 && width < 920 &&(width - height) >= 200){
+    if(height < width &&  height < 450 &&(width - height) >= 200){
         //check if alert alreade exists
         if(!document.getElementById('pop-up-error')){
             let popUpError = document.createElement('div');
