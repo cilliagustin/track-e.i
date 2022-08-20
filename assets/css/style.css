@@ -1077,7 +1077,7 @@ footer button i{
 
 #pop-up-error{
     position: absolute;
-    z-index: 5;
+    z-index: 300;
     height: 100%;
     width: 100%;
     top: 0;
