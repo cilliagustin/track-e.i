@@ -275,6 +275,21 @@ This is the main JavaScript file and is where all the data is created, manupulat
 * The is a function that can be trigered by pressing the X icon on a date elements in the Calendar Section. When this happens the timestamp is taken from the ID of the date element. Then the data array is looped to look for a transaction with that specific timestamp and is deleted and the new array is stored in local storage. After that the prevous functions are re-triggered: group by and sort obj, populate calendar, create balance data and populate calendar.
 * Finally the function get data is triggered whenever the page is loaded. This takes the data array from the local storage and re-triggers the functions to populate the DOM. It also takes the selected decimal and selected currency from the local storage and applies them.
 
+#### tutorial.js
+The following script file is the last one, this is heavily inspired on how Intro.js. The functions here do not only highlight a selected element, but also populate the DOM with some example transactions and trigger certain functions to show the user all the features of the site.
+The script beggins declaring some variables like all the text that will be introduced in the modal, variables like tutorialIndex which will be defined later and some dummy data that will populate the DOM during the walkthrough.
+* The first function to work is start tutorial. this is triggered with the question icon in the footer and has certain functions:
+    * Populates the DOM with dummy content.
+    * Creates a "courtain" that displays a dark overlay on the website
+    * Creates a modal that starts the description of the website and centers it
+    * Refresh the Dom deleting if the Add or Balance section had an income or expense class and deletes if any input has any value charged.
+* Change tutorial step is triggered by clicking the previous or next buttons located in the modal:
+    * The first thing that happens is that tutorial index decreaces or increments, this takes from the tutorial content array the section that should be shown with the show tutorial section function, but this will be explained later.
+    * After that the function check if there are any previous nhighlited elements and delete the highlight and the inner text of the modal is selected from the tutorial content array and changed.
+    * The next part is a witch case with all the possible steps of the tutorial. Since in almost every step of the tutorial there is something that must be toggled (open the submenu in the navbar, add values to the inputs, give income or expense class to section and deleting this, etc) this switch case mas sure to activate and delete all this functionalities when necesary
+    * The last functionality searches the element that should be highlited by searching for an element with the "data-tutorial-step" property and giving it a class of tutorial step that raises them up from the overlay.
+
+
 
 
 
