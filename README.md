@@ -246,6 +246,22 @@ This button is located at the right corner of the footer and starts a tutorial o
 ![Tutorial Button](documentation/testing/screenshot-tutorial.png)
 </details>
 
+#### Confirmation Pop up
+This Pup Up appears to confirm when a transaction has been correctly added. when this happens a modal will appear for 3 seconds and will automatically be deleted, it can also be deleted by pressing the X icon on the top right corner.
+<details>
+<summary>View Confirmation Pop up</summary>
+
+![Confirmation Pop up](documentation/testing/screenshot-confirmation-popup.png)
+</details>
+
+#### Error Pop up
+This Pup Pp appears when the user has entered into landscape mode with a small phone. Since the website does not look proper on those cases this Pop up hides the entire website and request the user to use the phone on vertical mode.
+<details>
+<summary>View Error Pop up</summary>
+
+![Error Pop up](documentation/testing/screenshot-error-popup.png)
+</details>
+
 ### Features Left to Implement
 * To be able to filter the balance by Month
     * This would allow the user to have a better control of their finances and compare their expenses with previous months.
