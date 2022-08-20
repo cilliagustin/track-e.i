@@ -313,29 +313,48 @@ Testing information can be found in a separate testing [file](TESTING.md "Link t
 * [Monefy](https://monefy.me/) was my main inspiration gow how the data should be displayed to the user and how they can interact with it.
 * [Intro.Js](https://introjs.com/) was the inspiration of how the tutorial should work. I opened the tutorial on their website and using developer tools realized how their css classes interact and refactor that into my own website.
 ### Content
-    list out any URLs or links where you might've borrowed a snippet of code, or element
+* [SVG Pie Chart Code Along](https://www.youtube.com/watch?v=XEUCs7Sh8FI&ab_channel=Sparkbox)
+    * Took inspiration of how to create an svg piechart but had to make some tweaks to be able to add many sections to a piechart
+* [Animated Toast Notification with Progress Bar in HTML CSS & JavaScript](https://www.youtube.com/watch?v=sTL7KCOf3kg&t=890s&ab_channel=CodingLab)
+* [Attach event to dynamic elements in javascript](https://stackoverflow.com/questions/34896106/attach-event-to-dynamic-elements-in-javascript)
+    * Taken inspiration for using event delegation on dinamically created elements.
+* [Implement Group By Using Reduce](https://www.youtube.com/watch?v=iBGUyPwm_dM&t=417s&ab_channel=SplainTrain)
+    * Implemented this function to group the data array into a nested object.
+* [How to Sort JavaScript Object by Key](https://www.w3docs.com/snippets/javascript/how-to-sort-javascript-object-by-key.html)
+    * This snipped was used to create the sort obj function but it was slightly modified to be sorted in reverse.
+* [Convert YYYY-MM-DD to MM/DD/YYYY format in JavaScript](https://bobbyhadz.com/blog/javascript-convert-yyyy-mm-dd-to-mm-dd-yyyy)
+    * Used to format the date string but changed to have date formated as DD/MM/YYYY.
+* [Iterating Through an Object with `forEach()`](https://masteringjs.io/tutorials/fundamentals/foreach-object)
+    * To Learn how to use a for each in an object.
+* [Sort objects of objects by nested property](https://stackoverflow.com/questions/48409741/sort-objects-of-objects-by-nested-property)
+    * Got inspiration from this answer to create the sort balance obj function.
+* [How LocalStorage and Event Delegation work](https://www.youtube.com/watch?v=YL1F4dCUlLc&ab_channel=WesBos)
+    * To learn how to use Local Storage.
+
+
+
 ### Frameworks, Libraries & Programs Used
--   [Google Fonts](https://fonts.google.com/)
-    - Used to import fonts.
--   [Font Awesome](https://fontawesome.com/)
-    - Used to add all icons in the website.
--   [Balsamiq](https://balsamiq.com/)
-    - Used to create the wireframes.
--   [Git](https://git-scm.com/)
-    - Used to deploy through the Gitpod terminal.
--   [GitHub](https://github.com/)
-    - Used the GitHub pages to deploy the website.
--   [W3C Markup Validation Service](https://validator.w3.org/)
-    - Used to validate HTML.
--   [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
-    - Used to validate CSS.
--   [JSHint](https://jshint.com/)
-    - Used to validate Javascript.
--   [Microsoft Paint](https://apps.microsoft.com/store/detail/paint/9PCFS5B6T72H?hl=en-us&gl=US)
-    - Used to edit the screenshots providided in the README and TESTING files.
--   [Coolors](https://coolors.co/)
-      - Used to display palettes used for README file.
--   [Am I Responsive?](https://ui.dev/amiresponsive)
-      - Used to provide responsive screenshots used at the begining of the README file.
+*   [Google Fonts](https://fonts.google.com/)
+    * Used to import fonts.
+*   [Font Awesome](https://fontawesome.com/)
+    * Used to add all icons in the website.
+*   [Balsamiq](https://balsamiq.com/)
+    * Used to create the wireframes.
+*   [Git](https://git-scm.com/)
+    * Used to deploy through the Gitpod terminal.
+*   [GitHub](https://github.com/)
+    * Used the GitHub pages to deploy the website.
+*   [W3C Markup Validation Service](https://validator.w3.org/)
+    * Used to validate HTML.
+*   [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+    * Used to validate CSS.
+*   [JSHint](https://jshint.com/)
+    * Used to validate Javascript.
+*   [Microsoft Paint](https://apps.microsoft.com/store/detail/paint/9PCFS5B6T72H?hl=en-us&gl=US)
+    * Used to edit the screenshots providided in the README and TESTING files.
+*   [Coolors](https://coolors.co/)
+      * Used to display palettes used for README file.
+*   [Am I Responsive?](https://ui.dev/amiresponsive)
+      * Used to provide responsive screenshots used at the begining of the README file.
 ### Acknowledgements
     list out any acknowledgements you have, if any... tutor support? fellow Slack student help? spouse, loved one, family member, etc.
