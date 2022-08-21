@@ -209,6 +209,10 @@ function checkLandscapeMode(){
 balanceExpenseIncomeBtn.forEach(btn =>{
     btn.addEventListener('click', e =>{
         let balanceElements = document.querySelectorAll('[data-add-category]');
+        //remove income-expense class from balance section
+        balanceSection.classList.remove("income", "expense");
+        //hide all balance elements
+        hideElements(balanceElements);
         let pressedBtn = e.target.getAttribute('data-button-category');
         //if target does not have the active class it adds it and show corresponding elements
         if(!e.target.classList.contains("active")){
@@ -216,11 +220,9 @@ balanceExpenseIncomeBtn.forEach(btn =>{
             switch(pressedBtn) {
                 case "income":
                     balanceSection.classList.add("income");
-                    balanceSection.classList.remove("expense");
                     break;
                 case "expense":
                     balanceSection.classList.add("expense");
-                    balanceSection.classList.remove("income");
                     break;
             }
 
@@ -230,18 +232,14 @@ balanceExpenseIncomeBtn.forEach(btn =>{
             
             //filter piechart and piechart info
             balanceElements.forEach(el => {
-                if(el.getAttribute('data-add-type') !== pressedBtn){
-                el.classList.add("hide");
-            } else if (el.getAttribute('data-add-type') === pressedBtn){
+                if (el.getAttribute('data-add-type') === pressedBtn){
                 el.classList.remove("hide");
             }
             });
         //if elements already has the active class deletes all styles
         } else {
             //delecte active from income expense btn
-            balanceSection.classList.remove("income", "expense");
             deleteActive(balanceExpenseIncomeBtn);
-            hideElements(balanceElements);
         }
 
         //check if selected element exists, if it does, delete it
