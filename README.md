@@ -68,11 +68,11 @@ This Palette is applied to the pie chart in balance section when the expense but
 
 #### Pie-chart highlight expense
 <details>
-<summary>Pie-chart Expense Highlight Palette</summary>
+<summary>Pie-chart Expense Highlight</summary>
 
-![Pie-chart expense highlight palette](documentation/testing/palette-expense-chart-active.png)
+![Pie-chart expense highlight](documentation/testing/palette-expense-chart-active.png)
 </details>
-This Palette is applied to the pie chart when one element of the expense type is highlithed and the others are hidden.
+This colour is applied to the pie chart when one element of the expense type is highlithed, the non-highlighted elements have their brightness lowered to give a better contrast.
 
 
 #### Incomes
@@ -93,11 +93,11 @@ This Palette is applied to the pie chart in balance section when the income butt
 
 #### Pie-chart highlight income 
 <details>
-<summary>Pie-chart Income Highlight Palette</summary>
+<summary>Pie-chart Income Highlight</summary>
 
-![Pie-chart income highlight palette](documentation/testing/palette-income-chart-active.png)
+![Pie-chart income highlight](documentation/testing/palette-income-chart-active.png)
 </details>
-This Palette is applied to the pie chart when one element of the income type is highlithed and the others are hidden.
+This color is applied to the pie chart when one element of the income type is highlithed and the others are, just like in the expense case, darkened by lowering the brightness.
 
 ### Typography
 The idea of the website was to have a modern, yet,  design. The typographies selected for this were [Quicksand](https://fonts.google.com/specimen/Quicksand) and [Roboto](https://fonts.google.com/specimen/Roboto) with a backup of Sans-serif. 
