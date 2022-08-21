@@ -365,34 +365,48 @@ function createSelectedElement(e){
 addExpenseIncomeBtn.forEach(btn => {
     btn.addEventListener('click', e => {
         let pressedBtn = e.target.getAttribute('data-button-category');
-        //Add income or expense class to Add section 
-        switch(pressedBtn) {
-            case "income":
-                addSection.classList.add("income");
-                addSection.classList.remove("expense");
-                break;
-            case "expense":
-                addSection.classList.add("expense");
-                addSection.classList.remove("income");
-                break;
-        }
-        //Add active class to button
-        deleteActive(addExpenseIncomeBtn);
-        e.target.classList.add('active');
-        //Delete input category value
-        inputs[3].value = '';
-        //Remove active class from input category
-        inputCategory.classList.remove('active');
-        //Desselect radio button
-        uncheckRadioInputs(addRadioInput);
-        //hide all label elements and show only selected ones
-        addRadioLabel.forEach(label => {
-            if(label.getAttribute('data-radio-category') === pressedBtn){
-                label.classList.remove('hide');
-            } else {
-                label.classList.add('hide');
+        if(!e.target.classList.contains("active")){
+            //Add income or expense class to Add section 
+            switch(pressedBtn) {
+                case "income":
+                    addSection.classList.add("income");
+                    addSection.classList.remove("expense");
+                    break;
+                case "expense":
+                    addSection.classList.add("expense");
+                    addSection.classList.remove("income");
+                    break;
             }
-        });
+            //Add active class to button
+            deleteActive(addExpenseIncomeBtn);
+            e.target.classList.add('active');
+            //Delete input category value
+            inputs[3].value = '';
+            //Remove active class from input category
+            inputCategory.classList.remove('active');
+            //Desselect radio button
+            uncheckRadioInputs(addRadioInput);
+            //hide all label elements and show only selected ones
+            addRadioLabel.forEach(label => {
+                if(label.getAttribute('data-radio-category') === pressedBtn){
+                    label.classList.remove('hide');
+                } else {
+                    label.classList.add('hide');
+                }
+            });
+        } else {
+            //Delete add section income expense class
+            addSection.classList.remove("income", "expense")
+            //Delete input category value
+            inputs[3].value = '';
+            //Remove active class from input category
+            inputCategory.classList.remove('active');
+            //Desselect radio button
+            uncheckRadioInputs(addRadioInput);
+            //selete active class from buttons
+            deleteActive(addExpenseIncomeBtn);
+            hideElements(addRadioLabel);
+        }
     });
 });
 
