@@ -31,7 +31,7 @@ const iconsObj = {
     loanrecieve: "fa-solid fa-money-bill-transfer",
     savings: "fa-solid fa-piggy-bank",
     sellstockcrypto: "fa-solid fa-money-bill-trend-up",
-    otherincome: "fa-solid fa-circle",
+    otherincome: "fa-solid fa-ellipsis",
     rent: "fa-solid fa-house-chimney",
     groceries: "fa-solid fa-basket-shopping",
     bills: "fa-solid fa-file-invoice-dollar",
@@ -48,7 +48,7 @@ const iconsObj = {
     studies: "fa-solid fa-graduation-cap",
     loanpay: "fa-solid fa-money-bill-transfer",
     familysupport: "fa-solid fa-people-roof",
-    otherexpense: "fa-solid fa-circle"
+    otherexpense: "fa-solid fa-ellipsis"
 };
 
 
