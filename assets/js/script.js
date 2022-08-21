@@ -210,30 +210,39 @@ balanceExpenseIncomeBtn.forEach(btn =>{
     btn.addEventListener('click', e =>{
         let balanceElements = document.querySelectorAll('[data-add-category]');
         let pressedBtn = e.target.getAttribute('data-button-category');
-        //Add income or expense class to balance section 
-        switch(pressedBtn) {
-            case "income":
-                balanceSection.classList.add("income");
-                balanceSection.classList.remove("expense");
-                break;
-            case "expense":
-                balanceSection.classList.add("expense");
-                balanceSection.classList.remove("income");
-                break;
-        }
+        //if target does not have the active class it adds it and show corresponding elements
+        if(!e.target.classList.contains("active")){
+            //Add income or expense class to balance section 
+            switch(pressedBtn) {
+                case "income":
+                    balanceSection.classList.add("income");
+                    balanceSection.classList.remove("expense");
+                    break;
+                case "expense":
+                    balanceSection.classList.add("expense");
+                    balanceSection.classList.remove("income");
+                    break;
+            }
 
-        //Add active class to button
-        deleteActive(balanceExpenseIncomeBtn);
-        e.target.classList.add('active');
-        
-        //filter piechart and piechart info
-        balanceElements.forEach(el => {
-            if(el.getAttribute('data-add-type') !== pressedBtn){
-            el.classList.add("hide");
-        } else if (el.getAttribute('data-add-type') === pressedBtn){
-            el.classList.remove("hide");
+            //Add active class to button
+            deleteActive(balanceExpenseIncomeBtn);
+            e.target.classList.add('active');
+            
+            //filter piechart and piechart info
+            balanceElements.forEach(el => {
+                if(el.getAttribute('data-add-type') !== pressedBtn){
+                el.classList.add("hide");
+            } else if (el.getAttribute('data-add-type') === pressedBtn){
+                el.classList.remove("hide");
+            }
+            });
+        //if elements already has the active class deletes all styles
+        } else {
+            //delecte active from income expense btn
+            balanceSection.classList.remove("income", "expense");
+            deleteActive(balanceExpenseIncomeBtn);
+            hideElements(balanceElements);
         }
-        });
 
         //check if selected element exists, if it does, delete it
         if(document.getElementById('selected-element') !== null){
