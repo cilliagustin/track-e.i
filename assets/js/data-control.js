@@ -436,7 +436,9 @@ calendarList.addEventListener('click', e =>{
 function getData(){
     data = JSON.parse(localStorage.getItem('data')) || [];
     selectedCurrency = JSON.parse(localStorage.getItem('selectedCurrency')) || currency.value;
+    markSelected("currency", selectedCurrency);
     selectedDecimal = JSON.parse(localStorage.getItem('selectedDecimal')) || decimal.value;
+    markSelected("decimal", selectedDecimal);
     //Adds to the dataBy date transactions grouped by date and orders ir from most recent to oldestone
     dataByDate = sortObj(groupBy('date', data));
     //Populates the calendar section with the dataByDate
@@ -449,7 +451,20 @@ function getData(){
     //Adds selected currency to span in amount input
     document.querySelector('#add .input-container .input-box-amount [data-currency]').textContent = selectedCurrency;
     //Adds the selected decimal to the DOM
-    changeDecimal(selectedDecimal)
+    changeDecimal(selectedDecimal);
+}
+
+//add selected value to selected decimal/percentage
+function markSelected(id, selectedValue){
+    let select = document.getElementById(id);
+    let options = select.querySelectorAll("option");
+    options.forEach(option =>{
+        if(option.value === selectedValue){
+            option.setAttribute("selected", true);
+        } else {
+            option.removeAttribute("selected");
+        }
+    });
 }
 
 window.addEventListener('DOMContentLoaded', getData);
