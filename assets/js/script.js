@@ -328,7 +328,7 @@ function createSelectedElement(e){
         targetElement = e.target;
     } else {
        let category = e.target.parentNode.getAttribute('data-add-category');
-       targetElement = document.querySelector(`#balance .pie-chart-info .percentage-element[data-add-category=${category}]`)
+       targetElement = document.querySelector(`#balance .pie-chart-info .percentage-element[data-add-category=${category}]`);
     }
     let elCategory = targetElement.querySelector('.category').textContent;
     let elAmount = targetElement.querySelector('.amount').textContent;
@@ -363,7 +363,7 @@ function createSelectedElement(e){
 addExpenseIncomeBtn.forEach(btn => {
     btn.addEventListener('click', e => {
         //Delete add section income expense class
-        addSection.classList.remove("income", "expense")
+        addSection.classList.remove("income", "expense");
         //Delete input category value
         inputs[3].value = '';
         //Remove active class from input category
@@ -420,7 +420,7 @@ document.body.addEventListener('click', (e) =>{
     if (e.target.id === "close-pop-up"){
         document.querySelector("#pop-up").remove();
     }
-})
+});
 
 
 //set input amount always with 2 decimals
