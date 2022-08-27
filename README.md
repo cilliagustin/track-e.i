@@ -173,10 +173,10 @@ This display either income or expense transaction with an icon, the category the
 </details>
 
 #### Calendar Section
-The calendar section appears as blank when first opening it but that is because it´s whole content is created with the user´s data. 
-Originally this section consists of a container and an unordered list, once populated this will have a nested list where the first li elements will be dates (with the final balance of that date) and the inner list will be all the transactions that happened on those days.
+The calendar section appears with a pattern and a text that indicates to add the transactions in the Add Section so it´s not completely blank before the real content is created with the user´s data. 
+Once populated this will have a nested list where the first li elements will be dates (with the final balance of that date) and the inner list will be all the transactions that happened on those days.
 <details>
-<summary>View Calendar Section</summary>
+<summary>View Calendar Section (empty/populated)</summary>
 
 ![Calendar Section](documentation/testing/screenshot-calendar-section.png)
 </details>
@@ -324,10 +324,10 @@ This is the main JavaScript file and is where all the data is created, manupulat
     * Then a Pop Up is created using some helper functions. This pop up confirms the transaction and is deleted automatically in 3 seconds but the user can choose to close it with the X icon.
 * The create data function creates an object with the values provided in the prevoius function + a time stamp and the transaction type(this is taken from the add section class that can be either income or expense). This object is then pushed to the data object.
 * The group by and sort obj are the next 2 functions to trigger. this work together. the first one takes an array of objects and grupes it into an object with some parameter as key, in this case is the date, then the sort obj function arranges this object by date (from newest to oldest) This 2 functions return an object where each key is a date and inside there is an array for each transaction made in that day, this object is assigned to the dataByDate variable.
-* Populate calendar takes the information from the dataByDate object. This function simply loops inside the object and the inner object, takes the data and uses this to create the nested list that is used to populate the calendar section. The timestamp is used in the transaction div as part of the id in order to easily target the element and delete it, this will be explained later on.
+* Populate calendar takes the information from the dataByDate object. If the object is empty it will add an empty clas to the Calendar Section and it will display a text that asks the user to add information in the Add Section. If the object has  content in it, the function will loop inside the object and the inner object, take the data and use this to create the nested list that is used to populate the calendar section. The timestamp is used in the transaction div to give each transaction an unique id in order to easily target the element and delete it, this will be explained later on.
 * The create balance data takes the data array and divedes it into two creating both and income object and an expense object. These are nested objects where the key is the category and the value is another object with the sum of all transactions of that specific category as the amount key and the percentage it occupies as the other value. Here a helper function called sortBalanceObj is used and this sort the object by the percentage value from higher to lower.
 * The function populate balance loops through both income and expense data objects and uses this information to dinamically create all SVG elements and percentage elements. This function also populates the pie chart result div to show the total of the income and expenses as well as the final balance. After this function ends the DOM is fully populated and the main function continues to refresh the balance section, create the pop up, etc.
-* The is a function that can be trigered by pressing the X icon on a date elements in the Calendar Section. When this happens the timestamp is taken from the ID of the date element. Then the data array is looped to look for a transaction with that specific timestamp and is deleted and the new array is stored in local storage. After that the prevous functions are re-triggered: group by and sort obj, populate calendar, create balance data and populate calendar.
+* There is a function that can be trigered by pressing the X icon on a date elements in the Calendar Section. When this happens the timestamp is taken from the ID of the date element. Then the data array is looped to look for a transaction with that specific timestamp and this is deleted and the new array is stored in local storage. After that the prevous functions are re-triggered: group by and sort obj, populate calendar, create balance data and populate calendar.
 * Finally the function get data is triggered whenever the page is loaded. This takes the data array from the local storage and re-triggers the functions to populate the DOM. It also takes the selected decimal and selected currency from the local storage and applies them.
 
 #### tutorial.js
