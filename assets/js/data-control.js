@@ -156,81 +156,91 @@ function sortObj(obj) {
 
 //Populate calendar section with dataByDate obj
 function populateCalendar(obj){
-    //Create empty string that will finally populate the calendar section
-    let calendarContent = "";
-    //iterate the object
-    Object.keys(obj).forEach(key=>{
-        let transactionDay = key;
-        //transform yyyy/mm/dd format of date into dd/mm/yyyy
-        let [year, month, day] = transactionDay.split('-');
-        let transactionDate = [day, month, year].join('/');
-        //Create empty string that will include all information of the day
-        let transactionsOfTheDay = "";
-        //Create variable for the result of the day (all the incomes - all expenses)
-        let dailyResult = 0;
-        //Iterate in the objects inside the array for each day
-        Object.keys(obj[transactionDay]).forEach(objKey =>{
-            //Get all values for each transaction
-            let transaction = objKey;
-            let transactionData = obj[transactionDay][transaction];
-            let transactionCategory = transactionData.category;
-            let transactionNote = transactionData.note;
-            let transactionAmount = transactionData.amount.toFixed(2);
-            let transactionId = transactionData.timeStamp;
-            let transactionType = transactionData.type;
+    //check if the data by date is an empty object
+    if(Object.keys(dataByDate).length !== 0){
+        //delete empty class if active
+        calendarSection.classList.remove('empty');
+        //Create empty string that will finally populate the calendar section
+        let calendarContent = "";
+        //iterate the object
+        Object.keys(obj).forEach(key=>{
+            let transactionDay = key;
+            //transform yyyy/mm/dd format of date into dd/mm/yyyy
+            let [year, month, day] = transactionDay.split('-');
+            let transactionDate = [day, month, year].join('/');
+            //Create empty string that will include all information of the day
+            let transactionsOfTheDay = "";
+            //Create variable for the result of the day (all the incomes - all expenses)
+            let dailyResult = 0;
+            //Iterate in the objects inside the array for each day
+            Object.keys(obj[transactionDay]).forEach(objKey =>{
+                //Get all values for each transaction
+                let transaction = objKey;
+                let transactionData = obj[transactionDay][transaction];
+                let transactionCategory = transactionData.category;
+                let transactionNote = transactionData.note;
+                let transactionAmount = transactionData.amount.toFixed(2);
+                let transactionId = transactionData.timeStamp;
+                let transactionType = transactionData.type;
 
-            let transactionAmountStyled;
-            //if transaction is income transactionAmountStyled will have a "$"" added and 
-            //this amount will be added to the daily result, otherwise if is expense, transactionAmountStyled
-            //will have "-$" added and the daily reult will have this amount subtracted
-            if(transactionType === "income"){
-                dailyResult = dailyResult + Number(transactionAmount);
-                transactionAmountStyled = `<span data-currency>${selectedCurrency}</span> <span data-amount>${transactionAmount}</span>`;
-            } else if (transactionType === "expense"){
-                dailyResult = dailyResult - Number(transactionAmount);
-                transactionAmountStyled = `<span data-currency>-${selectedCurrency}</span> <span data-amount>${transactionAmount}</span>`;
+                let transactionAmountStyled;
+                //if transaction is income transactionAmountStyled will have a "$"" added and 
+                //this amount will be added to the daily result, otherwise if is expense, transactionAmountStyled
+                //will have "-$" added and the daily reult will have this amount subtracted
+                if(transactionType === "income"){
+                    dailyResult = dailyResult + Number(transactionAmount);
+                    transactionAmountStyled = `<span data-currency>${selectedCurrency}</span> <span data-amount>${transactionAmount}</span>`;
+                } else if (transactionType === "expense"){
+                    dailyResult = dailyResult - Number(transactionAmount);
+                    transactionAmountStyled = `<span data-currency>-${selectedCurrency}</span> <span data-amount>${transactionAmount}</span>`;
+                }
+
+                // Add variables to a string with the html code and each loop add it to the transactionsOfTheDay variable
+                let transactionLi = `
+                <li>
+                    <div class="date-movement" data-type="${transactionType}" id="id${transactionId}">
+                        <span class="movement-circle"></span>
+                        <p class="movement-category">${transactionCategory}</p>
+                        <p class="movement-note">${transactionNote}</p>
+                        <p class="movement-amount">${transactionAmountStyled}</p>
+                        <i class="movement-cross fa-solid fa-xmark"></i>
+                    </div>
+                </li>
+                `;
+                transactionsOfTheDay += transactionLi;
+            });
+            //if the dailyResult is positive add a "$"", if is negative style it with a "$" between the number and the "-" 
+            if(dailyResult >= 0){
+                dailyResult = `<span data-currency>${selectedCurrency}</span> <span data-amount>${dailyResult.toFixed(2)}</span>`;
+            } else if(dailyResult < 0){
+                dailyResult = `<span data-currency>-${selectedCurrency}</span> <span data-amount>${Math.abs(dailyResult).toFixed(2)}</span>`;
             }
-
-            // Add variables to a string with the html code and each loop add it to the transactionsOfTheDay variable
-            let transactionLi = `
-            <li>
-                <div class="date-movement" data-type="${transactionType}" id="id${transactionId}">
-                    <span class="movement-circle"></span>
-                    <p class="movement-category">${transactionCategory}</p>
-                    <p class="movement-note">${transactionNote}</p>
-                    <p class="movement-amount">${transactionAmountStyled}</p>
-                    <i class="movement-cross fa-solid fa-xmark"></i>
-                </div>
+            //Create a variable for all the information of the day
+            let dateLi = `
+                <li class="date">
+                        <div class="date-info">
+                            <p>${transactionDate}</p>
+                            <div></div>
+                            <p>${dailyResult}</p>
+                        </div>
+                        <ul>
+                `;
+            //Add all the code with all the transactions and close the ul and li prevoiusly opened
+            dateLi += transactionsOfTheDay;     
+            dateLi += `
+                </ul>
             </li>
             `;
-            transactionsOfTheDay += transactionLi;
+            calendarContent += dateLi;
         });
-        //if the dailyResult is positive add a "$"", if is negative style it with a "$" between the number and the "-" 
-        if(dailyResult >= 0){
-            dailyResult = `<span data-currency>${selectedCurrency}</span> <span data-amount>${dailyResult.toFixed(2)}</span>`;
-        } else if(dailyResult < 0){
-            dailyResult = `<span data-currency>-${selectedCurrency}</span> <span data-amount>${Math.abs(dailyResult).toFixed(2)}</span>`;
-        }
-        //Create a variable for all the information of the day
-        let dateLi = `
-            <li class="date">
-                    <div class="date-info">
-                        <p>${transactionDate}</p>
-                        <div></div>
-                        <p>${dailyResult}</p>
-                    </div>
-                    <ul>
-            `;
-        //Add all the code with all the transactions and close the ul and li prevoiusly opened
-        dateLi += transactionsOfTheDay;     
-        dateLi += `
-            </ul>
-        </li>
-        `;
-        calendarContent += dateLi;
-    });
-    //populate html with all the information
-    calendarList.innerHTML = calendarContent;
+        //populate html with all the information
+        calendarList.innerHTML = calendarContent;
+    //if is an empty object add empty class to calendar section and add text
+   } else {
+        calendarSection.classList.add('empty');
+        calendarList.innerHTML = `<li>View in this section all your transactions organized by date.</br>
+        Add all your incomes and expenses in the Add Section.</li>`;
+   }
 }
 
 //Grupes transaction by type and category
