@@ -299,9 +299,9 @@ function createBalanceData(arr){
 function populateBalance(){
     let finalBalance;
 
-    if(incomeTotal >= expenseTotal){
+    if(parseFloat(incomeTotal) >= parseFloat(expenseTotal)){
         finalBalance = `<span data-currency>${selectedCurrency}</span> <span data-amount>${parseFloat(incomeTotal - expenseTotal).toFixed(2)}</span>`;
-    } else if(incomeTotal < expenseTotal){
+    } else if(parseFloat(incomeTotal) < parseFloat(expenseTotal)){
         finalBalance = `<span data-currency>-${selectedCurrency}</span> <span data-amount>${parseFloat(Math.abs(expenseTotal - incomeTotal)).toFixed(2)}</span>`;
     }
     let pieChartBalance = "";
