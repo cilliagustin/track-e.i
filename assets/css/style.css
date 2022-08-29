@@ -98,12 +98,9 @@ nav{
     align-items: center;
 }
 
-nav a {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    color: rgb(251,254,250);
-    font-size: 16px;
-    text-decoration: none;
+nav a img{
+    height: 35px;
+    width: auto;
 }
 
 nav ul li{
@@ -623,6 +620,7 @@ section{
     background: rgba(0, 0, 0, 0.8);
     flex: none;
     padding: 0;
+    overflow-y: hidden;
 }
 
 #calendar.empty .container ul{
