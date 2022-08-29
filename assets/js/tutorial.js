@@ -2,7 +2,7 @@
 
 const tutorialBtn = document.getElementById("tutorial-button");
 const tutorialContent = [
-[`Hello, thank you for using Track-e.i, in this tutorial you will learn how to use this site.</br>
+[`Hello, thank you for using Track.ei, in this tutorial you will learn how to use this site.</br>
  You can close this tutorial with the X button or clicking outside the modal and move to the previous or next step of this 
  Walkthrough with the buttons below.</br>Now we will see all the sites tools and how it would
  look if we add lots of information!`, "balance"],
