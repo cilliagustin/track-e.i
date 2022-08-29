@@ -99,7 +99,7 @@ nav{
 }
 
 nav a img{
-    height: 35px;
+    height: 30px;
     width: auto;
 }
 
@@ -167,7 +167,7 @@ nav ul li .hamb{
 }
 
 nav ul li .hamb span{
-    height: 1.5px;
+    height: 1px;
     width: 14px;
     background: rgb(214, 214, 214);
     position: absolute;
@@ -195,7 +195,7 @@ nav ul li .hamb:hover span::after{
 }
 
 nav ul li .hamb span::after{
-    top: -3px;
+    top: -3.8px;
 }
 
 nav ul li input:checked ~ .hamb span{
@@ -217,6 +217,7 @@ nav ul li input:checked ~ .hamb span::after{
 nav ul li .dropdown{
     background: rgb(28 77 124);
     width: 0;
+    max-width: 175px;
     height: 30px;
     position: absolute;
     top: 0;
@@ -1175,6 +1176,11 @@ footer button i{
 
 /* Mediaqueries tablet */
 @media screen and (min-width: 576px) and (max-width: 767px) {
+    /* Navbar */
+    nav ul li .dropdown{
+        max-width: none;
+    }
+
     /* Balance */
     #balance .pie-chart {
         height: 280px;
@@ -1303,6 +1309,10 @@ footer button i{
     nav ul #add-navlink{
         display: none;
     }
+
+    nav ul li .dropdown{
+        max-width: none;
+    } 
 
     /* Sections */
     section{
