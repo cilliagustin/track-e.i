@@ -91,30 +91,20 @@
 }
 
 /* Overwrite specific styling */
+#add.tutorial-step,
+#balance.tutorial-step,
+.expense-income-btn.tutorial-step,
+#balance .pie-chart-info.tutorial-step,
+#calendar.tutorial-step,
+#calendar .container ul .date.tutorial-step,
+#calendar .container ul .date ul li .date-movement i.tutorial-step{
+    background: white;
+}
+
 nav ul li .dropdown.tutorial-step{
     transition: none;
 }
 
-.expense-income-btn.tutorial-step{
-    background: white;
-}
-
-#balance .pie-chart-info.tutorial-step{
-    background: rgb(251,254,250);
-}
-
 #balance .pie-chart .pie-chart-container .pie-chart-result.tutorial-step{
     z-index: 101!important;
-}
-
-#calendar.tutorial-step{
-    background: rgb(251,254,250);
-}
-
-#calendar .container ul .date.tutorial-step{
-    background: rgb(251,254,250);
-}
-
-#calendar .container ul .date ul li .date-movement i.tutorial-step{
-    background: rgb(251,254,250);
 }
