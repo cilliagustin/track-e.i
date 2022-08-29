@@ -1,7 +1,7 @@
 # Second Project Portfolio
     *amiresponisive image*
 
-[View the live project here](https://cilliagustin.github.io/track-e.i/)
+[View the live project here](https://cilliagustin.github.io/track.ei/)
 
 
 ## Introduction
