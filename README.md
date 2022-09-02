@@ -279,10 +279,10 @@ This Pup Pp appears when the user has entered into landscape mode with a small p
 
 ### Other technologies Used
 I aplied for the website some technologies that are beyond the scope of what Code Institute teaches:
-* Flexbox
-* CSS Grid
-* Root variables
-* HTML SVG
+* [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout): For generating the basic structure of the sections in the website as well as to display information in the calendar section.
+* [Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox): To arrange most of the elements in the website.
+* [Root variables](https://developer.mozilla.org/en-US/docs/Web/CSS/:root): To avoid repeting code and entering very easily the colors desired as well as some common effects linke shadow and a 9px measure for the border.
+* [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG): Used to create the piechart.
 
 ### Javascript
 This website has three Javascript files: script.js, data-control.js and tutorial.js. Here it will be explained how these files work and their functions.
