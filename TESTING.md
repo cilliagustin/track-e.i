@@ -31,4 +31,10 @@ This bug was originally detected by my mentor during our second call for the pro
 </details>
 
 ## Unfixed Bugs
-There are no remaining bugs that I am aware of at the time of the writing of this file.
+The oonly bug I am aware at the publishing moment of writing this file is that for very big numbers, like in the example, the text from the pie chart result div overflows and is also visible when the selected element is on top of it.
+This could be fixed by applying a function that could lower the font size according to the amount of characters the  p element has.
+<details>
+<summary>View Bug</summary>
+
+![Unfix Bug](documentation/testing/unfix_bug.png)
+</details>
