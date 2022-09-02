@@ -1,7 +1,28 @@
 # Testing
 "Click to return back to the [README.md](README.md)"
 ## Browser Compatibility
-    you must showcase proof with screenshots that you've tested the finished project on various browsers, such as Chrome, Firefox, Edge, Safari, Brave, etc.
+The site was tested to work correctly in [Google Chrome](https://www.google.com/chrome/), Mozilla [Firefox](https://www.mozilla.org/en-US/firefox/new/) and [Safari](https://www.apple.com/safari/). Here are some screenshots of the site in the different browsers:
+<details>
+<summary>Google Chrome</summary>
+
+![Chrome](documentation/testing/screenshot-chrome.png)
+</details>
+
+<details>
+<summary>Mozilla Firefox</summary>
+
+![Mozilla Firefox](documentation/testing/screenshot-mozilla.png)
+</details>
+
+<details>
+<summary>Safari</summary>
+
+![Safari](documentation/testing/screenshot-safari.png)
+</details>
+
+
+
+
 ## Code Validation
     you must showcase proof with screenshots that you've validated any code files, such as HTML, CSS, JS, Python (where applicable)
 ## Responsiveness
