@@ -1,5 +1,6 @@
 # Second Project Portfolio
-![Neutral palette](documentation/testing/screenshot-trackei.png)
+![Website logo](assets/images/logo.svg)
+![Website in all devices](documentation/testing/screenshot-trackei.png)
 
 [View the live project here](https://cilliagustin.github.io/trackei/)
 
