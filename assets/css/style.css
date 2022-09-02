@@ -353,7 +353,7 @@ section{
 #balance .pie-chart .pie-chart-container .pie-chart-result #selected-element i{
     color: white;
     font-size: 30px;
-    margin: 12px 0;
+    margin: 12px 0 0;
 }
 
 #balance .pie-chart .pie-chart-container .pie-chart-result #selected-element p{
