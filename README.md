@@ -365,10 +365,28 @@ The script beggins declaring some variables like all the text that will be intro
 
 ## Testing
 Testing information can be found in a separate testing [file](TESTING.md "Link to testing file")
+
 ## Deployment
-    document all necessary steps you did in order to deploy this project (GitHub Pages, Heroku, etc.)
+The site was deployed to GitHub pages. The steps to deploy are as follows: 
+  - In the [GitHub repository](https://github.com/cilliagustin/trackei), navigate to the Settings tab 
+  - From the source section drop-down menu, select the **Main** Branch, then click "Save".
+  - The page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+​
+The live link can be found [here](https://cilliagustin.github.io/trackei/)
+​
 ### Local Deployment
-    document all the necessary steps someone else can take in order to make a local copy of your project, like cloning, forking, etc.
+​
+In order to make a local copy of this project, you can clone it. In your IDE Terminal, type the following command to clone my repository:
+​
+- `git clone https://github.com/cilliagustin/trackei.git`
+​
+
+Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+
+
+​
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/cilliagustin/trackei)
+
 ## Credits
 * [Monefy](https://monefy.me/) was my main inspiration gow how the data should be displayed to the user and how they can interact with it.
 * [Intro.Js](https://introjs.com/) was the inspiration of how the tutorial should work. I opened the tutorial on their website and using developer tools realized how their css classes interact and refactor that into my own website.
