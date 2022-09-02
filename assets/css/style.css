@@ -1182,6 +1182,15 @@ footer button i {
 @media screen and (min-width: 576px) and (max-width: 767px) {
 
     /* Navbar */
+    nav ul li .dropdown label,
+    nav ul li .dropdown select {
+        font-size: 14px;
+    }
+
+    nav ul li .dropdown #currency {
+        width: 50px;
+    }
+
     nav ul li .dropdown {
         max-width: none;
     }
@@ -1318,6 +1327,15 @@ footer button i {
 
     nav ul li .dropdown {
         max-width: none;
+    }
+
+    nav ul li .dropdown label,
+    nav ul li .dropdown select {
+        font-size: 14px;
+    }
+
+    nav ul li .dropdown #currency {
+        width: 50px;
     }
 
     /* Sections */
