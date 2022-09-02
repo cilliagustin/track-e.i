@@ -9,20 +9,20 @@ let expenseTotal;
 
 //Take data from each transaction, create all objects and arrays necesary 
 //and populate the website
-submit.addEventListener('click', (e)=>{
+submit.addEventListener('click', (e) => {
     e.preventDefault();
     let a = parseFloat(inputAmount.value).toFixed(2);
     let b = inputNote.value;
     let c = inputDate.value;
     let d = inputCategory.value;
     //Check that all inputs are correctly filled
-    if(a < 0.01) {
+    if (a < 0.01) {
         alert("Amount must be at least 1 cent");
-    } else if (a == null || a == "" || isNaN(a) === true || b == null || b == "" || c == null || c == "" || d == null || d == ""){
+    } else if (a == null || a == "" || isNaN(a) === true || b == null || b == "" || c == null || c == "" || d == null || d == "") {
         alert("Please complete all the fields");
-		}  else {
+    } else {
         //Create data with all transaction information and add to local storage
-        createData(a,b,c,d);
+        createData(a, b, c, d);
         localStorage.setItem('data', JSON.stringify(data));
         //Adds to the dataBy date transactions grouped by date and orders ir from most recent to oldestone
         dataByDate = sortObj(groupBy('date', data));
@@ -36,9 +36,9 @@ submit.addEventListener('click', (e)=>{
 
         //filter balance section so it shows the transaction type added
         let currentType;
-        if(addSection.classList.contains('income')){
+        if (addSection.classList.contains('income')) {
             currentType = "income";
-        } else if(addSection.classList.contains('expense')){
+        } else if (addSection.classList.contains('expense')) {
             currentType = "expense";
         }
         //add correct class to balance section
@@ -46,23 +46,23 @@ submit.addEventListener('click', (e)=>{
         balanceSection.classList.add(currentType);
         //give active class to correct button
         deleteActive(balanceExpenseIncomeBtn);
-        balanceExpenseIncomeBtn.forEach(btn =>{
-            if(btn.getAttribute('data-button-category') === currentType){
+        balanceExpenseIncomeBtn.forEach(btn => {
+            if (btn.getAttribute('data-button-category') === currentType) {
                 btn.classList.add('active');
             }
         });
         let balanceElements = document.querySelectorAll('[data-add-category]');
         hideElements(balanceElements);
-        balanceElements.forEach(el =>{
-            if(el.getAttribute('data-add-type') === currentType){
+        balanceElements.forEach(el => {
+            if (el.getAttribute('data-add-type') === currentType) {
                 el.classList.remove('hide');
             }
         });
 
         //create Popup confirming new transaction
-        if(!document.querySelector("#pop-up")){
+        if (!document.querySelector("#pop-up")) {
             createPopUp();
-        }else {
+        } else {
             closePopUp();
             createPopUp();
         }
@@ -70,7 +70,7 @@ submit.addEventListener('click', (e)=>{
     }
 });
 
-function createPopUp(){
+function createPopUp() {
     let popUp = document.createElement('div');
     popUp.setAttribute('id', 'pop-up');
     let popUpHead = document.createElement('div');
@@ -100,21 +100,21 @@ function createPopUp(){
     setTimeout(closePopUp, 3000);
 }
 
-function closePopUp(){
+function closePopUp() {
     let popUp = document.querySelector("#pop-up");
-    if(popUp){
+    if (popUp) {
         popUp.remove();
     }
 }
 
 //Creates the data with all transactions
-function createData(a, b, c, d){
+function createData(a, b, c, d) {
     //Create an object
     let obj = {};
     //Add income/expense property as transaction type to the object
-    if(addSection.classList.contains('income')){
+    if (addSection.classList.contains('income')) {
         obj.type = "income";
-    } else if(addSection.classList.contains('expense')){
+    } else if (addSection.classList.contains('expense')) {
         obj.type = "expense";
     }
     //Add the time stamp as a transaction ID
@@ -133,37 +133,41 @@ function createData(a, b, c, d){
 }
 
 //Groups the data by a specific key
-const groupBy = (key,arr) => arr
-.reduce(
-    (cache, product) => {
-        const property = product[key];
-        if (property in cache) {
-            return {...cache, [property]: cache[property].concat(product)
+const groupBy = (key, arr) => arr
+    .reduce(
+        (cache, product) => {
+            const property = product[key];
+            if (property in cache) {
+                return {
+                    ...cache,
+                    [property]: cache[property].concat(product)
+                };
+            }
+            return {
+                ...cache,
+                [property]: [product]
             };
-        }
-        return {...cache, [property]: [product]};
-    },
-    {}
-);
+        }, {}
+    );
 
 //Orders the array of objects by key value in reverse
 function sortObj(obj) {
     return Object.keys(obj).sort().reverse().reduce(function (result, key) {
-      result[key] = obj[key];
-      return result;
+        result[key] = obj[key];
+        return result;
     }, {});
-  }
+}
 
 //Populate calendar section with dataByDate obj
-function populateCalendar(obj){
+function populateCalendar(obj) {
     //check if the data by date is an empty object
-    if(Object.keys(dataByDate).length !== 0){
+    if (Object.keys(dataByDate).length !== 0) {
         //delete empty class if active
         calendarSection.classList.remove('empty');
         //Create empty string that will finally populate the calendar section
         let calendarContent = "";
         //iterate the object
-        Object.keys(obj).forEach(key=>{
+        Object.keys(obj).forEach(key => {
             let transactionDay = key;
             //transform yyyy/mm/dd format of date into dd/mm/yyyy
             let [year, month, day] = transactionDay.split('-');
@@ -173,7 +177,7 @@ function populateCalendar(obj){
             //Create variable for the result of the day (all the incomes - all expenses)
             let dailyResult = 0;
             //Iterate in the objects inside the array for each day
-            Object.keys(obj[transactionDay]).forEach(objKey =>{
+            Object.keys(obj[transactionDay]).forEach(objKey => {
                 //Get all values for each transaction
                 let transaction = objKey;
                 let transactionData = obj[transactionDay][transaction];
@@ -187,10 +191,10 @@ function populateCalendar(obj){
                 //if transaction is income transactionAmountStyled will have a "$"" added and 
                 //this amount will be added to the daily result, otherwise if is expense, transactionAmountStyled
                 //will have "-$" added and the daily reult will have this amount subtracted
-                if(transactionType === "income"){
+                if (transactionType === "income") {
                     dailyResult = dailyResult + Number(transactionAmount);
                     transactionAmountStyled = `<span data-currency>${selectedCurrency}</span> <span data-amount>${transactionAmount}</span>`;
-                } else if (transactionType === "expense"){
+                } else if (transactionType === "expense") {
                     dailyResult = dailyResult - Number(transactionAmount);
                     transactionAmountStyled = `<span data-currency>-${selectedCurrency}</span> <span data-amount>${transactionAmount}</span>`;
                 }
@@ -210,9 +214,9 @@ function populateCalendar(obj){
                 transactionsOfTheDay += transactionLi;
             });
             //if the dailyResult is positive add a "$"", if is negative style it with a "$" between the number and the "-" 
-            if(dailyResult >= 0){
+            if (dailyResult >= 0) {
                 dailyResult = `<span data-currency>${selectedCurrency}</span> <span data-amount>${dailyResult.toFixed(2)}</span>`;
-            } else if(dailyResult < 0){
+            } else if (dailyResult < 0) {
                 dailyResult = `<span data-currency>-${selectedCurrency}</span> <span data-amount>${Math.abs(dailyResult).toFixed(2)}</span>`;
             }
             //Create a variable for all the information of the day
@@ -226,7 +230,7 @@ function populateCalendar(obj){
                         <ul>
                 `;
             //Add all the code with all the transactions and close the ul and li prevoiusly opened
-            dateLi += transactionsOfTheDay;     
+            dateLi += transactionsOfTheDay;
             dateLi += `
                 </ul>
             </li>
@@ -235,16 +239,16 @@ function populateCalendar(obj){
         });
         //populate html with all the information
         calendarList.innerHTML = calendarContent;
-    //if is an empty object add empty class to calendar section and add text
-   } else {
+        //if is an empty object add empty class to calendar section and add text
+    } else {
         calendarSection.classList.add('empty');
         calendarList.innerHTML = `<li>View in this section all your transactions organized by date.</br>
         Add all your incomes and expenses in the Add Section.</li>`;
-   }
+    }
 }
 
 //Grupes transaction by type and category
-function createBalanceData(arr){
+function createBalanceData(arr) {
     let incomeObj = {};
     let expenseObj = {};
     let incomeAmount = 0;
@@ -255,36 +259,40 @@ function createBalanceData(arr){
     arr.forEach(obj => {
         let transtype = obj.type;
         let transCat = obj.category;
-        if(transtype === "income"){
+        if (transtype === "income") {
             //check if category exists in income array, if it does it´s added, otherwise
             //its creates the category
-            if(obj.category in incomeObj){
+            if (obj.category in incomeObj) {
                 let oldAmount = incomeObj[transCat].amount;
                 incomeObj[transCat].amount = oldAmount + obj.amount;
                 incomeAmount += obj.amount;
-            } else{
-                incomeObj[transCat] = {amount: obj.amount};
+            } else {
+                incomeObj[transCat] = {
+                    amount: obj.amount
+                };
                 incomeAmount += incomeObj[transCat].amount;
             }
-        } else if(transtype === "expense"){
+        } else if (transtype === "expense") {
             //check if category exists in expense array, if it does it´s added, otherwise
             //its creates the category
-            if(obj.category in expenseObj){
+            if (obj.category in expenseObj) {
                 let oldAmount = expenseObj[transCat].amount;
                 expenseObj[transCat].amount = oldAmount + obj.amount;
                 expenseAmount += obj.amount;
-            } else{
-                expenseObj[transCat] = {amount: obj.amount};
+            } else {
+                expenseObj[transCat] = {
+                    amount: obj.amount
+                };
                 expenseAmount += expenseObj[transCat].amount;
             }
         }
     });
     //adds percetage of each category in income and expense array
-    Object.keys(incomeObj).forEach( key=>{
+    Object.keys(incomeObj).forEach(key => {
         incomeObj[key].percentage = parseFloat(incomeObj[key].amount * 100 / incomeAmount).toFixed(2);
     });
 
-    Object.keys(expenseObj).forEach( key=>{
+    Object.keys(expenseObj).forEach(key => {
         expenseObj[key].percentage = parseFloat(expenseObj[key].amount * 100 / expenseAmount).toFixed(2);
     });
 
@@ -296,12 +304,12 @@ function createBalanceData(arr){
 }
 
 //Populate balance section with incomeData and expenseData
-function populateBalance(){
+function populateBalance() {
     let finalBalance;
 
-    if(parseFloat(incomeTotal) >= parseFloat(expenseTotal)){
+    if (parseFloat(incomeTotal) >= parseFloat(expenseTotal)) {
         finalBalance = `<span data-currency>${selectedCurrency}</span> <span data-amount>${parseFloat(incomeTotal - expenseTotal).toFixed(2)}</span>`;
-    } else if(parseFloat(incomeTotal) < parseFloat(expenseTotal)){
+    } else if (parseFloat(incomeTotal) < parseFloat(expenseTotal)) {
         finalBalance = `<span data-currency>-${selectedCurrency}</span> <span data-amount>${parseFloat(Math.abs(expenseTotal - incomeTotal)).toFixed(2)}</span>`;
     }
     let pieChartBalance = "";
@@ -318,9 +326,9 @@ function populateBalance(){
     </svg>`;
     let incomeCurrentAngle = -90;
     let expenseCurrentAngle = -90;
-    Object.keys(incomedata).forEach(key=>{
+    Object.keys(incomedata).forEach(key => {
         let incomeCategory = key;
-        let noSpecialCaseCategory = incomeCategory.replace(/[^a-zA-Z]/g,"");
+        let noSpecialCaseCategory = incomeCategory.replace(/[^a-zA-Z]/g, "");
         let incomeAmount = incomedata[key].amount;
         let incomePercentage = incomedata[key].percentage;
 
@@ -347,9 +355,9 @@ function populateBalance(){
         balanceInfo += incomeElement;
     });
 
-    Object.keys(expensedata).forEach(key=>{
+    Object.keys(expensedata).forEach(key => {
         let expenseCategory = key;
-        let noSpecialCaseCategory = expenseCategory.replace(/[^a-zA-Z]/g,"");
+        let noSpecialCaseCategory = expenseCategory.replace(/[^a-zA-Z]/g, "");
         let expenseAmount = expensedata[key].amount;
         let expensePercentage = expensedata[key].percentage;
 
@@ -381,26 +389,26 @@ function populateBalance(){
 }
 
 //orders the object of objects by inner parameter
-function sortBalanceObj(obj, selectedData){
-    Object.keys(obj).sort(function(a, b){
+function sortBalanceObj(obj, selectedData) {
+    Object.keys(obj).sort(function (a, b) {
         return obj[b].percentage - obj[a].percentage;
-    }).forEach(function(key) {
+    }).forEach(function (key) {
         selectedData[key] = obj[key];
     });
 }
 
 //Delete element from calendar and change all data structures
-calendarList.addEventListener('click', e =>{
+calendarList.addEventListener('click', e => {
     //check that cross icon is being pressed
-    if(e.target.classList.contains("movement-cross")){
+    if (e.target.classList.contains("movement-cross")) {
         //get timestamp from element id
         let transaction = e.target.parentNode;
         let selectedTimeStamp = parseInt(transaction.id.slice(2));
 
         //take all elements without the timestamp into a new array
         let newData = [];
-        data.forEach(obj =>{
-            if(obj.timeStamp !== selectedTimeStamp){
+        data.forEach(obj => {
+            if (obj.timeStamp !== selectedTimeStamp) {
                 newData.push(obj);
             }
         });
@@ -414,36 +422,36 @@ calendarList.addEventListener('click', e =>{
         createBalanceData(data);
         populateBalance();
 
-        if(addSection.classList.contains('income')){
+        if (addSection.classList.contains('income')) {
             balanceSection.classList.remove('expense');
             balanceSection.classList.add('income');
             deleteActive(balanceExpenseIncomeBtn);
             balanceExpenseIncomeBtn[0].classList.add('active');
             let balanceElements = document.querySelectorAll('[data-add-category]');
             hideElements(balanceElements);
-            balanceElements.forEach(el =>{
-                if(el.getAttribute('data-add-type') === 'income'){
+            balanceElements.forEach(el => {
+                if (el.getAttribute('data-add-type') === 'income') {
                     el.classList.remove('hide');
                 }
             });
-        } else if(addSection.classList.contains('expense')){
+        } else if (addSection.classList.contains('expense')) {
             balanceSection.classList.remove('income');
             balanceSection.classList.add('expense');
             deleteActive(balanceExpenseIncomeBtn);
             balanceExpenseIncomeBtn[1].classList.add('active');
             let balanceElements = document.querySelectorAll('[data-add-category]');
             hideElements(balanceElements);
-            balanceElements.forEach(el =>{
-                if(el.getAttribute('data-add-type') === 'expense'){
+            balanceElements.forEach(el => {
+                if (el.getAttribute('data-add-type') === 'expense') {
                     el.classList.remove('hide');
                 }
             });
         }
     }
 });
- 
+
 //get data from local storage and populate dom
-function getData(){
+function getData() {
     data = JSON.parse(localStorage.getItem('data')) || [];
     selectedCurrency = JSON.parse(localStorage.getItem('selectedCurrency')) || currency.value;
     markSelected("currency", selectedCurrency);
@@ -465,11 +473,11 @@ function getData(){
 }
 
 //add selected value to selected decimal/percentage
-function markSelected(id, selectedValue){
+function markSelected(id, selectedValue) {
     let select = document.getElementById(id);
     let options = select.querySelectorAll("option");
-    options.forEach(option =>{
-        if(option.value === selectedValue){
+    options.forEach(option => {
+        if (option.value === selectedValue) {
             option.setAttribute("selected", true);
         } else {
             option.removeAttribute("selected");

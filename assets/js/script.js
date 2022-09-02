@@ -17,10 +17,10 @@ const pieChartContainer = document.querySelector('.pie-chart-container');
 const balanceExpenseIncomeBtn = document.querySelectorAll('#balance .pie-chart .toggle-buttons button');
 const pieChartInfo = document.querySelector('.pie-chart-info');
 const inputs = document.querySelectorAll('#amount, #note, #date, #input-category');
-const inputAmount =  document.getElementById('amount');
-const inputNote =  document.getElementById('note');
-const inputDate =  document.getElementById('date');
-const inputCategory =  document.getElementById('input-category');
+const inputAmount = document.getElementById('amount');
+const inputNote = document.getElementById('note');
+const inputDate = document.getElementById('date');
+const inputCategory = document.getElementById('input-category');
 const submit = document.getElementById('submit');
 const addExpenseIncomeBtn = document.querySelectorAll('#add .input-container button');
 const addRadioInput = document.querySelectorAll('#add .category-container input');
@@ -55,8 +55,8 @@ const iconsObj = {
 // Navbar and section functions
 
 //Toggle between sections and change active class in navbar
-navLinks.forEach(link =>{
-    link.addEventListener('click', e =>{
+navLinks.forEach(link => {
+    link.addEventListener('click', e => {
         deleteActive(navLinks);
         hideElements(sections);
         //Add active class to target
@@ -64,7 +64,7 @@ navLinks.forEach(link =>{
         let clickedNav = e.target.textContent.toLowerCase();
         sections.forEach(section => {
             //remove hide class to target´s section
-            if(section.getAttribute('id')=== clickedNav){
+            if (section.getAttribute('id') === clickedNav) {
                 section.classList.remove('hide');
             }
         });
@@ -74,12 +74,12 @@ navLinks.forEach(link =>{
         deleteActive(balanceExpenseIncomeBtn);
         hideElements(document.querySelectorAll('[data-add-category]'));
         //check if selected element exists, if it does, delete it
-        if(document.getElementById('selected-element') !== null){
+        if (document.getElementById('selected-element') !== null) {
             document.getElementById('selected-element').remove();
         }
 
         //if page is in mobile version refresh all information from add section when toggle between sections
-        if(window.innerWidth <= 766){
+        if (window.innerWidth <= 766) {
             addSection.classList.remove('income', 'expense');
             deleteValues(inputs);
             inputCategory.classList.remove('active');
@@ -89,9 +89,9 @@ navLinks.forEach(link =>{
         }
     });
 });
- 
+
 //Select currency and populate Dom with this
-currency.addEventListener('change', e =>{
+currency.addEventListener('change', e => {
     //set value of selected currency and store it in local storage
     selectedCurrency = e.target.value;
     localStorage.setItem('selectedCurrency', JSON.stringify(selectedCurrency));
@@ -99,28 +99,28 @@ currency.addEventListener('change', e =>{
     changeCurrency(selectedCurrency);
 });
 
-function changeCurrency(selectedCurrency){
+function changeCurrency(selectedCurrency) {
     let displayedCurrency = document.querySelectorAll('[data-currency]');
-    displayedCurrency.forEach(el =>{
+    displayedCurrency.forEach(el => {
         el.textContent = selectedCurrency;
     });
 }
 
 //Select Decimal and populate Dom with this
-decimal.addEventListener('change', e =>{
+decimal.addEventListener('change', e => {
     //set value of selected decimal and store it in local storage
     selectedDecimal = e.target.value;
     localStorage.setItem('selectedDecimal', JSON.stringify(selectedDecimal));
     changeDecimal(selectedDecimal);
 });
 
-function changeDecimal(selectedDecimal){
+function changeDecimal(selectedDecimal) {
     let displayedAmounts = document.querySelectorAll('[data-amount]');
     //replace for selected decimal
-    displayedAmounts.forEach(amount =>{
-        if(selectedDecimal === ','){
+    displayedAmounts.forEach(amount => {
+        if (selectedDecimal === ',') {
             amount.innerText = amount.innerText.replaceAll('.', selectedDecimal);
-        } else if(selectedDecimal === '.'){
+        } else if (selectedDecimal === '.') {
             amount.innerText = amount.innerText.replaceAll(',', selectedDecimal);
         }
     });
@@ -131,7 +131,7 @@ function changeDecimal(selectedDecimal){
 //set body height as window innerheight
 window.addEventListener('resize', setheight);
 
-function setheight(){
+function setheight() {
     let height = this.window.innerHeight;
     document.body.style.height = `${height}px`;
 }
@@ -141,15 +141,15 @@ setheight();
 //Checks website when rezising to change sections
 window.addEventListener('resize', () => {
     //make sure function only triggers if tutorial is not running
-    if(document.querySelector('.tutorial-background') === null){
+    if (document.querySelector('.tutorial-background') === null) {
         //if website goes desktop mode when add section is on, gives balance section the active class to navbar and deletes hide class
-        if(this.window.innerWidth >= 767 && addNavLink.classList.contains('active')){
+        if (this.window.innerWidth >= 767 && addNavLink.classList.contains('active')) {
             deleteActive(navLinks);
             hideElements(sections);
             balanceNavLink.classList.add('active');
             balanceSection.classList.remove('hide');
             // If website goes mobile it deletes information on add section so if is resized to desktop the add section appears blank again, but if website goes desktop when add section in active it keeps the information visible
-        } else if (this.window.innerWidth <= 766 && !addNavLink.classList.contains('active')){
+        } else if (this.window.innerWidth <= 766 && !addNavLink.classList.contains('active')) {
             addSection.classList.remove('income', 'expense');
             deleteValues(inputs);
             inputCategory.classList.remove('active');
@@ -166,12 +166,12 @@ window.addEventListener('resize', checkLandscapeMode);
 
 
 //check window size, if phone is on landscape mode trigger alert else, delete alert if exists
-function checkLandscapeMode(){
+function checkLandscapeMode() {
     let height = this.window.innerHeight;
     let width = this.window.innerWidth;
-    if(height < width &&  height < 450 &&(width - height) >= 200){
+    if (height < width && height < 450 && (width - height) >= 200) {
         //check if alert alreade exists
-        if(!document.getElementById('pop-up-error')){
+        if (!document.getElementById('pop-up-error')) {
             let popUpError = document.createElement('div');
             popUpError.setAttribute('id', 'pop-up-error');
             let popUpContent = document.createElement('div');
@@ -197,7 +197,7 @@ function checkLandscapeMode(){
 
     } else {
         let popUpError = document.getElementById('pop-up-error');
-        if(popUpError){
+        if (popUpError) {
             popUpError.remove();
         }
     }
@@ -206,8 +206,8 @@ function checkLandscapeMode(){
 // Balance section functions
 
 //Filter pie chart + pie chart info
-balanceExpenseIncomeBtn.forEach(btn =>{
-    btn.addEventListener('click', e =>{
+balanceExpenseIncomeBtn.forEach(btn => {
+    btn.addEventListener('click', e => {
         let balanceElements = document.querySelectorAll('[data-add-category]');
         //remove income-expense class from balance section
         balanceSection.classList.remove("income", "expense");
@@ -215,9 +215,9 @@ balanceExpenseIncomeBtn.forEach(btn =>{
         hideElements(balanceElements);
         let pressedBtn = e.target.getAttribute('data-button-category');
         //if target does not have the active class it adds it and show corresponding elements
-        if(!e.target.classList.contains("active")){
+        if (!e.target.classList.contains("active")) {
             //Add income or expense class to balance section 
-            switch(pressedBtn) {
+            switch (pressedBtn) {
                 case "income":
                     balanceSection.classList.add("income");
                     break;
@@ -229,48 +229,48 @@ balanceExpenseIncomeBtn.forEach(btn =>{
             //Add active class to button
             deleteActive(balanceExpenseIncomeBtn);
             e.target.classList.add('active');
-            
+
             //filter piechart and piechart info
             balanceElements.forEach(el => {
-                if (el.getAttribute('data-add-type') === pressedBtn){
-                el.classList.remove("hide");
-            }
+                if (el.getAttribute('data-add-type') === pressedBtn) {
+                    el.classList.remove("hide");
+                }
             });
-        //if elements already has the active class deletes all styles
+            //if elements already has the active class deletes all styles
         } else {
             //delecte active from income expense btn
             deleteActive(balanceExpenseIncomeBtn);
         }
 
         //check if selected element exists, if it does, delete it
-        if(document.getElementById('selected-element') !== null){
+        if (document.getElementById('selected-element') !== null) {
             document.getElementById('selected-element').remove();
         }
 
     });
 });
- 
+
 //Highlight elements
-document.body.addEventListener('click', e =>{
-    if(e.target.classList.contains('percentage-element') || e.target.hasAttribute('stroke-width')){
-       highlightElement(e);
-    } else{
+document.body.addEventListener('click', e => {
+    if (e.target.classList.contains('percentage-element') || e.target.hasAttribute('stroke-width')) {
+        highlightElement(e);
+    } else {
         deleteHighlight();
     }
 });
 
 balanceSection.addEventListener('mouseover', e => {
-    if(e.target.classList.contains('percentage-element') || e.target.hasAttribute('stroke-width')){
+    if (e.target.classList.contains('percentage-element') || e.target.hasAttribute('stroke-width')) {
         deleteHighlight();
         highlightElement(e);
     }
 });
 
 //Highlight selected element in piechart, in piechart info and show information on top of final balance
-function highlightElement(e){
+function highlightElement(e) {
     let category;
     let targetElement;
-    if(e.target.hasAttribute('data-add-category')){
+    if (e.target.hasAttribute('data-add-category')) {
         category = e.target.getAttribute('data-add-category');
         targetElement = e.target;
     } else {
@@ -279,56 +279,56 @@ function highlightElement(e){
     }
     let svgs = document.querySelectorAll('#balance .pie-chart .pie-chart-container svg');
     let percentageElements = document.querySelectorAll('#balance .pie-chart-info div');
-    svgs.forEach(circle =>{
+    svgs.forEach(circle => {
         //adds necesry active or unactive class to svg
-        if(circle.getAttribute('data-add-category') === category){
+        if (circle.getAttribute('data-add-category') === category) {
             circle.firstElementChild.classList.remove('unactive');
             circle.firstElementChild.classList.add('active');
         } else {
             circle.firstElementChild.classList.remove('active');
             circle.firstElementChild.classList.add('unactive');
         }
-    //deletes active class to all percentage elements and gives it to the correct one
-    deleteActive(percentageElements);
-    targetElement.classList.add('active');
-    //scroll only if function triggered with svg
-    if(e.target.hasAttribute('stroke-width')){
-        let targetPosition = targetElement.offsetTop;
-        pieChartInfo.scrollTop = targetPosition - 318;
-    }
+        //deletes active class to all percentage elements and gives it to the correct one
+        deleteActive(percentageElements);
+        targetElement.classList.add('active');
+        //scroll only if function triggered with svg
+        if (e.target.hasAttribute('stroke-width')) {
+            let targetPosition = targetElement.offsetTop;
+            pieChartInfo.scrollTop = targetPosition - 318;
+        }
 
-    //check if selected elements exists, if it does deletes it and creates a new one
-    let selectedElement = document.getElementById('selected-element');
-    if(selectedElement === null){
-        createSelectedElement(e);
-    } else {
-        selectedElement.remove();
-        createSelectedElement(e);
-    }
+        //check if selected elements exists, if it does deletes it and creates a new one
+        let selectedElement = document.getElementById('selected-element');
+        if (selectedElement === null) {
+            createSelectedElement(e);
+        } else {
+            selectedElement.remove();
+            createSelectedElement(e);
+        }
     });
 }
 
-function deleteHighlight(){
+function deleteHighlight() {
     let circles = document.querySelectorAll('#balance .pie-chart .pie-chart-container svg');
-        let percentageElements = document.querySelectorAll('#balance .pie-chart-info div');
-        circles.forEach(circle =>{
-            circle.firstElementChild.classList.remove('active', 'unactive');
-        });
-        deleteActive(percentageElements);
-        if(document.getElementById('selected-element') !== null){
-            document.getElementById('selected-element').remove();
-        }
+    let percentageElements = document.querySelectorAll('#balance .pie-chart-info div');
+    circles.forEach(circle => {
+        circle.firstElementChild.classList.remove('active', 'unactive');
+    });
+    deleteActive(percentageElements);
+    if (document.getElementById('selected-element') !== null) {
+        document.getElementById('selected-element').remove();
+    }
 }
 
-function createSelectedElement(e){
+function createSelectedElement(e) {
     //gets data from the target
     let pieChartResult = document.querySelector('.pie-chart-result');
     let targetElement;
-    if(e.target.hasAttribute('data-add-category')){
+    if (e.target.hasAttribute('data-add-category')) {
         targetElement = e.target;
     } else {
-       let category = e.target.parentNode.getAttribute('data-add-category');
-       targetElement = document.querySelector(`#balance .pie-chart-info .percentage-element[data-add-category=${category}]`);
+        let category = e.target.parentNode.getAttribute('data-add-category');
+        targetElement = document.querySelector(`#balance .pie-chart-info .percentage-element[data-add-category=${category}]`);
     }
     let elCategory = targetElement.querySelector('.category').textContent;
     let elAmount = targetElement.querySelector('.amount').textContent;
@@ -337,24 +337,24 @@ function createSelectedElement(e){
 
     //adds data to variables and populates pie chart result
     let div = document.createElement('div');
-        div.setAttribute('id', 'selected-element');
-        let icon = document.createElement('i');
-        icon.setAttribute('class', iconClass);
-        let selectedCategory =  document.createElement('p');
-        selectedCategory.setAttribute('class', 'category');
-        selectedCategory.textContent = elCategory;
-        let amount =  document.createElement('p');
-        amount.setAttribute('class', 'amount');
-        amount.textContent = elAmount;
-        let percentage =  document.createElement('p');
-        percentage.setAttribute('class', 'percentage');
-        percentage.textContent = elPercentage;
-        div.appendChild(icon);
-        div.appendChild(selectedCategory);
-        div.appendChild(amount);
-        div.appendChild(percentage);
-        pieChartResult.appendChild(div);
-        div.classList.add('active');
+    div.setAttribute('id', 'selected-element');
+    let icon = document.createElement('i');
+    icon.setAttribute('class', iconClass);
+    let selectedCategory = document.createElement('p');
+    selectedCategory.setAttribute('class', 'category');
+    selectedCategory.textContent = elCategory;
+    let amount = document.createElement('p');
+    amount.setAttribute('class', 'amount');
+    amount.textContent = elAmount;
+    let percentage = document.createElement('p');
+    percentage.setAttribute('class', 'percentage');
+    percentage.textContent = elPercentage;
+    div.appendChild(icon);
+    div.appendChild(selectedCategory);
+    div.appendChild(amount);
+    div.appendChild(percentage);
+    pieChartResult.appendChild(div);
+    div.classList.add('active');
 }
 
 // Add section functions
@@ -372,10 +372,10 @@ addExpenseIncomeBtn.forEach(btn => {
         uncheckRadioInputs(addRadioInput);
         //hide radio labels
         hideElements(addRadioLabel);
-        if(!e.target.classList.contains("active")){
+        if (!e.target.classList.contains("active")) {
             let pressedBtn = e.target.getAttribute('data-button-category');
             //Add income or expense class to Add section 
-            switch(pressedBtn) {
+            switch (pressedBtn) {
                 case "income":
                     addSection.classList.add("income");
                     break;
@@ -388,7 +388,7 @@ addExpenseIncomeBtn.forEach(btn => {
             e.target.classList.add('active');
             //hide all label elements and show only selected ones
             addRadioLabel.forEach(label => {
-                if(label.getAttribute('data-radio-category') === pressedBtn){
+                if (label.getAttribute('data-radio-category') === pressedBtn) {
                     label.classList.remove('hide');
                 }
             });
@@ -408,16 +408,17 @@ addRadioInput.forEach(input => {
 });
 
 //add active class to input amount when something is written
-inputAmount.addEventListener('input', ()=>{
-    if(inputAmount.value === ""){
+inputAmount.addEventListener('input', () => {
+    if (inputAmount.value === "") {
         inputAmount.classList.remove("active");
-    } else {inputAmount.classList.add("active");
-}
+    } else {
+        inputAmount.classList.add("active");
+    }
 });
 
 //close confirmation PopUp
-document.body.addEventListener('click', (e) =>{
-    if (e.target.id === "close-pop-up"){
+document.body.addEventListener('click', (e) => {
+    if (e.target.id === "close-pop-up") {
         document.querySelector("#pop-up").remove();
     }
 });
@@ -435,8 +436,8 @@ inputDate.max = new Date().toLocaleDateString('en-ca');
 /**
  * Removes active class from all elements in an array
  */
- function deleteActive(elements){
-    elements.forEach(el =>{
+function deleteActive(elements) {
+    elements.forEach(el => {
         el.classList.remove("active");
     });
 }
@@ -444,8 +445,8 @@ inputDate.max = new Date().toLocaleDateString('en-ca');
 /**
  * Adds hide class from all elements in an array
  */
-function hideElements(elements){
-    elements.forEach(el =>{
+function hideElements(elements) {
+    elements.forEach(el => {
         el.classList.add("hide");
     });
 }
@@ -455,17 +456,17 @@ function hideElements(elements){
 /**
  * Delete values for inputs
  */
-function deleteValues(elements){
+function deleteValues(elements) {
     elements.forEach(el => {
-    el.value = '';
-  });
+        el.value = '';
+    });
 }
 
 /**
  * Uncheck radio buttons
  */
- function uncheckRadioInputs(elements){
+function uncheckRadioInputs(elements) {
     elements.forEach(el => {
-    el.checked = false ;
-  });
+        el.checked = false;
+    });
 }
