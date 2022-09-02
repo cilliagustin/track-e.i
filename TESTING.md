@@ -20,13 +20,18 @@ The site was tested to work correctly in [Google Chrome](https://www.google.com/
 ![Safari](documentation/testing/screenshot-safari.png)
 </details>
 
-
-
-
 ## Code Validation
     you must showcase proof with screenshots that you've validated any code files, such as HTML, CSS, JS, Python (where applicable)
 ## Responsiveness
-    you must showcase proof with screenshots that you've tested the finished project on different device sizes, such as mobile, tablet, desktop.
+Here are some screenshots of the website in mobile, tablet and desktop version. the website was created using the same breakpoints [Bootstrap](https://getbootstrap.com/) uses: up to 575px for mobile, from 576px to 766px for tablet and at leat 767px for desktop.
+Here you will find four images on top for the mobile version, one for the desktop on the bottom and four more for tablet in the right side.
+more screenshots in desktop version can be found on the screenshots provided for Google Chrome and Mozilla Firefox in the browser compatibility:
+<details>
+<summary>Responsiveness</summary>
+
+![Responsiveness](documentation/testing/screenshot-resposive.png)
+</details>
+
 ## Bugs
 During the coding of the page I found two major bugs I had to fix:
 * The first one was that the pie chart result div some times showed the final balance in negative altough the income was bigger than the expense. This happened because the final balance variable is created by comparing the incomeTotal and expenseTotal variables, if the income is bigger the expense is subtracted and a currency sign is added, otherwise there is a minus sign that is located before the currency sign and then the expense is subtracted from the income. The bug ocurred because during the conditional that check if the income or the expense are bigger the variables incomeTotal and expenseTotal are compared as strings insted of numbers so when the function check which variable is bigger it may throw an error. This was fixed by adding a parse float before comparing each value which changes them from a string to a number and the function to stablish correctly wich value is bigger.
