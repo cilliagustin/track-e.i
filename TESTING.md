@@ -20,6 +20,31 @@ The site was tested to work correctly in [Google Chrome](https://www.google.com/
 ![Safari](documentation/testing/screenshot-safari.png)
 </details>
 
+## User Stories
+Here it will be displayed via screenshots how the different user stories are answered:
+### New User Goals
+* As a new user, I want to be able to intuitively navegate though the website.
+    * The website is intuitive and allows the user to quickly change though the sections.
+![navbar](documentation/testing/screenshot-navbar.png)
+* As a new user, I want to have a walkthough that explains me in detail how to use the website.
+    * A button that starts the tutorial was created in order to explain correctly how the website works.
+![tutorial](documentation/testing/screenshot-tutorial.png)
+![walkthough](documentation/testing/screenshot-walkthough.png)
+* As a new User, I want the website to be correctly designed to catch my attention.
+    * The design of the website was created using a lot of colours that represent easily different functions and catches the eye of the user.
+![piechart](documentation/testing/screenshot-balance-piechart.png)
+
+### Current User Goals
+* As a current user, I want the website to store my information so I dont have to add it each time I use the website
+    * All the information provided by the user (transactions made as well as preference for decimal or currency) are stored and displayed as soon as the user opens the website.
+* As a current user, I want to be able to see the information I added organized and displayed in a clear way.
+    * All the information can be easily accesed in the calendar and balance section.
+![calendar](documentation/testing/screenshot-calendar-section.png)
+![pie chart info](documentation/testing/screenshot-pie-chart-info.png)
+* As a current user I want to be able to delete information in case I made a mistake.
+    * A delete transaction button is displayed in the calendar section.
+![delete transaction](documentation/testing/screenshot-delete-transaction.png)
+
 ## Code Validation
 ### HTML
 Result from [W3C Markup Validation Service](https://validator.w3.org/):
