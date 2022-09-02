@@ -415,4 +415,5 @@ Testing information can be found in a separate testing [file](TESTING.md "Link t
 *   [Am I Responsive?](https://ui.dev/amiresponsive)
       * Used to provide responsive screenshots used at the begining of the README file.
 ### Acknowledgements
-    list out any acknowledgements you have, if any... tutor support? fellow Slack student help? spouse, loved one, family member, etc.
+* To my wife, Milagros, that create the images that I used in the website, the pattern in the calendar section and the logo for the website.
+* To my mentor, Tim Nelson, that gave me ideas of functionalities that really changed the outcome of this project
