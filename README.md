@@ -287,7 +287,7 @@ I aplied for the website some technologies that are beyond the scope of what Cod
 ### Javascript
 This website has three Javascript files: script.js, data-control.js and tutorial.js. Here it will be explained how these files work and their functions.
 
-#### script.js
+#### [script.js](assets/js/script.js)
 This is the first file, here all the variables from the Dom are created. This files is the one where most of the DOM mnipulation happens (resize, filter information, change sections, etc)
 * Navbar Functions:
     * The first function is in charge of toggeling the sections. Since the website is a landing page is has only one HTML file when clicking a navbar link there is no loading of a new page. It simple hides all sections, shows the correct one and adds the active class to the corresponding nav link. It also makes sure to refresh the balance section (deletes income or expense class and hides the percentage elements) and does the same with the Add section unless the website is on a desktop. Since in a big device the Add section is always located on the right side, when changing between the Balance and the Calendar Section the Add Section keeps it´s information and does not refresh (It does though if is on a tablet or a phone)
@@ -316,13 +316,14 @@ This is the first file, here all the variables from the Dom are created. This fi
     * Delete Values: deletes the element values in an array of elements, this was used to delete input values when refreshing the add section.
     * uncheck radio buttons: adds a false value to checked on array of elements.
 
-#### data-control.js
+#### [data-control.js](assets/js/data-control.js)
 This is the main JavaScript file and is where all the data is created, manupulated and where the information populates the DOM. The file starts with some variables that will be changed with the following functions.
-* The first function is triggered with the submit button on the Add Section. In order to work the 4 inputs must be correctly filled:
+* The first function is triggered with the submit button on the Add Section. In order to work the 4 inputs must be correctly filled, otherwise an alerts is created using the create popUp function:
     * The function creates variables for the information the user just added: Amount, Note, Category and Date. 
     * Then some functions that manipulate the data and that will be explained later are triggered and stores the created data on the local storage. 
     * After this the balance section is refreshed to show the values just added: The add/Income class are added, the percentage elements and piechart is filtered to show the correct values. This happens so if the user is using a desktop and both the Balance and Add Sections are visible the user automatically sees the new transactions added.
-    * Then a Pop Up is created using some helper functions. This pop up confirms the transaction and is deleted automatically in 3 seconds but the user can choose to close it with the X icon.
+    * Then a Pop Up is created using the create Popup function. This pop up confirms the transaction and is deleted automatically in 3 seconds but the user can choose to close it with the X icon.
+* The createPopUp and closePopUp functions take as parameters the colour, icon and title that will be used. When triggered the create popUp it creates an element that announces if there was a mistake while adding the data or if it was succesfully created. This element will be deleted automatiocally after 4 second with the close PopUp function passed with a set timeout method. This alert has a cross is the top right corner and when clicked cancells the set timeout and deletes the element manually.
 * The create data function creates an object with the values provided in the prevoius function + a time stamp and the transaction type(this is taken from the add section class that can be either income or expense). This object is then pushed to the data object.
 * The group by and sort obj are the next 2 functions to trigger. this work together. the first one takes an array of objects and grupes it into an object with some parameter as key, in this case is the date, then the sort obj function arranges this object by date (from newest to oldest) This 2 functions return an object where each key is a date and inside there is an array for each transaction made in that day, this object is assigned to the dataByDate variable.
 * Populate calendar takes the information from the dataByDate object. If the object is empty it will add an empty clas to the Calendar Section and it will display a text that asks the user to add information in the Add Section. If the object has  content in it, the function will loop inside the object and the inner object, take the data and use this to create the nested list that is used to populate the calendar section. The timestamp is used in the transaction div to give each transaction an unique id in order to easily target the element and delete it, this will be explained later on.
@@ -331,7 +332,7 @@ This is the main JavaScript file and is where all the data is created, manupulat
 * There is a function that can be trigered by pressing the X icon on a date elements in the Calendar Section. When this happens the timestamp is taken from the ID of the date element. Then the data array is looped to look for a transaction with that specific timestamp and this is deleted and the new array is stored in local storage. After that the prevous functions are re-triggered: group by and sort obj, populate calendar, create balance data and populate calendar.
 * Finally the function get data is triggered whenever the page is loaded. This takes the data array from the local storage and re-triggers the functions to populate the DOM. It also takes the selected decimal and selected currency from the local storage and applies them.
 
-#### tutorial.js
+#### [tutorial.js](assets/js/tutorial.js)
 The following script file is the last one, this is heavily inspired on how Intro.js. The functions here do not only highlight a selected element, but also populate the DOM with some example transactions and trigger certain functions to show the user all the features of the site.
 The script beggins declaring some variables like all the text that will be introduced in the modal, variables like tutorialIndex which will be defined later and some dummy data that will populate the DOM during the walkthrough.
 * The first function to work is start tutorial. this is triggered with the question icon in the footer and has certain functions:
