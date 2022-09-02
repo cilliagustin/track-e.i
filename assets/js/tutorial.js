@@ -238,7 +238,6 @@ function changeTutorialStep(e) {
         let modalText = document.querySelector('.modal .modal-head p');
         modalText.innerHTML = tutorialContent[tutorialIndex][0];
 
-        console.log(tutorialIndex);
 
         //toggles necessary functions to show the website
         switch (tutorialIndex) {
