@@ -1,5 +1,5 @@
 # Second Project Portfolio
-    *amiresponisive image*
+![Neutral palette](documentation/testing/screenshot-trackei.png)
 
 [View the live project here](https://cilliagustin.github.io/trackei/)
 
