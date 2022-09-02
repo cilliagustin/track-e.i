@@ -267,6 +267,8 @@ This Pup Pp appears when the user has entered into landscape mode with a small p
     * This would allow the user to have a better control of their finances and compare their expenses with previous months.
 * Add a button to edit a specific transaction.
     * This would allow the to change a transaction if they made an error insted of deleteing and createing the transaction again.
+* Add a functionality to change the size of the font:
+    * This would allow that when a very big number is added it would addapt the font size to fit more correctly into the container.
 
 
 ## Technologies Used
