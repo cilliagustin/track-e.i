@@ -17,9 +17,20 @@ submit.addEventListener('click', (e) => {
     let d = inputCategory.value;
     //Check that all inputs are correctly filled
     if (a < 0.01) {
-        alert("Amount must be at least 1 cent");
+        //create Popup confirming new transaction
+        if (!document.querySelector("#pop-up")) {
+            createPopUp('orange', 'fa-circle-exclamation', 'Amount must be</br>at least 1 cent');
+        } else {
+            closePopUp();
+            createPopUp('orange', 'fa-circle-exclamation', 'Amount must be</br>at least 1 cent');
+        }
     } else if (a == null || a == "" || isNaN(a) === true || b == null || b == "" || c == null || c == "" || d == null || d == "") {
-        alert("Please complete all the fields");
+        if (!document.querySelector("#pop-up")) {
+            createPopUp('orange', 'fa-circle-exclamation', 'Please complete</br>all the fields');
+        } else {
+            closePopUp();
+            createPopUp('orange', 'fa-circle-exclamation', 'Please complete</br>all the fields');
+        }
     } else {
         //Create data with all transaction information and add to local storage
         createData(a, b, c, d);
@@ -61,30 +72,31 @@ submit.addEventListener('click', (e) => {
 
         //create Popup confirming new transaction
         if (!document.querySelector("#pop-up")) {
-            createPopUp();
+            createPopUp('blue', 'fa-circle-check', 'Transaction succesfully added!');
         } else {
             closePopUp();
-            createPopUp();
+            createPopUp('blue', 'fa-circle-check', 'Transaction succesfully added!');
         }
 
     }
 });
 
-function createPopUp() {
+function createPopUp(colour, icon, title) {
     let popUp = document.createElement('div');
     popUp.setAttribute('id', 'pop-up');
+    popUp.classList.add(colour);
     let popUpHead = document.createElement('div');
     popUpHead.classList.add('pop-up-head');
     let checked = document.createElement('i');
-    checked.classList.add('fa-solid', 'fa-circle-check');
+    checked.classList.add('fa-solid', icon);
     popUpHead.appendChild(checked);
     popUp.appendChild(popUpHead);
     let popUpBody = document.createElement('div');
     popUpBody.classList.add('pop-up-body');
     let h2 = document.createElement('h2');
-    h2.textContent = 'Transaction succesfully added!';
+    h2.innerHTML = title;
     let h3 = document.createElement('h3');
-    h3.textContent = 'This pop up will close in 3 seconds';
+    h3.textContent = 'This pop up will close in 4 seconds';
     let cross = document.createElement('i');
     cross.setAttribute('id', 'close-pop-up');
     cross.classList.add('fa-solid', 'fa-xmark');
@@ -97,15 +109,20 @@ function createPopUp() {
     popUp.appendChild(popUpBody);
     document.body.insertBefore(popUp, balanceSection);
 
-    setTimeout(closePopUp, 3000);
+    timeoutToClose = setTimeout(closePopUp, 4000);
 }
 
+let timeoutToClose;
+
 function closePopUp() {
+    clearTimeout(timeoutToClose);
     let popUp = document.querySelector("#pop-up");
     if (popUp) {
         popUp.remove();
     }
 }
+
+
 
 //Creates the data with all transactions
 function createData(a, b, c, d) {
