@@ -359,6 +359,7 @@ section {
 #balance .pie-chart .pie-chart-container .pie-chart-result #selected-element p {
     color: white;
     font-size: 15px;
+    text-align: center;
 }
 
 #balance .pie-chart .pie-chart-container svg {
