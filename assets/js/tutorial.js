@@ -34,12 +34,12 @@ highlighted for a better reference.`, "balance"],
     [`The donut chart will also be highlighted, showing the selected element and displaying 
 the rest in a darker tone.</br>the information (category, amount and percentage) will 
 be displayed instead of the balance.`, "balance"],
-    [`In thie calendar section, every transaction will be displayed ordered by date (from most recent to oldest)`, "calendar"],
+    [`In the calendar section, every transaction will be displayed ordered by date (from most recent to oldest)`, "calendar"],
     [`Each day will have its own balance with every transaction displayed on that specific day grouped.`, "calendar"],
     [`In every transaction you will find at the end an X button which when pressed deletes 
 the transaction for the database.`, "calendar"],
     [`In the footer there are links to the creator of this website's GitHub page as well a link to send him an email.></br>
-At the end you will see the button thats starts the walkthourgh for the page.`, "calendar"],
+At the end you will see the button thats starts the walkthrough for the page.`, "calendar"],
     [`This is all, thanks for going through this tutorial and enjoy the site.</br>Remember that for an optimal 
 experience, if you are using this website with a phone to avoid using the landscape mode.`, "calendar"]
 ];
